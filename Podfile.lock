@@ -1,0 +1,28 @@
+PODS:
+  - SendBirdSDK (3.0.175)
+  - SendBirdUIKit (0.9.12):
+    - SendBirdSDK (~> 3.0.174)
+
+DEPENDENCIES:
+  - SendBirdUIKit (from `https://github.com/tezpark/SendBird-UIKit-iOS-local-pod.git`)
+
+SPEC REPOS:
+  trunk:
+    - SendBirdSDK
+
+EXTERNAL SOURCES:
+  SendBirdUIKit:
+    :git: https://github.com/tezpark/SendBird-UIKit-iOS-local-pod.git
+
+CHECKOUT OPTIONS:
+  SendBirdUIKit:
+    :commit: 9c5d89e7c637681146bb4e68075c3505c9aa106f
+    :git: https://github.com/tezpark/SendBird-UIKit-iOS-local-pod.git
+
+SPEC CHECKSUMS:
+  SendBirdSDK: aa120a61c32fa6fa901318e51819c16189390a40
+  SendBirdUIKit: efb6101f1ce89e9580a2fb6e9f49a647a71ab446
+
+PODFILE CHECKSUM: 62abfb71b5e970fb1bad39b3822305bbd6348fe3
+
+COCOAPODS: 1.8.4
