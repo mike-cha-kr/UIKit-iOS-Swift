@@ -1,1 +1,1 @@
-# SendBird-UIKit-Sample-iOS
+# SendBird-UIKit-iOS-Swift-Sample
