@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2320D23676A0051B0E2E8B8C /* libPods-SendBirdUIKit-Sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 707286E9F4FB5E6C041CB07D /* libPods-SendBirdUIKit-Sample.a */; };
-		9C4C7A58241F498C00732BAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C4C7A57241F498C00732BAA /* GoogleService-Info.plist */; };
 		9C5DCD49242AFA7C00C41106 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5DCD48242AFA7C00C41106 /* UserNotifications.framework */; };
 		9C777D5B241B9022006FFE25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C777D5A241B9022006FFE25 /* AppDelegate.swift */; };
 		9C777D5F241B9022006FFE25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C777D5E241B9022006FFE25 /* ViewController.swift */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		707286E9F4FB5E6C041CB07D /* libPods-SendBirdUIKit-Sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SendBirdUIKit-Sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7421701286ECCC463A517183 /* Pods-SendBirdUIKit-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBirdUIKit-Sample.debug.xcconfig"; path = "Target Support Files/Pods-SendBirdUIKit-Sample/Pods-SendBirdUIKit-Sample.debug.xcconfig"; sourceTree = "<group>"; };
-		9C4C7A57241F498C00732BAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9C5DCD47242AF8FC00C41106 /* SendBirdUIKit-Sample copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SendBirdUIKit-Sample copy-Info.plist"; path = "/Users/tez.park/Documents/2_Dev/2_Sample/UIKit-iOS-Sample/SendBirdUIKit-Sample copy-Info.plist"; sourceTree = "<absolute>"; };
 		9C5DCD48242AFA7C00C41106 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		9C5DCD4D242B0C7E00C41106 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
@@ -86,7 +84,6 @@
 				9C777D63241B9024006FFE25 /* Assets.xcassets */,
 				9C777D65241B9024006FFE25 /* LaunchScreen.storyboard */,
 				9C777D68241B9024006FFE25 /* Info.plist */,
-				9C4C7A57241F498C00732BAA /* GoogleService-Info.plist */,
 			);
 			path = "SendBirdUIKit-Sample";
 			sourceTree = "<group>";
@@ -163,7 +160,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C777D67241B9024006FFE25 /* LaunchScreen.storyboard in Resources */,
-				9C4C7A58241F498C00732BAA /* GoogleService-Info.plist in Resources */,
 				9C777D64241B9024006FFE25 /* Assets.xcassets in Resources */,
 				9C777D62241B9022006FFE25 /* Main.storyboard in Resources */,
 			);
