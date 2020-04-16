@@ -33,9 +33,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
      
     @IBOutlet weak var versionLabel: UILabel!
-    
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
+
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView! {
+        didSet {
+            loadingIndicator.stopAnimating()
+        }
+    }
+
     let duration: TimeInterval = 0.4
     var isSignedIn = false {
         didSet {
@@ -125,7 +129,7 @@ class ViewController: UIViewController {
         if #available(iOS 13.0, *) {
             return isLightTheme ? .darkContent : .lightContent
         } else {
-            return .default
+            return isLightTheme ? .default : .lightContent
         }
     }
     
