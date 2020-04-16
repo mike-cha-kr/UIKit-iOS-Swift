@@ -129,7 +129,7 @@ class ViewController: UIViewController {
         if #available(iOS 13.0, *) {
             return isLightTheme ? .darkContent : .lightContent
         } else {
-            return .default
+            return isLightTheme ? .default : .lightContent
         }
     }
     
