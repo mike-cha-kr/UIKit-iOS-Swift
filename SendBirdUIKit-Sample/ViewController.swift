@@ -33,9 +33,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
      
     @IBOutlet weak var versionLabel: UILabel!
-    
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
+
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView! {
+        didSet {
+            loadingIndicator.stopAnimating()
+        }
+    }
+
     let duration: TimeInterval = 0.4
     var isSignedIn = false {
         didSet {
