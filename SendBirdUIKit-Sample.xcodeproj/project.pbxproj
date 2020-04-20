@@ -129,7 +129,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "Tez Park";
+				ORGANIZATIONNAME = "SendBird, Inc";
 				TargetAttributes = {
 					9C777D56241B9022006FFE25 = {
 						CreatedOnToolsVersion = 11.3.1;
