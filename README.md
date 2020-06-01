@@ -2,13 +2,13 @@
 
 #### CocoaPods
 
-2. Install the `SendBirdUIKit` framework through `CocoaPods`.
+1. Install the `SendBirdUIKit` framework through `CocoaPods`.
 
 ```bash
 $ pod install
 ```
 
-3. Update the `SendBirdUIKit` framework through `CocoaPods`.
+2. Update the `SendBirdUIKit` framework through `CocoaPods`.
 
 ```bash
 $ pod update 
