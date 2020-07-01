@@ -13,10 +13,11 @@ enum ButtonType: Int {
     case signIn
     case startChat
     case signOut
+    case customSamples
 }
 
 class ViewController: UIViewController {
-
+    // MARK: - Properties
     @IBOutlet weak var logoStackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var darkThemeLabel: UILabel!
     @IBOutlet weak var startChatButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
-     
+    @IBOutlet weak var customSamplesButton: UIButton!
+    
     @IBOutlet weak var versionLabel: UILabel!
 
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView! {
@@ -76,10 +78,14 @@ class ViewController: UIViewController {
                 self.signInButton.setTitleColor(color, for: .normal)
                 self.startChatButton.setTitleColor(color, for: .normal)
             })
-            
+            UIView.transition(with: customSamplesButton, duration: duration, options: .transitionCrossDissolve, animations: {
+                self.customSamplesButton.setTitleColor(color, for: .normal)
+            })
         }
     }
     
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,8 +96,9 @@ class ViewController: UIViewController {
         signInButton.tag    = ButtonType.signIn.rawValue
         startChatButton.tag = ButtonType.startChat.rawValue
         signOutButton.tag   = ButtonType.signOut.rawValue
+        customSamplesButton.tag = ButtonType.customSamples.rawValue
         
-        [signInButton, startChatButton, signOutButton].forEach {
+        [signInButton, startChatButton, signOutButton, customSamplesButton].forEach {
             $0?.layer.cornerRadius = 4
             $0?.layer.borderColor = #colorLiteral(red: 0.4823529412, green: 0.3254901961, blue: 0.937254902, alpha: 1)
             $0?.layer.borderWidth = 1
@@ -114,7 +121,9 @@ class ViewController: UIViewController {
         themeSwitch.layer.cornerRadius = themeSwitch.frame.height / 2
         themeSwitch.backgroundColor = themeSwitch.onTintColor
         
-        versionLabel.text = "UI Kit v\(SBUMain.getUIKitVersion())     SDK \(SBDMain.getSDKVersion())"
+        let coreVersion: String = SBDMain.getSDKVersion()
+        let uikitVersion: String = SBUMain.shortVersionString() ?? "?"
+        versionLabel.text = "UIKit v\(uikitVersion)\t|\tSDK v\(coreVersion)"
          
         userIdTextField.text = UserDefaults.standard.string(forKey: "user_id")
         nicknameTextField.text = UserDefaults.standard.string(forKey: "nickname")
@@ -141,75 +150,8 @@ class ViewController: UIViewController {
         }
     }
     
-    // Action
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
-  
-    @IBAction func onTapButton(_ sender: UIButton) {
-        let type = ButtonType(rawValue: sender.tag)
-        switch type {
-            
-        case .signIn:
-            
-            loadingIndicator.startAnimating()
-            view.isUserInteractionEnabled = false
-            
-            let userID = userIdTextField.text ?? ""
-            let nickname = nicknameTextField.text ?? ""
-            
-            guard !userID.isEmpty else {
-                userIdTextField.shake()
-                userIdTextField.becomeFirstResponder()
-                loadingIndicator.stopAnimating()
-                view.isUserInteractionEnabled = true
-                return
-            }
-            guard !nickname.isEmpty else {
-                nicknameTextField.shake()
-                nicknameTextField.becomeFirstResponder()
-                loadingIndicator.stopAnimating()
-                view.isUserInteractionEnabled = true
-                return
-            }
-            
-            SBUGlobals.CurrentUser = SBUUser(userId: userID, nickname: nickname)
-            SBUMain.connect { user, error in
-                self.loadingIndicator.stopAnimating()
-                self.view.isUserInteractionEnabled = true
- 
-                if let user = user {
-                    UserDefaults.standard.set(userID, forKey: "user_id")
-                    UserDefaults.standard.set(nickname, forKey: "nickname")
-                    
-                    print("SBUMain.connect: \(user)")
-                    self.isSignedIn = true
-                    self.themeSwitch.isOn = !self.isLightTheme
-                }
-            }
-            
-        case .startChat:
-            SBUTheme.set(theme: themeSwitch.isOn ? .dark : .light)
-            let channelListVC = SBUChannelListViewController()
-            let naviVC = UINavigationController(rootViewController: channelListVC)
-            naviVC.modalPresentationStyle = .fullScreen
-            present(naviVC, animated: true)
-            
-        case .signOut:
-            SBUMain.unregisterPushToken { success in
-                SBUMain.disconnect {
-                    print("SBUMain.disconnect")
-                    self.isSignedIn = false
-                }
-            }
-        default:
-            break
-            
-        }
-        view.layoutIfNeeded()
-        
-    }
+    
+    // MARK: - Actions
     @IBAction func onEditingChangeTextField(_ sender: UITextField) {
         let color = sender.text?.isEmpty ?? true ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0.4823529412, green: 0.3254901961, blue: 0.937254902, alpha: 1)
         sender.animateBorderColor(toColor: color, duration: 0.1)
@@ -219,31 +161,90 @@ class ViewController: UIViewController {
         isLightTheme = !self.themeSwitch.isOn
  
     }
-}
 
-extension UILabel {
-    func changeColor(_ color: UIColor, duration: TimeInterval) {
-        UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve, animations: {
-            self.textColor = color
-        }, completion: nil)
+    @IBAction func onTapButton(_ sender: UIButton) {
+        let type = ButtonType(rawValue: sender.tag)
+        switch type {
+            
+        case .signIn:
+            self.signinAction()
+            
+        case .startChat:
+            self.startChatAction()
+            
+        case .signOut:
+            self.signoutAction()
+            
+        case .customSamples:
+            self.moveToCustomSamples()
+            
+        default:
+            break
+        }
     }
-}
 
-extension UIView {
-    func animateBorderColor(toColor: UIColor, duration: Double) {
-        let animation:CABasicAnimation = CABasicAnimation(keyPath: "borderColor")
-        animation.fromValue = layer.borderColor
-        animation.toValue = toColor.cgColor
-        animation.duration = duration
-        layer.add(animation, forKey: "borderColor")
-        layer.borderColor = toColor.cgColor
+    func signinAction() {
+        loadingIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+        
+        let userID = userIdTextField.text ?? ""
+        let nickname = nicknameTextField.text ?? ""
+        
+        guard !userID.isEmpty else {
+            userIdTextField.shake()
+            userIdTextField.becomeFirstResponder()
+            loadingIndicator.stopAnimating()
+            view.isUserInteractionEnabled = true
+            return
+        }
+        guard !nickname.isEmpty else {
+            nicknameTextField.shake()
+            nicknameTextField.becomeFirstResponder()
+            loadingIndicator.stopAnimating()
+            view.isUserInteractionEnabled = true
+            return
+        }
+        
+        SBUGlobals.CurrentUser = SBUUser(userId: userID, nickname: nickname)
+        SBUMain.connect { [weak self] user, error in
+            self?.loadingIndicator.stopAnimating()
+            self?.view.isUserInteractionEnabled = true
+            
+            if let user = user {
+                UserDefaults.standard.set(userID, forKey: "user_id")
+                UserDefaults.standard.set(nickname, forKey: "nickname")
+                
+                print("SBUMain.connect: \(user)")
+                self?.isSignedIn = true
+                self?.themeSwitch.isOn = !(self?.isLightTheme ?? true)
+            }
+        }
     }
     
-    func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animation.duration = 0.3
-        animation.values = [-10.0, 10.0, -5.0, 5.0, -2.5, 2.5, 0.0 ].map { $0 * 0.7 }
-        layer.add(animation, forKey: "shake")
+    func signoutAction() {
+        SBUMain.unregisterPushToken { success in
+            SBUMain.disconnect { [weak self] in
+                print("SBUMain.disconnect")
+                self?.isSignedIn = false
+            }
+        }
     }
+    
+    func startChatAction() {
+        SBUTheme.set(theme: themeSwitch.isOn ? .dark : .light)
+        let mainVC = SBUChannelListViewController()
+        let naviVC = UINavigationController(rootViewController: mainVC)
+        naviVC.modalPresentationStyle = .fullScreen
+        present(naviVC, animated: true)
+    }
+    
+    func moveToCustomSamples() {
+        SBUTheme.set(theme: themeSwitch.isOn ? .dark : .light)
+        let mainVC = CustomListTableViewController(style: .grouped)
+        let naviVC = UINavigationController(rootViewController: mainVC)
+        naviVC.modalPresentationStyle = .fullScreen
+        present(naviVC, animated: true)
+    }
+    
+    
 }

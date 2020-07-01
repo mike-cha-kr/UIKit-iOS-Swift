@@ -14,6 +14,12 @@
 		9C777D62241B9022006FFE25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D60241B9022006FFE25 /* Main.storyboard */; };
 		9C777D64241B9024006FFE25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D63241B9024006FFE25 /* Assets.xcassets */; };
 		9C777D67241B9024006FFE25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D65241B9024006FFE25 /* LaunchScreen.storyboard */; };
+		9CED4CE924AC6D3D00D81B10 /* CustomChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CE824AC6D3D00D81B10 /* CustomChannelListViewController.swift */; };
+		9CED4CEC24AC72DD00D81B10 /* CustomColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEB24AC72DD00D81B10 /* CustomColorSet.swift */; };
+		9CED4CEE24AC7B3200D81B10 /* CustomFontSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CED24AC7B3200D81B10 /* CustomFontSet.swift */; };
+		9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */; };
+		9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */; };
+		9CED4CF424AC86BB00D81B10 /* CustomListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF324AC86BB00D81B10 /* CustomListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		9C777D66241B9024006FFE25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C777D68241B9024006FFE25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SendBirdUIKit-Sample.entitlements"; sourceTree = "<group>"; };
+		9CED4CE824AC6D3D00D81B10 /* CustomChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChannelListViewController.swift; sourceTree = "<group>"; };
+		9CED4CEB24AC72DD00D81B10 /* CustomColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorSet.swift; sourceTree = "<group>"; };
+		9CED4CED24AC7B3200D81B10 /* CustomFontSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontSet.swift; sourceTree = "<group>"; };
+		9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		9CED4CF324AC86BB00D81B10 /* CustomListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewController.swift; sourceTree = "<group>"; };
 		D9AA853E66DC6613E1CCFB10 /* Pods-SendBirdUIKit-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBirdUIKit-Sample.release.xcconfig"; path = "Target Support Files/Pods-SendBirdUIKit-Sample/Pods-SendBirdUIKit-Sample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +67,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9C3FBB4D24AC5AE4006D3C36 /* Customize */ = {
+			isa = PBXGroup;
+			children = (
+				9CED4CEA24AC72B200D81B10 /* Theme */,
+				9CED4CE724AC6D1400D81B10 /* Channel */,
+				9CED4CE624AC6D0E00D81B10 /* ChannelList */,
+				9CED4CF324AC86BB00D81B10 /* CustomListTableViewController.swift */,
+			);
+			path = Customize;
+			sourceTree = "<group>";
+		};
+		9C3FBB4E24AC5B45006D3C36 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */,
+				9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		9C777D4E241B9022006FFE25 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +109,8 @@
 		9C777D59241B9022006FFE25 /* SendBirdUIKit-Sample */ = {
 			isa = PBXGroup;
 			children = (
+				9C3FBB4E24AC5B45006D3C36 /* Extension */,
+				9C3FBB4D24AC5AE4006D3C36 /* Customize */,
 				9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */,
 				9C777D5A241B9022006FFE25 /* AppDelegate.swift */,
 				9C777D5E241B9022006FFE25 /* ViewController.swift */,
@@ -86,6 +120,30 @@
 				9C777D68241B9024006FFE25 /* Info.plist */,
 			);
 			path = "SendBirdUIKit-Sample";
+			sourceTree = "<group>";
+		};
+		9CED4CE624AC6D0E00D81B10 /* ChannelList */ = {
+			isa = PBXGroup;
+			children = (
+				9CED4CE824AC6D3D00D81B10 /* CustomChannelListViewController.swift */,
+			);
+			path = ChannelList;
+			sourceTree = "<group>";
+		};
+		9CED4CE724AC6D1400D81B10 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		9CED4CEA24AC72B200D81B10 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				9CED4CEB24AC72DD00D81B10 /* CustomColorSet.swift */,
+				9CED4CED24AC7B3200D81B10 /* CustomFontSet.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		A3BC29C7BEE55436EBCAD26A /* Frameworks */ = {
@@ -233,6 +291,12 @@
 			files = (
 				9C777D5F241B9022006FFE25 /* ViewController.swift in Sources */,
 				9C777D5B241B9022006FFE25 /* AppDelegate.swift in Sources */,
+				9CED4CEC24AC72DD00D81B10 /* CustomColorSet.swift in Sources */,
+				9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */,
+				9CED4CEE24AC7B3200D81B10 /* CustomFontSet.swift in Sources */,
+				9CED4CF424AC86BB00D81B10 /* CustomListTableViewController.swift in Sources */,
+				9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */,
+				9CED4CE924AC6D3D00D81B10 /* CustomChannelListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
