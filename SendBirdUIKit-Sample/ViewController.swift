@@ -125,8 +125,8 @@ class ViewController: UIViewController {
         let uikitVersion: String = SBUMain.shortVersionString() ?? "?"
         versionLabel.text = "UIKit v\(uikitVersion)\t|\tSDK v\(coreVersion)"
          
-        userIdTextField.text = UserDefaults.standard.string(forKey: "user_id")
-        nicknameTextField.text = UserDefaults.standard.string(forKey: "nickname")
+        userIdTextField.text = UserDefaults.loadUserID()
+        nicknameTextField.text = UserDefaults.loadNickname()
     }
     
     override func viewWillLayoutSubviews() {
@@ -159,7 +159,8 @@ class ViewController: UIViewController {
   
     @IBAction func onChangeSwitch(_ sender: Any) {
         isLightTheme = !self.themeSwitch.isOn
- 
+        
+        UserDefaults.saveIsLightTheme(isLightTheme)
     }
 
     @IBAction func onTapButton(_ sender: UIButton) {
@@ -211,8 +212,8 @@ class ViewController: UIViewController {
             self?.view.isUserInteractionEnabled = true
             
             if let user = user {
-                UserDefaults.standard.set(userID, forKey: "user_id")
-                UserDefaults.standard.set(nickname, forKey: "nickname")
+                UserDefaults.saveUserID(userID)
+                UserDefaults.saveNickname(nickname)
                 
                 print("SBUMain.connect: \(user)")
                 self?.isSignedIn = true

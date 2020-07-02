@@ -10,7 +10,8 @@ import UIKit
 import SendBirdUIKit
 
 enum CustomSection: Int, CaseIterable {
-    case Global = 0
+    case Default = 0
+    case Global
     case ChannelList
     case Channel
     case ChannelSettings
@@ -23,8 +24,10 @@ enum CustomSection: Int, CaseIterable {
     static func customItems(section: Int) -> [String] {
         let sectionIdx = CustomSection(rawValue: section)
         switch sectionIdx {
+        case .Default:
+            return ["Default"]
         case .Global:
-            return ["Color set", "Image set", "String set", "Theme"]
+            return ["Color set", "Font set", "Icon set", "String set", "Theme"]
         case .ChannelList:
             return ["Channel list UI", "Channel query"]
         case .Channel:
@@ -71,6 +74,39 @@ class CustomListTableViewController: UITableViewController {
         cell.textLabel?.text = title
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let navigationController = self.navigationController else { return }
+        let section = CustomSection(rawValue: indexPath.section)
+        let row = indexPath.row
+        
+        switch section {
+        case .Default:
+            startDefault()
+        case .Global:
+            GlobalSetCustomManager.startSample(naviVC: navigationController, type: GlobalCustomType(rawValue: row))
+//        case .ChannelList:
+//
+//        case .Channel:
+//
+//        case .ChannelSettings:
+//
+//        case .CreateChannel:
+//
+//        case .InviteUser:
+//
+//        case .MemberList:
+        default:
+            break
+            
+        }
+    }
+    
+    func startDefault() {
+        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .dark : .light)
+        let channelListVC = SBUChannelListViewController()
+        self.navigationController?.pushViewController(channelListVC, animated: true)
     }
 }
 

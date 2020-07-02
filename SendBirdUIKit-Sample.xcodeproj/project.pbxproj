@@ -15,11 +15,11 @@
 		9C777D64241B9024006FFE25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D63241B9024006FFE25 /* Assets.xcassets */; };
 		9C777D67241B9024006FFE25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D65241B9024006FFE25 /* LaunchScreen.storyboard */; };
 		9CED4CE924AC6D3D00D81B10 /* CustomChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CE824AC6D3D00D81B10 /* CustomChannelListViewController.swift */; };
-		9CED4CEC24AC72DD00D81B10 /* CustomColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEB24AC72DD00D81B10 /* CustomColorSet.swift */; };
-		9CED4CEE24AC7B3200D81B10 /* CustomFontSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CED24AC7B3200D81B10 /* CustomFontSet.swift */; };
 		9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */; };
 		9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */; };
 		9CED4CF424AC86BB00D81B10 /* CustomListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF324AC86BB00D81B10 /* CustomListTableViewController.swift */; };
+		9CED4D0524ADA20B00D81B10 /* GlobalSetCustomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4D0424ADA20B00D81B10 /* GlobalSetCustomManager.swift */; };
+		9CED4D0724ADA66200D81B10 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4D0624ADA66200D81B10 /* UserDefaults+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		9C777D68241B9024006FFE25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SendBirdUIKit-Sample.entitlements"; sourceTree = "<group>"; };
 		9CED4CE824AC6D3D00D81B10 /* CustomChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChannelListViewController.swift; sourceTree = "<group>"; };
-		9CED4CEB24AC72DD00D81B10 /* CustomColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorSet.swift; sourceTree = "<group>"; };
-		9CED4CED24AC7B3200D81B10 /* CustomFontSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontSet.swift; sourceTree = "<group>"; };
 		9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF324AC86BB00D81B10 /* CustomListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListTableViewController.swift; sourceTree = "<group>"; };
+		9CED4D0424ADA20B00D81B10 /* GlobalSetCustomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSetCustomManager.swift; sourceTree = "<group>"; };
+		9CED4D0624ADA66200D81B10 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		D9AA853E66DC6613E1CCFB10 /* Pods-SendBirdUIKit-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBirdUIKit-Sample.release.xcconfig"; path = "Target Support Files/Pods-SendBirdUIKit-Sample/Pods-SendBirdUIKit-Sample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,10 +70,14 @@
 		9C3FBB4D24AC5AE4006D3C36 /* Customize */ = {
 			isa = PBXGroup;
 			children = (
-				9CED4CEA24AC72B200D81B10 /* Theme */,
-				9CED4CE724AC6D1400D81B10 /* Channel */,
-				9CED4CE624AC6D0E00D81B10 /* ChannelList */,
 				9CED4CF324AC86BB00D81B10 /* CustomListTableViewController.swift */,
+				9CED4CF524ACD73900D81B10 /* Global */,
+				9CED4CE624AC6D0E00D81B10 /* ChannelList */,
+				9CED4CE724AC6D1400D81B10 /* Channel */,
+				9CED4CF924ACD75F00D81B10 /* ChannelSettings */,
+				9CED4CF624ACD74000D81B10 /* CreateChannel */,
+				9CED4CF724ACD74600D81B10 /* InviteUser */,
+				9CED4CF824ACD74B00D81B10 /* MemberList */,
 			);
 			path = Customize;
 			sourceTree = "<group>";
@@ -83,6 +87,7 @@
 			children = (
 				9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */,
 				9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */,
+				9CED4D0624ADA66200D81B10 /* UserDefaults+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -109,11 +114,11 @@
 		9C777D59241B9022006FFE25 /* SendBirdUIKit-Sample */ = {
 			isa = PBXGroup;
 			children = (
-				9C3FBB4E24AC5B45006D3C36 /* Extension */,
-				9C3FBB4D24AC5AE4006D3C36 /* Customize */,
 				9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */,
 				9C777D5A241B9022006FFE25 /* AppDelegate.swift */,
 				9C777D5E241B9022006FFE25 /* ViewController.swift */,
+				9C3FBB4D24AC5AE4006D3C36 /* Customize */,
+				9C3FBB4E24AC5B45006D3C36 /* Extension */,
 				9C777D60241B9022006FFE25 /* Main.storyboard */,
 				9C777D63241B9024006FFE25 /* Assets.xcassets */,
 				9C777D65241B9024006FFE25 /* LaunchScreen.storyboard */,
@@ -137,13 +142,40 @@
 			path = Channel;
 			sourceTree = "<group>";
 		};
-		9CED4CEA24AC72B200D81B10 /* Theme */ = {
+		9CED4CF524ACD73900D81B10 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				9CED4CEB24AC72DD00D81B10 /* CustomColorSet.swift */,
-				9CED4CED24AC7B3200D81B10 /* CustomFontSet.swift */,
+				9CED4D0424ADA20B00D81B10 /* GlobalSetCustomManager.swift */,
 			);
-			path = Theme;
+			path = Global;
+			sourceTree = "<group>";
+		};
+		9CED4CF624ACD74000D81B10 /* CreateChannel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateChannel;
+			sourceTree = "<group>";
+		};
+		9CED4CF724ACD74600D81B10 /* InviteUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InviteUser;
+			sourceTree = "<group>";
+		};
+		9CED4CF824ACD74B00D81B10 /* MemberList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MemberList;
+			sourceTree = "<group>";
+		};
+		9CED4CF924ACD75F00D81B10 /* ChannelSettings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChannelSettings;
 			sourceTree = "<group>";
 		};
 		A3BC29C7BEE55436EBCAD26A /* Frameworks */ = {
@@ -290,10 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C777D5F241B9022006FFE25 /* ViewController.swift in Sources */,
+				9CED4D0524ADA20B00D81B10 /* GlobalSetCustomManager.swift in Sources */,
 				9C777D5B241B9022006FFE25 /* AppDelegate.swift in Sources */,
-				9CED4CEC24AC72DD00D81B10 /* CustomColorSet.swift in Sources */,
+				9CED4D0724ADA66200D81B10 /* UserDefaults+Ext.swift in Sources */,
 				9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */,
-				9CED4CEE24AC7B3200D81B10 /* CustomFontSet.swift in Sources */,
 				9CED4CF424AC86BB00D81B10 /* CustomListTableViewController.swift in Sources */,
 				9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */,
 				9CED4CE924AC6D3D00D81B10 /* CustomChannelListViewController.swift in Sources */,
