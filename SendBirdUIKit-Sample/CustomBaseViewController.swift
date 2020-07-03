@@ -1,5 +1,5 @@
 //
-//  CustomListTableViewController.swift
+//  CustomBaseViewController.swift
 //  SendBirdUIKit-Sample
 //
 //  Created by Tez Park on 2020/07/01.
@@ -9,44 +9,7 @@
 import UIKit
 import SendBirdUIKit
 
-enum CustomSection: Int, CaseIterable {
-    case Default = 0
-    case Global
-    case ChannelList
-    case Channel
-    case ChannelSettings
-    case CreateChannel
-    case InviteUser
-    case MemberList
-    
-    var title: String { return String(describing: self) }
-    var index: Int { return self.rawValue }
-    static func customItems(section: Int) -> [String] {
-        let sectionIdx = CustomSection(rawValue: section)
-        switch sectionIdx {
-        case .Default:
-            return ["Default"]
-        case .Global:
-            return ["Color set", "Font set", "Icon set", "String set", "Theme"]
-        case .ChannelList:
-            return ["Channel list UI", "Channel query"]
-        case .Channel:
-            return ["Message list query", "Message params", "Message UI"]
-        case .ChannelSettings:
-            return ["Channel settings UI"]
-        case .CreateChannel:
-            return ["User list", "User type"]
-        case .InviteUser:
-            return ["User list", "User type"]
-        case .MemberList:
-            return ["User type"]
-        case .none:
-            return []
-        }
-    }
-}
-
-class CustomListTableViewController: UITableViewController {
+class CustomBaseViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Custom Samples"
@@ -69,9 +32,12 @@ class CustomListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CustomListCell")
         let title: String = CustomSection.customItems(section: indexPath.section)[indexPath.row]
+        let description: String = CustomSection.customItemDescriptions(section: indexPath.section)[indexPath.row]
         cell.textLabel?.text = title
+        cell.detailTextLabel?.text = description
+        cell.detailTextLabel?.textColor = .lightGray
 
         return cell
     }
@@ -86,20 +52,20 @@ class CustomListTableViewController: UITableViewController {
             startDefault()
         case .Global:
             GlobalSetCustomManager.startSample(naviVC: navigationController, type: GlobalCustomType(rawValue: row))
-//        case .ChannelList:
-//
-//        case .Channel:
-//
-//        case .ChannelSettings:
-//
-//        case .CreateChannel:
-//
-//        case .InviteUser:
-//
-//        case .MemberList:
+        case .ChannelList:
+            ChannelListCustomManager.startSample(naviVC: navigationController, type: ChannelListCustomType(rawValue: row))
+        case .Channel:
+            ChannelCustomManager.startSample(naviVC: navigationController, type: ChannelCustomType(rawValue: row))
+        case .ChannelSettings:
+            ChannelSettingsCustomManager.startSample(naviVC: navigationController, type: ChannelSettingsCustomType(rawValue: row))
+        case .CreateChannel:
+            CreateChannelCustomManager.startSample(naviVC: navigationController, type: CreateChannelCustomType(rawValue: row))
+        case .InviteUser:
+            InviteUserCustomManager.startSample(naviVC: navigationController, type: InviteUserCustomType(rawValue: row))
+        case .MemberList:
+            MemberListCustomManager.startSample(naviVC: navigationController, type: MemberListCustomType(rawValue: row))
         default:
             break
-            
         }
     }
     
@@ -112,7 +78,7 @@ class CustomListTableViewController: UITableViewController {
 
 
 // MARK: - Navigation
-extension CustomListTableViewController {
+extension CustomBaseViewController {
     func createBackButton() {
         let backButton = UIBarButtonItem( image: nil,
                                           style: .plain,

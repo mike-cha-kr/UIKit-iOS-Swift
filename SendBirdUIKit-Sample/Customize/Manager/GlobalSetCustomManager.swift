@@ -9,14 +9,6 @@
 import UIKit
 import SendBirdUIKit
 
-public enum GlobalCustomType: Int {
-    case colorSet
-    case fontSet
-    case iconSet
-    case stringSet
-    case theme
-}
-
 class GlobalSetCustomManager: NSObject {
     static func startSample(naviVC: UINavigationController, type: GlobalCustomType?) {
         setDefault()
@@ -57,8 +49,9 @@ class GlobalSetCustomManager: NSObject {
 }
 
 
-// MARK: - Global ColorSet
+// MARK: - GlobalSet to custom
 extension GlobalSetCustomManager {
+    /// This is an example of customizing the global color set. You can change the required values ​​one by one.
     static func setCustomGlobalColorSet() {
         let customColor = UIColor.red
         SBUColorSet.primary100 = customColor.withAlphaComponent(20)
@@ -67,12 +60,7 @@ extension GlobalSetCustomManager {
         SBUColorSet.primary400 = customColor.withAlphaComponent(80)
         SBUColorSet.primary500 = customColor
     }
-}
 
-
-// MARK: - GlobalSet to custom
-extension GlobalSetCustomManager {
-    
     /// This is an example of customizing the global font set. You can change the required values ​​one by one.
     static func setCustomGlobalFontSet() {
         SBUFontSet.h1 = UIFont.init(name: "Copperplate-Light", size: 20.0) ?? UIFont()
@@ -107,6 +95,7 @@ extension GlobalSetCustomManager {
         channelListTheme.leftBarButtonTintColor = SBUColorSet.secondary300
         channelListTheme.rightBarButtonTintColor = SBUColorSet.secondary300
         channelListTheme.notificationOnBackgroundColor = SBUColorSet.secondary300
+        // ... 이런식으로 theme 속성들을 추가하면 된다.
         
         let channelCellTheme = SBUChannelCellTheme()
         channelCellTheme.unreadCountBackgroundColor = SBUColorSet.secondary300
