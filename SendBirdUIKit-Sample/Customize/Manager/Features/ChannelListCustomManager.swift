@@ -18,6 +18,8 @@ class ChannelListCustomManager: NSObject {
         switch type {
         case .uiComponent:
             uiComponentCustom()
+        case .customCell:
+            cellCustom()
         case .listQuery:
             listQueryCustom()
         case .functionOverriding:
@@ -28,25 +30,36 @@ class ChannelListCustomManager: NSObject {
     }
 }
 
+
 extension ChannelListCustomManager {
     static func uiComponentCustom() {
         let channelListVC = SBUChannelListViewController()
         
-        // This part changes the default channel cell to a custom cell.
-        channelListVC.register(channelCell: CustomChannelListCell())
+        // This part changes the default titleView to a custom view.
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
+        titleLabel.text = "Custom Title"
+        titleLabel.textColor = SBUColorSet.primary500
+        channelListVC.titleView = titleLabel
         
         // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
         let leftBarButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onClickBack))
         channelListVC.leftBarButton = leftBarButton
         
+        // TODO: emptyView
+        
         // Move to ChannelListViewController using customized components
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
     
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
+    static func cellCustom() {
+        let channelListVC = SBUChannelListViewController()
+        
+        // This part changes the default channel cell to a custom cell.
+        channelListVC.register(channelCell: CustomChannelListCell())
+        
+        self.navigationController?.pushViewController(channelListVC, animated: true)
     }
-
+    
     static func listQueryCustom() {
         // You can customize the channel list using your own GroupChannelListQuery.
         // For all query options, refer to the `SBDGroupChannelListQuery` class.
@@ -64,7 +77,14 @@ extension ChannelListCustomManager {
     
     static func functionOverridingCustom() {
         // If you inherit `SBUChannelListViewController`, you can customize it by overriding some functions.
-        let channelListVC = ChannelListCustomViewController()
+        let channelListVC = ChannelListVC()
         self.navigationController?.pushViewController(channelListVC, animated: true)
+    }
+}
+
+
+extension ChannelListCustomManager {
+    @objc static func onClickBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

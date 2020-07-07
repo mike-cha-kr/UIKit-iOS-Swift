@@ -19,7 +19,16 @@ enum GlobalCustomType: Int {
 
 enum ChannelListCustomType: Int {
     case uiComponent
+    case customCell
     case listQuery
+    case functionOverriding
+}
+
+enum ChannelCustomType: Int {
+    case uiComponent
+    case customCell
+    case messageListParams
+    case messageParams
     case functionOverriding
 }
 
@@ -30,30 +39,22 @@ enum ChannelSettingsCustomType: Int {
 
 enum CreateChannelCustomType: Int {
     case uiComponent
+    case customCell
     case userList
-    case userType
-    case functionOverriding
 }
 
 enum InviteUserCustomType: Int {
     case uiComponent
+    case customCell
     case userList
-    case userType
-    case functionOverriding
 }
 
 enum MemberListCustomType: Int {
     case uiComponent
-    case userType
+    case customCell
     case functionOverriding
 }
 
-enum ChannelCustomType: Int {
-    case uiComponent
-    case messageListQuery
-    case messageParams
-    case functionOverriding
-}
 
 
 // MARK: - Enum for CustomBaseViewController
@@ -82,11 +83,13 @@ enum CustomSection: Int, CaseIterable {
                     "Theme"]
         case .ChannelList:
             return ["UI Component",
+                    "Custom cell",
                     "ChannelListQuery",
                     "Function Overriding"]
         case .Channel:
             return ["UI Component",
-                    "MessageListQuery",
+                    "Custom cell",
+                    "MessageListParams",
                     "MessageParams",
                     "Function Overriding"]
         case .ChannelSettings:
@@ -94,17 +97,15 @@ enum CustomSection: Int, CaseIterable {
                     "Function Overriding"]
         case .CreateChannel:
             return ["UI Component",
-                    "User list",
-                    "User type",
-                    "Function Overriding"]
+                    "Custom cell",
+                    "User list"]
         case .InviteUser:
             return ["UI Component",
-                    "User list",
-                    "User type",
-                    "Function Overriding"]
+                    "Custom cell",
+                    "User list"]
         case .MemberList:
             return ["UI Component",
-                    "User type",
+                    "Custom cell",
                     "Function Overriding"]
         case .none:
             return []
@@ -124,30 +125,30 @@ enum CustomSection: Int, CaseIterable {
                     "[GlobalSetCustomManager setCustomGlobalTheme()]"]
         case .ChannelList:
             return ["[ChannelListCustomManager uiComponentCustom()]",
+                    "[ChannelListCustomManager cellCustom()]",
                     "[ChannelListCustomManager listQueryCustom()]",
-                    "ChannelListCustomViewController.swift"]
+                    "ChannelListVC.swift"]
         case .Channel:
             return ["[ChannelCustomManager uiComponentCustom()]",
-                    "[ChannelCustomManager messageListQueryCustom()]",
+                    "[ChannelCustomManager cellCustom()]",
+                    "[ChannelCustomManager messageListParamsCustom()]",
                     "[ChannelCustomManager messageParamsCustom()]",
-                    "ChannelCustomViewController.swift"]
+                    "ChannelVC.swift"]
         case .ChannelSettings:
             return ["[ChannelSettingsCustomManager uiComponentCustom()]",
-                    "ChannelSettingsCustomViewController.swift"]
+                    "ChannelSettingsVC.swift"]
         case .CreateChannel:
             return ["[CreateChannelCustomManager uiComponentCustom()]",
-                    "[CreateChannelCustomManager userListCustom()]",
-                    "[CreateChannelCustomManager userTypeCustom()]",
-                    "CreateChannelCustomViewController.swift"]
+                    "[CreateChannelCustomManager cellCustom()]",
+                    "CreateChannelVC.swift"]
         case .InviteUser:
             return ["[InviteUserCustomManager uiComponentCustom()]",
-                    "[InviteUserCustomManager userListCustom()]",
-                    "[InviteUserCustomManager userTypeCustom()]",
-                    "InviteUserCustomViewController.swift"]
+                    "[InviteUserCustomManager cellCustom()]",
+                    "InviteUserVC.swift"]
         case .MemberList:
             return ["[MemberListCustomManager uiComponentCustom()]",
-                    "[MemberListCustomManager userTypeCustom()]",
-                    "MemberListCustomViewController.swift"]
+                    "[MemberListCustomManager cellCustom()]",
+                    "MemberListVC.swift"]
         case .none:
             return []
         }

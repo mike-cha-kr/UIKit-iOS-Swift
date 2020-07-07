@@ -1,5 +1,5 @@
 //
-//  ChannelListCustomViewController.swift
+//  ChannelListVC.swift
 //  SendBirdUIKit-Sample
 //
 //  Created by Tez Park on 2020/07/02.
@@ -9,19 +9,17 @@
 import UIKit
 import SendBirdUIKit
 
-class ChannelListCustomViewController: SBUChannelListViewController {
+class ChannelListVC: SBUChannelListViewController {
     // MARK: - Show relations
     override func showChannel(channelUrl: String) {
         // If you want to use your own ChannelViewController, you can override and customize it here.
-        SampleManager.showAlert(title: "Custom - showChannel",
-                                message: "showChannel function can be customized.")
+        AlertManager.showCustomInfo(message: "showChannel function can be customized.")
     }
     
     override func showCreateChannel() {
         // If you want to use your own CreateChannelViewController, you can override and customize it here.
         
-        SampleManager.showAlert(title: "Custom - showCreateChannel",
-                                message: "showCreateChannel function can be customized.")
+        AlertManager.showCustomInfo(message: "showCreateChannel function can be customized.")
     }
     
     // MARK: SBDConnectionDelegate
