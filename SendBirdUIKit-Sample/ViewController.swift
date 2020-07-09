@@ -121,6 +121,8 @@ class ViewController: UIViewController {
         themeSwitch.layer.cornerRadius = themeSwitch.frame.height / 2
         themeSwitch.backgroundColor = themeSwitch.onTintColor
         
+        UserDefaults.saveIsLightTheme(true)
+        
         let coreVersion: String = SBDMain.getSDKVersion()
         let uikitVersion: String = SBUMain.shortVersionString() ?? "?"
         versionLabel.text = "UIKit v\(uikitVersion)\t|\tSDK v\(coreVersion)"

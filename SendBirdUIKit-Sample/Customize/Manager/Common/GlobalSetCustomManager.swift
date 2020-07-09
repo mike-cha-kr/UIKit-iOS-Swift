@@ -33,7 +33,7 @@ class GlobalSetCustomManager: NSObject {
 
         // globalset 에 설정된 값들은, 최종적으로 theme 을 설정할때 사용되어 반영된다. theme를 변경한 경우에는 이미 변경과정에서 set 을 했기 때문에 light, dark 타입으로 셋하지 않아야 한다.
         if !isThemeChanged {
-            SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .dark : .light)
+            SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
         }
         let channelListVC = SBUChannelListViewController()
         naviVC.pushViewController(channelListVC, animated: true)
@@ -95,7 +95,7 @@ extension GlobalSetCustomManager {
         channelListTheme.leftBarButtonTintColor = SBUColorSet.secondary300
         channelListTheme.rightBarButtonTintColor = SBUColorSet.secondary300
         channelListTheme.notificationOnBackgroundColor = SBUColorSet.secondary300
-        // ... 이런식으로 theme 속성들을 추가하면 된다.
+        // ... In this way, you can add theme attributes.
         
         let channelCellTheme = SBUChannelCellTheme()
         channelCellTheme.unreadCountBackgroundColor = SBUColorSet.secondary300
@@ -169,6 +169,6 @@ extension GlobalSetCustomManager {
     
     /// This is an function of changing the global theme to default.
     static func setDefaultGlobalTheme() {
-        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .dark : .light)
+        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
     }
 }

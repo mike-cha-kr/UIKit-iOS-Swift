@@ -13,6 +13,8 @@ class ChannelListCustomManager: NSObject {
     static var navigationController: UINavigationController? = nil
     
     static func startSample(naviVC: UINavigationController, type: ChannelListCustomType?) {
+        GlobalSetCustomManager.setDefault()
+        
         self.navigationController = naviVC
         
         switch type {
@@ -39,13 +41,23 @@ extension ChannelListCustomManager {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
         titleLabel.text = "Custom Title"
         titleLabel.textColor = SBUColorSet.primary500
+        HighlightManager.highlight(titleLabel)
         channelListVC.titleView = titleLabel
         
         // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-        let leftBarButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onClickBack))
+        let leftButton = UIButton(type: .custom)
+        leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
+        leftButton.setTitle("Back", for: .normal)
+        leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
+        leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
+        HighlightManager.highlight(leftButton)
+        let leftBarButton = UIBarButtonItem(customView: leftButton)
         channelListVC.leftBarButton = leftBarButton
         
-        // TODO: emptyView
+        // This part changes the default emptyView to a custom emptyView.
+        let emptyView = CustomEmptyView()
+        HighlightManager.highlight(emptyView)
+        channelListVC.emptyView = emptyView
         
         // Move to ChannelListViewController using customized components
         self.navigationController?.pushViewController(channelListVC, animated: true)
@@ -77,7 +89,7 @@ extension ChannelListCustomManager {
     
     static func functionOverridingCustom() {
         // If you inherit `SBUChannelListViewController`, you can customize it by overriding some functions.
-        let channelListVC = ChannelListVC()
+        let channelListVC = ChannelListVC_Overriding()
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
 }

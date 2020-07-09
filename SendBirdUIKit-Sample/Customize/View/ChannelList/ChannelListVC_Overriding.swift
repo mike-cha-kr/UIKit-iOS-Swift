@@ -1,5 +1,5 @@
 //
-//  ChannelListVC.swift
+//  ChannelListVC_Overriding.swift
 //  SendBirdUIKit-Sample
 //
 //  Created by Tez Park on 2020/07/02.
@@ -9,7 +9,7 @@
 import UIKit
 import SendBirdUIKit
 
-class ChannelListVC: SBUChannelListViewController {
+class ChannelListVC_Overriding: SBUChannelListViewController {
     // MARK: - Show relations
     override func showChannel(channelUrl: String) {
         // If you want to use your own ChannelViewController, you can override and customize it here.

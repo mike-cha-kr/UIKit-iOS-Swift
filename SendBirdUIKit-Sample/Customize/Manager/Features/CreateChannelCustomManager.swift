@@ -13,6 +13,8 @@ class CreateChannelCustomManager: NSObject {
     static var navigationController: UINavigationController? = nil
     
     static func startSample(naviVC: UINavigationController, type: CreateChannelCustomType?) {
+        GlobalSetCustomManager.setDefault()
+        
         self.navigationController = naviVC
         
         switch type {
@@ -37,13 +39,18 @@ extension CreateChannelCustomManager {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
         titleLabel.text = "Custom Title"
         titleLabel.textColor = SBUColorSet.primary500
+        HighlightManager.highlight(titleLabel)
         createChannelVC.titleView = titleLabel
         
         // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-        let leftBarButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onClickBack))
+        let leftButton = UIButton(type: .custom)
+        leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
+        leftButton.setTitle("Back", for: .normal)
+        leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
+        leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
+        HighlightManager.highlight(leftButton)
+        let leftBarButton = UIBarButtonItem(customView: leftButton)
         createChannelVC.leftBarButton = leftBarButton
-        
-        // For custom cell registration, see `cellCustom()` method and `CreateChannelVC` class.
         
         // Move to CreateChannelViewController using customized components
         self.navigationController?.pushViewController(createChannelVC, animated: true)

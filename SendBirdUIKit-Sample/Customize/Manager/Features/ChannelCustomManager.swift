@@ -13,6 +13,8 @@ class ChannelCustomManager: NSObject {
     static var navigationController: UINavigationController? = nil
     
     static func startSample(naviVC: UINavigationController, type: ChannelCustomType?) {
+        GlobalSetCustomManager.setDefault()
+        
         self.navigationController = naviVC
         
         switch type {
@@ -42,24 +44,29 @@ extension ChannelCustomManager {
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
             titleLabel.text = "Custom Title"
             titleLabel.textColor = SBUColorSet.primary500
+            HighlightManager.highlight(titleLabel)
             channelVC.titleView = titleLabel
             
             // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-            let leftBarButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(onClickBack))
+            let leftButton = UIButton(type: .custom)
+            leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
+            leftButton.setTitle("Back", for: .normal)
+            leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
+            leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
+            HighlightManager.highlight(leftButton)
+            let leftBarButton = UIBarButtonItem(customView: leftButton)
             channelVC.leftBarButton = leftBarButton
             
             // This part changes the messageInfoButton of newMessageInfoView.
+            // TODO:
             let newMessageInfoView = SBUNewMessageInfo()
             newMessageInfoView.messageInfoButton = UIButton(type: .custom)
             channelVC.newMessageInfoView = newMessageInfoView
-            
-            // This part changes the default newMessageInfoView to a custom view. You can use a `UIView` type class.
-            let customNewMessageInfoView = UIView() // use your customized view.
-            channelVC.newMessageInfoView = customNewMessageInfoView
-            
-            // TODO:
-//            let customMessageInputView = CustomMessageInputView.loadViewFromNibForSB() as! SBUMessageInputView
-//            channelVC.messageInputView = customMessageInputView
+                        
+            // This part changes the default emptyView to a custom emptyView.
+            let emptyView = CustomEmptyView()
+            HighlightManager.highlight(emptyView)
+            channelVC.emptyView = emptyView
             
             // Move to ChannelViewController using customized components
             self.navigationController?.pushViewController(channelVC, animated: true)

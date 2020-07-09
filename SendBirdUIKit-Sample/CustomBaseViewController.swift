@@ -70,7 +70,7 @@ class CustomBaseViewController: UITableViewController {
     }
     
     func startDefault() {
-        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .dark : .light)
+        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
         let channelListVC = SBUChannelListViewController()
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }

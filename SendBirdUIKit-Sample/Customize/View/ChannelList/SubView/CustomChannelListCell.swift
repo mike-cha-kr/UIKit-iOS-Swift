@@ -37,9 +37,6 @@ class CustomChannelListCell: SBUBaseChannelCell {
         self.contentView.addSubview(titleStackView)
 
         self.contentView.addSubview(self.separatorLine)
-        
-        //TODO - 다음버전에서 삭제
-        self.setupStyles()
     }
     
     override func setupAutolayout() {
@@ -47,6 +44,7 @@ class CustomChannelListCell: SBUBaseChannelCell {
         
         NSLayoutConstraint.activate([
             self.coverImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            self.coverImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
             self.coverImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
             self.coverImage.widthAnchor.constraint(equalToConstant: kCoverImageSize),
             self.coverImage.heightAnchor.constraint(equalToConstant: kCoverImageSize),
@@ -54,9 +52,9 @@ class CustomChannelListCell: SBUBaseChannelCell {
 
         NSLayoutConstraint.activate([
             self.titleStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            self.titleStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
             self.titleStackView.leadingAnchor.constraint(equalTo: self.coverImage.trailingAnchor, constant: 16),
             self.titleStackView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor,  constant: -16),
-            self.titleStackView.heightAnchor.constraint(equalToConstant: 22),
         ])
         self.titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
