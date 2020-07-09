@@ -13,13 +13,12 @@ class ChannelListVC_Overriding: SBUChannelListViewController {
     // MARK: - Show relations
     override func showChannel(channelUrl: String) {
         // If you want to use your own ChannelViewController, you can override and customize it here.
-        AlertManager.showCustomInfo(message: "showChannel function can be customized.")
+        AlertManager.showCustomInfo(#function)
     }
     
     override func showCreateChannel() {
         // If you want to use your own CreateChannelViewController, you can override and customize it here.
-        
-        AlertManager.showCustomInfo(message: "showCreateChannel function can be customized.")
+        AlertManager.showCustomInfo(#function)
     }
     
     // MARK: SBDConnectionDelegate

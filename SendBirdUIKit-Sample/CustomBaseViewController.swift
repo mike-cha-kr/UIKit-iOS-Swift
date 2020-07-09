@@ -53,24 +53,24 @@ class CustomBaseViewController: UITableViewController {
         case .Global:
             GlobalSetCustomManager.startSample(naviVC: navigationController, type: GlobalCustomType(rawValue: row))
         case .ChannelList:
-            ChannelListCustomManager.startSample(naviVC: navigationController, type: ChannelListCustomType(rawValue: row))
+            ChannelListCustomManager.shared.startSample(naviVC: navigationController, type: ChannelListCustomType(rawValue: row))
         case .Channel:
-            ChannelCustomManager.startSample(naviVC: navigationController, type: ChannelCustomType(rawValue: row))
+            ChannelCustomManager.shared.startSample(naviVC: navigationController, type: ChannelCustomType(rawValue: row))
         case .ChannelSettings:
-            ChannelSettingsCustomManager.startSample(naviVC: navigationController, type: ChannelSettingsCustomType(rawValue: row))
+            ChannelSettingsCustomManager.shared.startSample(naviVC: navigationController, type: ChannelSettingsCustomType(rawValue: row))
         case .CreateChannel:
-            CreateChannelCustomManager.startSample(naviVC: navigationController, type: CreateChannelCustomType(rawValue: row))
+            CreateChannelCustomManager.shared.startSample(naviVC: navigationController, type: CreateChannelCustomType(rawValue: row))
         case .InviteUser:
-            InviteUserCustomManager.startSample(naviVC: navigationController, type: InviteUserCustomType(rawValue: row))
+            InviteUserCustomManager.shared.startSample(naviVC: navigationController, type: InviteUserCustomType(rawValue: row))
         case .MemberList:
-            MemberListCustomManager.startSample(naviVC: navigationController, type: MemberListCustomType(rawValue: row))
+            MemberListCustomManager.shared.startSample(naviVC: navigationController, type: MemberListCustomType(rawValue: row))
         default:
             break
         }
     }
     
     func startDefault() {
-        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
+        SBUTheme.set(theme: .light)
         let channelListVC = SBUChannelListViewController()
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
@@ -78,7 +78,7 @@ class CustomBaseViewController: UITableViewController {
 
 
 // MARK: - Navigation
-extension CustomBaseViewController {
+extension UIViewController {
     func createBackButton() {
         let backButton = UIBarButtonItem( image: nil,
                                           style: .plain,

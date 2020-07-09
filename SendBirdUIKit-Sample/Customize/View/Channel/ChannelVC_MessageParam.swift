@@ -1,5 +1,5 @@
 //
-//  ChannelVC.swift
+//  ChannelVC_MessageParam.swift
 //  SendBirdUIKit-Sample
 //
 //  Created by Tez Park on 2020/07/04.
@@ -9,7 +9,7 @@
 import UIKit
 import SendBirdUIKit
 
-class ChannelVC: SBUChannelViewController {
+class ChannelVC_MessageParam: SBUChannelViewController {
     override func messageInputView(_ messageInputView: SBUMessageInputView, didSelectSend text: String) {
         guard text.count > 0 else { return }
         let text = text.trimmingCharacters(in: .whitespacesAndNewlines)

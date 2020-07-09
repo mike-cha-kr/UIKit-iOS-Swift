@@ -16,14 +16,14 @@ class MemberListVC_Overriding: SBUMemberListViewController {
     // MARK: - Show relations
     override func showInviteUser() {
         // If you want to use your own InviteUserViewController, you can override and customize it here.
-        AlertManager.showCustomInfo(message: "showInviteUser function can be customized.")
+        AlertManager.showCustomInfo(#function)
     }
     
     
     // MARK: - Action relations
     override func onClickInviteUser() {
         // If you want to customize invite user button action, you can override and customize it here.
-        AlertManager.showCustomInfo(message: "onClickInviteUser function can be customized.")
+        AlertManager.showCustomInfo(#function)
     }
     
     

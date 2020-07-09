@@ -9,10 +9,10 @@
 import UIKit
 import SendBirdUIKit
 
-class ChannelListCustomManager: NSObject {
-    static var navigationController: UINavigationController? = nil
+class ChannelListCustomManager: BaseCustomManager {
+    static var shared = ChannelListCustomManager()
     
-    static func startSample(naviVC: UINavigationController, type: ChannelListCustomType?) {
+    func startSample(naviVC: UINavigationController, type: ChannelListCustomType?) {
         GlobalSetCustomManager.setDefault()
         
         self.navigationController = naviVC
@@ -34,25 +34,14 @@ class ChannelListCustomManager: NSObject {
 
 
 extension ChannelListCustomManager {
-    static func uiComponentCustom() {
+    func uiComponentCustom() {
         let channelListVC = SBUChannelListViewController()
         
         // This part changes the default titleView to a custom view.
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
-        titleLabel.text = "Custom Title"
-        titleLabel.textColor = SBUColorSet.primary500
-        HighlightManager.highlight(titleLabel)
-        channelListVC.titleView = titleLabel
+        channelListVC.titleView = self.createHighlightedTitleLabel()
         
         // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-        let leftButton = UIButton(type: .custom)
-        leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
-        leftButton.setTitle("Back", for: .normal)
-        leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
-        leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-        HighlightManager.highlight(leftButton)
-        let leftBarButton = UIBarButtonItem(customView: leftButton)
-        channelListVC.leftBarButton = leftBarButton
+        channelListVC.leftBarButton = self.createHighlightedBackButton()
         
         // This part changes the default emptyView to a custom emptyView.
         let emptyView = CustomEmptyView()
@@ -63,7 +52,7 @@ extension ChannelListCustomManager {
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
     
-    static func cellCustom() {
+    func cellCustom() {
         let channelListVC = SBUChannelListViewController()
         
         // This part changes the default channel cell to a custom cell.
@@ -72,7 +61,7 @@ extension ChannelListCustomManager {
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
     
-    static func listQueryCustom() {
+    func listQueryCustom() {
         // You can customize the channel list using your own GroupChannelListQuery.
         // For all query options, refer to the `SBDGroupChannelListQuery` class.
         let listQuery = SBDGroupChannel.createMyGroupChannelListQuery()
@@ -87,16 +76,9 @@ extension ChannelListCustomManager {
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
     
-    static func functionOverridingCustom() {
+    func functionOverridingCustom() {
         // If you inherit `SBUChannelListViewController`, you can customize it by overriding some functions.
         let channelListVC = ChannelListVC_Overriding()
         self.navigationController?.pushViewController(channelListVC, animated: true)
-    }
-}
-
-
-extension ChannelListCustomManager {
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
     }
 }

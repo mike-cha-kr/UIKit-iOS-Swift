@@ -31,6 +31,6 @@ class CustomEmptyView: SBUEmptyView {
     }
     
     override func onClickRetry(_ sender: Any) {
-        AlertManager.showCustomInfo(message: "onClickRetry function can be customized.")
+        AlertManager.showCustomInfo(#function)
     }
 }

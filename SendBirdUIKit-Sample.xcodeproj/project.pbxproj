@@ -13,7 +13,7 @@
 		9C32648524B3907E000F8313 /* CreateChannelVC_UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C32648424B3907E000F8313 /* CreateChannelVC_UserList.swift */; };
 		9C32648724B39090000F8313 /* InviteUserVC_UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C32648624B39090000F8313 /* InviteUserVC_UserList.swift */; };
 		9C56414C24AF29C00057B529 /* CustomSampleEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56414B24AF29C00057B529 /* CustomSampleEnums.swift */; };
-		9C56415424AF99E70057B529 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56415324AF99E70057B529 /* ChannelVC.swift */; };
+		9C56415424AF99E70057B529 /* ChannelVC_MessageParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C56415324AF99E70057B529 /* ChannelVC_MessageParam.swift */; };
 		9C5DCD49242AFA7C00C41106 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5DCD48242AFA7C00C41106 /* UserNotifications.framework */; };
 		9C777D5B241B9022006FFE25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C777D5A241B9022006FFE25 /* AppDelegate.swift */; };
 		9C777D5F241B9022006FFE25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C777D5E241B9022006FFE25 /* ViewController.swift */; };
@@ -26,6 +26,9 @@
 		9CDDA30924B4DCF500F77A59 /* InviteUserVC_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA30824B4DCF500F77A59 /* InviteUserVC_Cell.swift */; };
 		9CDDA30B24B4DE0600F77A59 /* CreateChannelVC_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA30A24B4DE0600F77A59 /* CreateChannelVC_Cell.swift */; };
 		9CDDA30D24B555E500F77A59 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA30C24B555E500F77A59 /* CustomEmptyView.swift */; };
+		9CDDA31724B6F39700F77A59 /* CustomNewMessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31624B6F39700F77A59 /* CustomNewMessageInfo.swift */; };
+		9CDDA31924B714A700F77A59 /* BaseCustomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */; };
+		9CDDA31B24B720A300F77A59 /* ChannelVC_Overriding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */; };
 		9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */; };
 		9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */; };
 		9CED4CF424AC86BB00D81B10 /* CustomBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */; };
@@ -50,7 +53,7 @@
 		9C32648424B3907E000F8313 /* CreateChannelVC_UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelVC_UserList.swift; sourceTree = "<group>"; };
 		9C32648624B39090000F8313 /* InviteUserVC_UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserVC_UserList.swift; sourceTree = "<group>"; };
 		9C56414B24AF29C00057B529 /* CustomSampleEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSampleEnums.swift; sourceTree = "<group>"; };
-		9C56415324AF99E70057B529 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		9C56415324AF99E70057B529 /* ChannelVC_MessageParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC_MessageParam.swift; sourceTree = "<group>"; };
 		9C5DCD47242AF8FC00C41106 /* SendBirdUIKit-Sample copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SendBirdUIKit-Sample copy-Info.plist"; path = "/Users/tez.park/Documents/2_Dev/2_Sample/UIKit-iOS-Sample/SendBirdUIKit-Sample copy-Info.plist"; sourceTree = "<absolute>"; };
 		9C5DCD48242AFA7C00C41106 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		9C5DCD4D242B0C7E00C41106 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
@@ -68,6 +71,9 @@
 		9CDDA30824B4DCF500F77A59 /* InviteUserVC_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserVC_Cell.swift; sourceTree = "<group>"; };
 		9CDDA30A24B4DE0600F77A59 /* CreateChannelVC_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelVC_Cell.swift; sourceTree = "<group>"; };
 		9CDDA30C24B555E500F77A59 /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		9CDDA31624B6F39700F77A59 /* CustomNewMessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNewMessageInfo.swift; sourceTree = "<group>"; };
+		9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomManager.swift; sourceTree = "<group>"; };
+		9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC_Overriding.swift; sourceTree = "<group>"; };
 		9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBaseViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				9CED4D1E24AF02D800D81B10 /* SampleManager.swift */,
 				9CED4D0424ADA20B00D81B10 /* GlobalSetCustomManager.swift */,
 				9C56414B24AF29C00057B529 /* CustomSampleEnums.swift */,
+				9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -153,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				9C32648024B37DD2000F8313 /* CustomUserMessageCell.swift */,
+				9CDDA31624B6F39700F77A59 /* CustomNewMessageInfo.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -222,7 +230,8 @@
 		9CED4CE724AC6D1400D81B10 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
-				9C56415324AF99E70057B529 /* ChannelVC.swift */,
+				9C56415324AF99E70057B529 /* ChannelVC_MessageParam.swift */,
+				9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */,
 				9C56415624B371880057B529 /* SubView */,
 			);
 			path = Channel;
@@ -435,9 +444,10 @@
 				9CED4D0524ADA20B00D81B10 /* GlobalSetCustomManager.swift in Sources */,
 				9CED4D0B24ADE36100D81B10 /* ChannelListVC_Overriding.swift in Sources */,
 				9CED4D1524ADE41B00D81B10 /* CreateChannelCustomManager.swift in Sources */,
+				9CDDA31B24B720A300F77A59 /* ChannelVC_Overriding.swift in Sources */,
 				9CED4D1C24ADE69900D81B10 /* CustomChannelListCell.swift in Sources */,
 				9C56414C24AF29C00057B529 /* CustomSampleEnums.swift in Sources */,
-				9C56415424AF99E70057B529 /* ChannelVC.swift in Sources */,
+				9C56415424AF99E70057B529 /* ChannelVC_MessageParam.swift in Sources */,
 				9C32648724B39090000F8313 /* InviteUserVC_UserList.swift in Sources */,
 				9C32648324B38FAF000F8313 /* ChannelSettingsVC_Overriding.swift in Sources */,
 				9C32648124B37DD2000F8313 /* CustomUserMessageCell.swift in Sources */,
@@ -446,6 +456,7 @@
 				9CED4D1124ADE40700D81B10 /* ChannelCustomManager.swift in Sources */,
 				9CDDA30524B4DA8600F77A59 /* MemberListVC_Cell.swift in Sources */,
 				9C777D5B241B9022006FFE25 /* AppDelegate.swift in Sources */,
+				9CDDA31724B6F39700F77A59 /* CustomNewMessageInfo.swift in Sources */,
 				9CED4D0724ADA66200D81B10 /* UserDefaults+Ext.swift in Sources */,
 				9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */,
 				9CED4CF424AC86BB00D81B10 /* CustomBaseViewController.swift in Sources */,
@@ -455,6 +466,7 @@
 				9CED4D1924ADE42A00D81B10 /* MemberListCustomManager.swift in Sources */,
 				9CED4D0F24ADE3F800D81B10 /* ChannelListCustomManager.swift in Sources */,
 				9CDDA30D24B555E500F77A59 /* CustomEmptyView.swift in Sources */,
+				9CDDA31924B714A700F77A59 /* BaseCustomManager.swift in Sources */,
 				9CDDA30B24B4DE0600F77A59 /* CreateChannelVC_Cell.swift in Sources */,
 				9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */,
 			);
@@ -617,6 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.uikit.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -645,6 +658,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.uikit.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

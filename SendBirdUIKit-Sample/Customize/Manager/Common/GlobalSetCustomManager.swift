@@ -31,9 +31,10 @@ class GlobalSetCustomManager: NSObject {
             break
         }
 
-        // globalset 에 설정된 값들은, 최종적으로 theme 을 설정할때 사용되어 반영된다. theme를 변경한 경우에는 이미 변경과정에서 set 을 했기 때문에 light, dark 타입으로 셋하지 않아야 한다.
+        // The values ​​set in globalset are used and reflected when setting the theme.
+        // If the theme is changed, it should not be set to light or dark type because it was already set during the change process.
         if !isThemeChanged {
-            SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
+            SBUTheme.set(theme: .light)
         }
         let channelListVC = SBUChannelListViewController()
         naviVC.pushViewController(channelListVC, animated: true)
@@ -169,6 +170,6 @@ extension GlobalSetCustomManager {
     
     /// This is an function of changing the global theme to default.
     static func setDefaultGlobalTheme() {
-        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
+        SBUTheme.set(theme: .light)
     }
 }

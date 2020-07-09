@@ -9,10 +9,10 @@
 import UIKit
 import SendBirdUIKit
 
-class InviteUserCustomManager: NSObject {
-    static var navigationController: UINavigationController? = nil
+class InviteUserCustomManager: BaseCustomManager {
+    static var shared = InviteUserCustomManager()
     
-    static func startSample(naviVC: UINavigationController, type: InviteUserCustomType?) {
+    func startSample(naviVC: UINavigationController, type: InviteUserCustomType?) {
         GlobalSetCustomManager.setDefault()
         
         self.navigationController = naviVC
@@ -32,33 +32,22 @@ class InviteUserCustomManager: NSObject {
 
 
 extension InviteUserCustomManager {
-    static func uiComponentCustom() {
+    func uiComponentCustom() {
         ChannelManager.getSampleChannel { channel in
             let inviteUserVC = SBUInviteUserViewController(channel: channel)
             
             // This part changes the default titleView to a custom view.
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
-            titleLabel.text = "Custom Title"
-            titleLabel.textColor = SBUColorSet.primary500
-            HighlightManager.highlight(titleLabel)
-            inviteUserVC.titleView = titleLabel
+            inviteUserVC.titleView = self.createHighlightedTitleLabel()
             
             // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-            let leftButton = UIButton(type: .custom)
-            leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
-            leftButton.setTitle("Back", for: .normal)
-            leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
-            leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-            HighlightManager.highlight(leftButton)
-            let leftBarButton = UIBarButtonItem(customView: leftButton)
-            inviteUserVC.leftBarButton = leftBarButton
+            inviteUserVC.leftBarButton = self.createHighlightedBackButton()
             
             // Move to InviteUserViewController using customized components
             self.navigationController?.pushViewController(inviteUserVC, animated: true)
         }
     }
     
-    static func cellCustom() {
+    func cellCustom() {
         ChannelManager.getSampleChannel { channel in
             let inviteUserVC = InviteUserVC_Cell(channel: channel)
             
@@ -69,7 +58,7 @@ extension InviteUserCustomManager {
         }
     }
     
-    static func userListCustom() {
+    func userListCustom() {
         let userListQuery = SBDMain.createApplicationUserListQuery()
         userListQuery?.limit = 20
         userListQuery?.loadNextPage(completionHandler: { users, error in
@@ -89,11 +78,5 @@ extension InviteUserCustomManager {
                 }
             }
         })
-    }
-}
-
-extension InviteUserCustomManager {
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
     }
 }

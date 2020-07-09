@@ -10,6 +10,7 @@ import UIKit
 import SendBirdSDK
 import SendBirdUIKit
 
+// This function handles alertController to be used in the sample app.
 class AlertManager: NSObject {
     static func show(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -24,11 +25,12 @@ class AlertManager: NSObject {
         }
     }
     
-    static func showCustomInfo(message: String) {
-        self.show(title: "Custom", message: message)
+    static func showCustomInfo(_ function: String) {
+        self.show(title: "Custom", message: "\(function) function can be customized.")
     }
 }
 
+// This function handles channel object to be used in the sample app.
 class ChannelManager: NSObject {
     static func getSampleChannel(completionHandler: @escaping (_ channel: SBDGroupChannel) -> Void) {
         let channelListQuery = SBDGroupChannel.createMyGroupChannelListQuery()
@@ -47,6 +49,7 @@ class ChannelManager: NSObject {
     }
 }
 
+// This function handles view to be highlighted in the sample app.
 class HighlightManager: NSObject {
     static func highlight(_ view: UIView) {
         view.layer.cornerRadius = 5

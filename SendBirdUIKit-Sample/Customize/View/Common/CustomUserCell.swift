@@ -67,9 +67,9 @@ class CustomUserCell: UITableViewCell {
         self.backgroundColor = self.isSelected ? SBUColorSet.secondary100 : .clear
     }
     
-    func configure(title: String, selected: Bool? = false) {
+    func configure(title: String, selected: Bool = false) {
         self.titleLabel.text = title
         self.userImage.image = UIImage(named: "img_default_profile_image_\(Int.random(in: 1...4))")
-        self.backgroundColor = selected ?? false ? SBUColorSet.secondary100 : .clear
+        self.backgroundColor = selected ? SBUColorSet.secondary100 : .clear
     }
 }

@@ -127,28 +127,28 @@ enum CustomSection: Int, CaseIterable {
             return ["[ChannelListCustomManager uiComponentCustom()]",
                     "[ChannelListCustomManager cellCustom()]",
                     "[ChannelListCustomManager listQueryCustom()]",
-                    "ChannelListVC.swift"]
+                    "ChannelListVC_Overriding.swift"]
         case .Channel:
             return ["[ChannelCustomManager uiComponentCustom()]",
                     "[ChannelCustomManager cellCustom()]",
                     "[ChannelCustomManager messageListParamsCustom()]",
                     "[ChannelCustomManager messageParamsCustom()]",
-                    "ChannelVC.swift"]
+                    "ChannelVC_MessageParam.swift"]
         case .ChannelSettings:
             return ["[ChannelSettingsCustomManager uiComponentCustom()]",
-                    "ChannelSettingsVC.swift"]
+                    "ChannelSettingsVC_Overriding.swift"]
         case .CreateChannel:
             return ["[CreateChannelCustomManager uiComponentCustom()]",
                     "[CreateChannelCustomManager cellCustom()]",
-                    "CreateChannelVC.swift"]
+                    "CreateChannelVC_UserList.swift"]
         case .InviteUser:
             return ["[InviteUserCustomManager uiComponentCustom()]",
                     "[InviteUserCustomManager cellCustom()]",
-                    "InviteUserVC.swift"]
+                    "InviteUserVC_UserList.swift"]
         case .MemberList:
             return ["[MemberListCustomManager uiComponentCustom()]",
                     "[MemberListCustomManager cellCustom()]",
-                    "MemberListVC.swift"]
+                    "MemberListVC_Overriding.swift"]
         case .none:
             return []
         }

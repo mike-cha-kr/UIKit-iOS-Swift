@@ -17,7 +17,7 @@ class ChannelSettingsVC_Overriding: SBUChannelSettingsViewController {
     // MARK: - Show relations
     override func showMemberList() {
         // If you want to use your own MemberListViewController, you can override and customize it here.
-        AlertManager.showCustomInfo(message: "showMemberList function can be customized.")
+        AlertManager.showCustomInfo(#function)
     }
     
     // MARK: - Error handling

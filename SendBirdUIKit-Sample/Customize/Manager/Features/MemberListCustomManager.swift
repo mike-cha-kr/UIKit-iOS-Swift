@@ -9,10 +9,10 @@
 import UIKit
 import SendBirdUIKit
 
-class MemberListCustomManager: NSObject {
-    static var navigationController: UINavigationController? = nil
+class MemberListCustomManager: BaseCustomManager {
+    static var shared = MemberListCustomManager()
     
-    static func startSample(naviVC: UINavigationController, type: MemberListCustomType?) {
+    func startSample(naviVC: UINavigationController, type: MemberListCustomType?) {
         GlobalSetCustomManager.setDefault()
         
         self.navigationController = naviVC
@@ -32,32 +32,22 @@ class MemberListCustomManager: NSObject {
 
 
 extension MemberListCustomManager {
-    static func uiComponentCustom() {
+    func uiComponentCustom() {
         ChannelManager.getSampleChannel { channel in
             let memberListVC = SBUMemberListViewController(channel: channel)
             
             // This part changes the default titleView to a custom view.
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
-            titleLabel.text = "Custom Title"
-            titleLabel.textColor = SBUColorSet.primary500
-            memberListVC.titleView = titleLabel
+            memberListVC.titleView = self.createHighlightedTitleLabel()
             
             // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-            let leftButton = UIButton(type: .custom)
-            leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
-            leftButton.setTitle("Back", for: .normal)
-            leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
-            leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-            HighlightManager.highlight(leftButton)
-            let leftBarButton = UIBarButtonItem(customView: leftButton)
-            memberListVC.leftBarButton = leftBarButton
+            memberListVC.leftBarButton = self.createHighlightedBackButton()
             
             // Move to MemberListViewController using customized components
             self.navigationController?.pushViewController(memberListVC, animated: true)
         }
     }
     
-    static func cellCustom() {
+    func cellCustom() {
         ChannelManager.getSampleChannel { channel in
             let memberListVC = MemberListVC_Cell(channel: channel)
             
@@ -68,19 +58,12 @@ extension MemberListCustomManager {
         }
     }
     
-    static func functionOverridingCustom() {
+    func functionOverridingCustom() {
         ChannelManager.getSampleChannel { channel in
             // If you inherit `SBUMemberListViewController`, you can customize it by overriding some functions.
             let memberListVC = MemberListVC_Overriding(channel: channel)
             
             self.navigationController?.pushViewController(memberListVC, animated: true)
         }
-    }
-}
-
-
-extension MemberListCustomManager {
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
     }
 }

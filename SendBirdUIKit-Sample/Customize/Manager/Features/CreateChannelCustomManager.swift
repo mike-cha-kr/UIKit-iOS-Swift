@@ -9,10 +9,10 @@
 import UIKit
 import SendBirdUIKit
 
-class CreateChannelCustomManager: NSObject {
-    static var navigationController: UINavigationController? = nil
+class CreateChannelCustomManager: BaseCustomManager {
+    static var shared = CreateChannelCustomManager()
     
-    static func startSample(naviVC: UINavigationController, type: CreateChannelCustomType?) {
+    func startSample(naviVC: UINavigationController, type: CreateChannelCustomType?) {
         GlobalSetCustomManager.setDefault()
         
         self.navigationController = naviVC
@@ -32,31 +32,20 @@ class CreateChannelCustomManager: NSObject {
 
 
 extension CreateChannelCustomManager {
-    static func uiComponentCustom() {
+    func uiComponentCustom() {
         let createChannelVC = SBUCreateChannelViewController()
         
         // This part changes the default titleView to a custom view.
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
-        titleLabel.text = "Custom Title"
-        titleLabel.textColor = SBUColorSet.primary500
-        HighlightManager.highlight(titleLabel)
-        createChannelVC.titleView = titleLabel
+        createChannelVC.titleView = self.createHighlightedTitleLabel()
         
         // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-        let leftButton = UIButton(type: .custom)
-        leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
-        leftButton.setTitle("Back", for: .normal)
-        leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
-        leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-        HighlightManager.highlight(leftButton)
-        let leftBarButton = UIBarButtonItem(customView: leftButton)
-        createChannelVC.leftBarButton = leftBarButton
+        createChannelVC.leftBarButton = self.createHighlightedBackButton()
         
         // Move to CreateChannelViewController using customized components
         self.navigationController?.pushViewController(createChannelVC, animated: true)
     }
     
-    static func cellCustom() {
+    func cellCustom() {
         let createChannelVC = CreateChannelVC_Cell()
         
         // This part changes the default user cell to a custom cell.
@@ -65,7 +54,7 @@ extension CreateChannelCustomManager {
         self.navigationController?.pushViewController(createChannelVC, animated: true)
     }
     
-    static func userListCustom() {
+    func userListCustom() {
         let userListQuery = SBDMain.createApplicationUserListQuery()
         userListQuery?.limit = 20
         userListQuery?.loadNextPage(completionHandler: { users, error in
@@ -83,12 +72,5 @@ extension CreateChannelCustomManager {
                 self.navigationController?.pushViewController(createChannelVC, animated: true)
             }
         })
-    }
-}
-
-
-extension CreateChannelCustomManager {
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
     }
 }

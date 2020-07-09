@@ -9,10 +9,10 @@
 import UIKit
 import SendBirdUIKit
 
-class ChannelCustomManager: NSObject {
-    static var navigationController: UINavigationController? = nil
+class ChannelCustomManager: BaseCustomManager {
+    static var shared = ChannelCustomManager()
     
-    static func startSample(naviVC: UINavigationController, type: ChannelCustomType?) {
+    func startSample(naviVC: UINavigationController, type: ChannelCustomType?) {
         GlobalSetCustomManager.setDefault()
         
         self.navigationController = naviVC
@@ -36,31 +36,18 @@ class ChannelCustomManager: NSObject {
 
 
 extension ChannelCustomManager {
-    static func uiComponentCustom() {
+    func uiComponentCustom() {
         ChannelManager.getSampleChannel { channel in
             let channelVC = SBUChannelViewController(channel: channel)
             
             // This part changes the default titleView to a custom view.
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
-            titleLabel.text = "Custom Title"
-            titleLabel.textColor = SBUColorSet.primary500
-            HighlightManager.highlight(titleLabel)
-            channelVC.titleView = titleLabel
+            channelVC.titleView = self.createHighlightedTitleLabel()
             
             // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-            let leftButton = UIButton(type: .custom)
-            leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
-            leftButton.setTitle("Back", for: .normal)
-            leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
-            leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-            HighlightManager.highlight(leftButton)
-            let leftBarButton = UIBarButtonItem(customView: leftButton)
-            channelVC.leftBarButton = leftBarButton
+            channelVC.leftBarButton = self.createHighlightedBackButton()
             
             // This part changes the messageInfoButton of newMessageInfoView.
-            // TODO:
-            let newMessageInfoView = SBUNewMessageInfo()
-            newMessageInfoView.messageInfoButton = UIButton(type: .custom)
+            let newMessageInfoView = CustomNewMessageInfo()
             channelVC.newMessageInfoView = newMessageInfoView
                         
             // This part changes the default emptyView to a custom emptyView.
@@ -73,12 +60,12 @@ extension ChannelCustomManager {
         }
     }
     
-    static func cellCustom() {
+    func cellCustom() {
         // See the messageParamsCustom() function.
         self.messageParamsCustom()
     }
     
-    static func messageListParamsCustom() {
+    func messageListParamsCustom() {
         ChannelManager.getSampleChannel { channel in
             // You can customize the message list using your own MessageListParams.
             // For all params options, refer to the `SBDMessageListParams` class.
@@ -98,9 +85,9 @@ extension ChannelCustomManager {
     }
 
     // This is a sample displaying a highlight message using MessageParams.
-    static func messageParamsCustom() {
+    func messageParamsCustom() {
         ChannelManager.getSampleChannel { channel in
-            let channelVC = ChannelVC(channel: channel)
+            let channelVC = ChannelVC_MessageParam(channel: channel)
             
             // This part changes the default user message cell to a custom cell.
             channelVC.register(userMessageCell: CustomUserMessageCell())
@@ -110,14 +97,11 @@ extension ChannelCustomManager {
         }
     }
     
-    static func functionOverridingCustom() {
-        // TODO:
-    }
-}
-
-
-extension ChannelCustomManager {
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
+    func functionOverridingCustom() {
+        ChannelManager.getSampleChannel { channel in
+            // If you inherit `SBUChannelViewController`, you can customize it by overriding some functions.
+            let channelVC = ChannelVC_Overriding(channel: channel)
+            self.navigationController?.pushViewController(channelVC, animated: true)
+        }
     }
 }

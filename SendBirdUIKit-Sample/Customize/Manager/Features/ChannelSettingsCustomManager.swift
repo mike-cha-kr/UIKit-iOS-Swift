@@ -9,10 +9,10 @@
 import UIKit
 import SendBirdUIKit
 
-class ChannelSettingsCustomManager: NSObject {
-    static var navigationController: UINavigationController? = nil
+class ChannelSettingsCustomManager: BaseCustomManager {
+    static var shared = ChannelSettingsCustomManager()
     
-    static func startSample(naviVC: UINavigationController, type: ChannelSettingsCustomType?) {
+    func startSample(naviVC: UINavigationController, type: ChannelSettingsCustomType?) {
         GlobalSetCustomManager.setDefault()
         
         self.navigationController = naviVC
@@ -30,26 +30,15 @@ class ChannelSettingsCustomManager: NSObject {
 
 
 extension ChannelSettingsCustomManager {
-    static func uiComponentCustom() {
+    func uiComponentCustom() {
         ChannelManager.getSampleChannel { channel in
             let channelSettingsVC = SBUChannelSettingsViewController(channel: channel)
 
             // This part changes the default titleView to a custom view.
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
-            titleLabel.text = "Custom Title"
-            titleLabel.textColor = SBUColorSet.primary500
-            HighlightManager.highlight(titleLabel)
-            channelSettingsVC.titleView = titleLabel
+            channelSettingsVC.titleView = self.createHighlightedTitleLabel()
             
             // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
-            let leftButton = UIButton(type: .custom)
-            leftButton.frame = .init(x: 0, y: 0, width: 50, height: 45)
-            leftButton.setTitle("Back", for: .normal)
-            leftButton.setTitleColor(SBUColorSet.primary300, for: .normal)
-            leftButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-            HighlightManager.highlight(leftButton)
-            let leftBarButton = UIBarButtonItem(customView: leftButton)
-            channelSettingsVC.leftBarButton = leftBarButton
+            channelSettingsVC.leftBarButton = self.createHighlightedBackButton()
             
             // This part changes the default userInfoView to a custom view.
             let userInfoView = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height:200))
@@ -65,18 +54,11 @@ extension ChannelSettingsCustomManager {
         }
     }
 
-    static func functionOverridingCustom() {
+    func functionOverridingCustom() {
         ChannelManager.getSampleChannel { channel in
             // If you inherit `SBUChannelSettingsViewController`, you can customize it by overriding some functions.
             let channelSettingsVC = ChannelSettingsVC_Overriding(channel: channel)
             self.navigationController?.pushViewController(channelSettingsVC, animated: true)
         }
-    }
-}
-
-
-extension ChannelSettingsCustomManager {
-    @objc static func onClickBack() {
-        self.navigationController?.popViewController(animated: true)
     }
 }
