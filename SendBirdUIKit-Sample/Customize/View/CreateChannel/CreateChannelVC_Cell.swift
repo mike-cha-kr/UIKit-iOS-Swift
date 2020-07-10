@@ -27,7 +27,12 @@ class CreateChannelVC_Cell: SBUCreateChannelViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         
+        let user = userList[indexPath.row]
+        
         if let cell = tableView.cellForRow(at: indexPath) as? CustomUserCell {
+            if !self.selectedUserList.contains(user) {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
             cell.selectCheck()
         }
     }

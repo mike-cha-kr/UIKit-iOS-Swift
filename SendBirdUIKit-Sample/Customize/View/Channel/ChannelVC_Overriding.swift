@@ -24,7 +24,7 @@ class ChannelVC_Overriding: SBUChannelViewController {
     }
     
     /// This function sets the cell's long tap gesture handling.
-    override func setLongTabGestureHandler(_ cell: SBUBaseMessageCell, message: SBDBaseMessage, indexPath: IndexPath) {
+    override func setLongTapGestureHandler(_ cell: SBUBaseMessageCell, message: SBDBaseMessage, indexPath: IndexPath) {
         AlertManager.showCustomInfo(#function)
     }
     
