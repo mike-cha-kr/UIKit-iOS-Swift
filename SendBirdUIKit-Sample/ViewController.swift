@@ -242,7 +242,7 @@ class ViewController: UIViewController {
     }
     
     func moveToCustomSamples() {
-        SBUTheme.set(theme: themeSwitch.isOn ? .dark : .light)
+        SBUTheme.set(theme: .light)
         let mainVC = CustomBaseViewController(style: .grouped)
         let naviVC = UINavigationController(rootViewController: mainVC)
         naviVC.modalPresentationStyle = .fullScreen
