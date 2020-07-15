@@ -89,7 +89,8 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
         GlobalSetCustomManager.setDefault()
     }
     
@@ -97,7 +98,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         if #available(iOS 12.0, *) {
-            isLightTheme = traitCollection.userInterfaceStyle == .light
+            isLightTheme = UserDefaults.loadIsLightTheme()
         }
         
         signInButton.tag    = ButtonType.signIn.rawValue
@@ -105,10 +106,14 @@ class ViewController: UIViewController {
         signOutButton.tag   = ButtonType.signOut.rawValue
         customSamplesButton.tag = ButtonType.customSamples.rawValue
         
-        [signInButton, startChatButton, signOutButton, customSamplesButton].forEach {
+        [signInButton, startChatButton, signOutButton].forEach {
             $0?.layer.cornerRadius = 4
             $0?.layer.borderColor = #colorLiteral(red: 0.4823529412, green: 0.3254901961, blue: 0.937254902, alpha: 1)
             $0?.layer.borderWidth = 1
+        }
+        
+        [customSamplesButton].forEach {
+            $0?.layer.cornerRadius = 4
         }
         
         signOutStackView.alpha = 0

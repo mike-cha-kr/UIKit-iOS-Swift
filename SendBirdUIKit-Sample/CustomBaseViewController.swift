@@ -10,11 +10,15 @@ import UIKit
 import SendBirdUIKit
 
 class CustomBaseViewController: UITableViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GlobalSetCustomManager.setDefault()
+        SBUTheme.set(theme: .light)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Custom Samples"
-        
-        self.createBackButton()
+        self.createBackButton()        
     }
     
     

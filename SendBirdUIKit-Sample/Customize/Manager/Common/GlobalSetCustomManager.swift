@@ -39,6 +39,8 @@ class GlobalSetCustomManager: NSObject {
     }
     
     static func setDefault() {
+        SBUTheme.set(theme: .light)
+        
         setDefaultGlobalColorSet()
         setDefaultGlobalFontSet()
         setDefaultGlobalIconSet()
