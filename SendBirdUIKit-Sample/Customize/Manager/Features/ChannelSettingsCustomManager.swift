@@ -13,8 +13,6 @@ class ChannelSettingsCustomManager: BaseCustomManager {
     static var shared = ChannelSettingsCustomManager()
     
     func startSample(naviVC: UINavigationController, type: ChannelSettingsCustomType?) {
-        GlobalSetCustomManager.setDefault()
-        
         self.navigationController = naviVC
         
         switch type {

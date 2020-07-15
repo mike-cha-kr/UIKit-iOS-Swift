@@ -47,6 +47,8 @@ class CustomBaseViewController: UITableViewController {
         let section = CustomSection(rawValue: indexPath.section)
         let row = indexPath.row
         
+        GlobalSetCustomManager.setDefault()
+        
         switch section {
         case .Default:
             startDefault()

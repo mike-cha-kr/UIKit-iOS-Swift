@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "iconInfoCustom.png",
       "idiom" : "universal",
-      "filename" : "iconCreateCustom.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconCreateCustom@2x.png",
+      "filename" : "iconInfoCustom@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "iconCreateCustom@3x.png",
+      "scale" : "3x",
       "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "iconInfoCustom@3x.png"
     }
   ],
   "info" : {

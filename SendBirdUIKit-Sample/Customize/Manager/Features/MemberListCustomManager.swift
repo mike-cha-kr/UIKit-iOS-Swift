@@ -13,8 +13,6 @@ class MemberListCustomManager: BaseCustomManager {
     static var shared = MemberListCustomManager()
     
     func startSample(naviVC: UINavigationController, type: MemberListCustomType?) {
-        GlobalSetCustomManager.setDefault()
-        
         self.navigationController = naviVC
         
         switch type {

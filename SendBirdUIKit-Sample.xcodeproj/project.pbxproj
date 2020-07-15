@@ -29,6 +29,7 @@
 		9CDDA31724B6F39700F77A59 /* CustomNewMessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31624B6F39700F77A59 /* CustomNewMessageInfo.swift */; };
 		9CDDA31924B714A700F77A59 /* BaseCustomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */; };
 		9CDDA31B24B720A300F77A59 /* ChannelVC_Overriding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */; };
+		9CDDA31D24BEF1A300F77A59 /* UIcolor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31C24BEF1A300F77A59 /* UIcolor+Ext.swift */; };
 		9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */; };
 		9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */; };
 		9CED4CF424AC86BB00D81B10 /* CustomBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */; };
@@ -74,6 +75,7 @@
 		9CDDA31624B6F39700F77A59 /* CustomNewMessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNewMessageInfo.swift; sourceTree = "<group>"; };
 		9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomManager.swift; sourceTree = "<group>"; };
 		9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC_Overriding.swift; sourceTree = "<group>"; };
+		9CDDA31C24BEF1A300F77A59 /* UIcolor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBaseViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */,
 				9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */,
 				9CED4D0624ADA66200D81B10 /* UserDefaults+Ext.swift */,
+				9CDDA31C24BEF1A300F77A59 /* UIcolor+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -335,7 +338,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "SendBird, Inc";
 				TargetAttributes = {
 					9C777D56241B9022006FFE25 = {
@@ -443,6 +446,7 @@
 				9CED4D1324ADE41200D81B10 /* ChannelSettingsCustomManager.swift in Sources */,
 				9CED4D0524ADA20B00D81B10 /* GlobalSetCustomManager.swift in Sources */,
 				9CED4D0B24ADE36100D81B10 /* ChannelListVC_Overriding.swift in Sources */,
+				9CDDA31D24BEF1A300F77A59 /* UIcolor+Ext.swift in Sources */,
 				9CED4D1524ADE41B00D81B10 /* CreateChannelCustomManager.swift in Sources */,
 				9CDDA31B24B720A300F77A59 /* ChannelVC_Overriding.swift in Sources */,
 				9CED4D1C24ADE69900D81B10 /* CustomChannelListCell.swift in Sources */,

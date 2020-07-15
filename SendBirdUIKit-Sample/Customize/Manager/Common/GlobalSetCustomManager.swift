@@ -11,8 +11,6 @@ import SendBirdUIKit
 
 class GlobalSetCustomManager: NSObject {
     static func startSample(naviVC: UINavigationController, type: GlobalCustomType?) {
-        setDefault()
-        
         var isThemeChanged = false
         
         switch type {
@@ -54,33 +52,38 @@ class GlobalSetCustomManager: NSObject {
 extension GlobalSetCustomManager {
     /// This is an example of customizing the global color set. You can change the required values ​​one by one.
     static func setCustomGlobalColorSet() {
-        let customColor = UIColor.red
-        SBUColorSet.primary100 = customColor.withAlphaComponent(20)
-        SBUColorSet.primary200 = customColor.withAlphaComponent(40)
-        SBUColorSet.primary300 = customColor.withAlphaComponent(60)
-        SBUColorSet.primary400 = customColor.withAlphaComponent(80)
-        SBUColorSet.primary500 = customColor
+        SBUColorSet.primary100 = UIColor(hex: "#006BBD")
+        SBUColorSet.primary200 = UIColor(hex: "#007CDB")
+        SBUColorSet.primary300 = UIColor(hex: "#0091FF")
+        SBUColorSet.primary400 = UIColor(hex: "#35A8FF")
+        SBUColorSet.primary500 = UIColor(hex: "#85CAFF")
     }
 
     /// This is an example of customizing the global font set. You can change the required values ​​one by one.
     static func setCustomGlobalFontSet() {
-        SBUFontSet.h1 = UIFont.init(name: "Copperplate-Light", size: 20.0) ?? UIFont()
-        SBUFontSet.h2 = UIFont.init(name: "Copperplate-Bold", size: 18.0) ?? UIFont()
-        SBUFontSet.body1 = UIFont.init(name: "Copperplate-Light", size: 16.0) ?? UIFont()
-        SBUFontSet.body2 = UIFont.init(name: "Copperplate-Light", size: 16.0) ?? UIFont()
-        SBUFontSet.button1 = UIFont.init(name: "Copperplate", size: 22.0) ?? UIFont()
-        SBUFontSet.button2 = UIFont.init(name: "Copperplate-Light", size: 18.0) ?? UIFont()
-        SBUFontSet.button3 = UIFont.init(name: "Copperplate-Light", size: 16.0) ?? UIFont()
-        SBUFontSet.caption1 = UIFont.init(name: "Copperplate", size: 14.0) ?? UIFont()
-        SBUFontSet.caption2 = UIFont.init(name: "Copperplate-Light", size: 14.0) ?? UIFont()
-        SBUFontSet.caption3 = UIFont.init(name: "Copperplate-Light", size: 13.0) ?? UIFont()
-        SBUFontSet.subtitle1 = UIFont.init(name: "Copperplate-Light", size: 18.0) ?? UIFont()
-        SBUFontSet.subtitle2 = UIFont.init(name: "Copperplate-Light", size: 18.0) ?? UIFont()
+        SBUFontSet.h1 = UIFont.init(name: "AmericanTypewriter-Medium", size: 18.0) ?? UIFont()
+        SBUFontSet.h2 = UIFont.init(name: "AmericanTypewriter-Bold", size: 16.0) ?? UIFont()
+        SBUFontSet.subtitle1 = UIFont.init(name: "AmericanTypewriter", size: 16.0) ?? UIFont()
+        SBUFontSet.subtitle2 = UIFont.init(name: "AmericanTypewriter", size: 14.0) ?? UIFont()
+        SBUFontSet.body1 = UIFont.init(name: "AmericanTypewriter", size: 14.0) ?? UIFont()
+        SBUFontSet.body2 = UIFont.init(name: "AmericanTypewriter", size: 14.0) ?? UIFont()
+        SBUFontSet.button1 = UIFont.init(name: "AmericanTypewriter-Semibold", size: 20.0) ?? UIFont()
+        SBUFontSet.button2 = UIFont.init(name: "AmericanTypewriter", size: 16.0) ?? UIFont()
+        SBUFontSet.button3 = UIFont.init(name: "AmericanTypewriter", size: 14.0) ?? UIFont()
+        SBUFontSet.caption1 = UIFont.init(name: "AmericanTypewriter-Bold", size: 12.0) ?? UIFont()
+        SBUFontSet.caption2 = UIFont.init(name: "AmericanTypewriter", size: 12.0) ?? UIFont()
+        SBUFontSet.caption3 = UIFont.init(name: "AmericanTypewriter", size: 11.0) ?? UIFont()
     }
     
     /// This is an example of customizing the global icon set. You can change the required values ​​one by one.
     static func setCustomGlobalIconSet() {
         SBUIconSet.iconCreate = UIImage(named: "iconCreateCustom")!
+        SBUIconSet.iconInfo = UIImage(named: "iconInfoCustom")!
+        SBUIconSet.iconAdd = UIImage(named: "iconAddCustom")!
+        SBUIconSet.iconSend = UIImage(named: "iconSendCustom")!
+        SBUIconSet.iconNotifications = UIImage(named: "iconNotificationsCustom")!
+        SBUIconSet.iconMembers = UIImage(named: "iconMembersCustom")!
+        SBUIconSet.iconPlus = UIImage(named: "iconAddMemberCustom")!
     }
     
     /// This is an example of customizing the global string set. You can change the required values ​​one by one.
@@ -92,38 +95,31 @@ extension GlobalSetCustomManager {
     
     /// This is an example of customizing the global theme.
     static func setCustomGlobalTheme() {
+        // This is a sample to change the theme of the channel list.
+        
+        let customBaseColor = UIColor(hex: "#0091FF")
+        
         let channelListTheme = SBUChannelListTheme()
-        channelListTheme.leftBarButtonTintColor = SBUColorSet.secondary300
-        channelListTheme.rightBarButtonTintColor = SBUColorSet.secondary300
-        channelListTheme.notificationOnBackgroundColor = SBUColorSet.secondary300
+        channelListTheme.leftBarButtonTintColor = customBaseColor
+        channelListTheme.rightBarButtonTintColor = customBaseColor
+        channelListTheme.notificationOnBackgroundColor = customBaseColor
         // ... In this way, you can add theme attributes.
         
         let channelCellTheme = SBUChannelCellTheme()
-        channelCellTheme.unreadCountBackgroundColor = SBUColorSet.secondary300
+        channelCellTheme.unreadCountBackgroundColor = UIColor(hex: "#E53157")
+        channelCellTheme.titleFont = UIFont.init(name: "AmericanTypewriter", size: 16.0) ?? UIFont()
+        channelCellTheme.memberCountFont = UIFont.init(name: "AmericanTypewriter-Bold", size: 12.0) ?? UIFont()
+        channelCellTheme.lastUpdatedTimeFont = UIFont.init(name: "AmericanTypewriter", size: 12.0) ?? UIFont()
+        channelCellTheme.messageFont = UIFont.init(name: "AmericanTypewriter", size: 14.0) ?? UIFont()
+        // ... In this way, you can add theme attributes.
         
-        let channelTheme = SBUChannelTheme()
-        channelTheme.leftBarButtonTintColor = SBUColorSet.secondary300
-        channelTheme.rightBarButtonTintColor = SBUColorSet.secondary300
-        channelTheme.cancelItemColor = SBUColorSet.secondary300
-        channelTheme.alertCancelColor = SBUColorSet.secondary300
-        
-        let messageInputTheme = SBUMessageInputTheme()
-        messageInputTheme.textFieldTintColor = SBUColorSet.secondary300
-        messageInputTheme.buttonTintColor = SBUColorSet.secondary300
-        
-        let messageCellTheme = SBUMessageCellTheme()
-        messageCellTheme.leftPressedBackgroundColor = SBUColorSet.secondary100
-        messageCellTheme.rightBackgroundColor = SBUColorSet.secondary300
-        messageCellTheme.rightPressedBackgroundColor = SBUColorSet.secondary400
-        messageCellTheme.pendingStateColor = SBUColorSet.secondary300
-        messageCellTheme.readReceiptStateColor = SBUColorSet.primary300
-        messageCellTheme.fileIconColor = SBUColorSet.secondary300
+        let componentTheme = SBUComponentTheme()
+        componentTheme.titleFont = UIFont.init(name: "AmericanTypewriter-Bold", size: 16.0) ?? UIFont()
+        // ... In this way, you can add theme attributes.
         
         let customTheme = SBUTheme(channelListTheme: channelListTheme,
                                    channelCellTheme: channelCellTheme,
-                                   channelTheme: channelTheme,
-                                   messageInputTheme: messageInputTheme,
-                                   messageCellTheme: messageCellTheme)
+                                   componentTheme: componentTheme)
         SBUTheme.set(theme: customTheme)
     }
 }
@@ -144,6 +140,8 @@ extension GlobalSetCustomManager {
     static func setDefaultGlobalFontSet() {
         SBUFontSet.h1 = UIFont.systemFont(ofSize: 18.0, weight: .medium)
         SBUFontSet.h2 = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        SBUFontSet.subtitle1 = UIFont.systemFont(ofSize: 16.0, weight: .medium)
+        SBUFontSet.subtitle2 = UIFont.systemFont(ofSize: 16.0, weight: .regular)
         SBUFontSet.body1 = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         SBUFontSet.body2 = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         SBUFontSet.button1 = UIFont.systemFont(ofSize: 20.0, weight: .semibold)
@@ -152,13 +150,17 @@ extension GlobalSetCustomManager {
         SBUFontSet.caption1 = UIFont.systemFont(ofSize: 12.0, weight: .bold)
         SBUFontSet.caption2 = UIFont.systemFont(ofSize: 12.0, weight: .regular)
         SBUFontSet.caption3 = UIFont.systemFont(ofSize: 11.0, weight: .regular)
-        SBUFontSet.subtitle1 = UIFont.systemFont(ofSize: 16.0, weight: .medium)
-        SBUFontSet.subtitle2 = UIFont.systemFont(ofSize: 16.0, weight: .regular)
     }
     
     /// This is an function of changing the global icon set to default.
     static func setDefaultGlobalIconSet() {
         SBUIconSet.iconCreate = UIImage(named: "iconCreate")!
+        SBUIconSet.iconInfo = UIImage(named: "iconInfo")!
+        SBUIconSet.iconAdd = UIImage(named: "iconAdd")!
+        SBUIconSet.iconSend = UIImage(named: "iconSend")!
+        SBUIconSet.iconNotifications = UIImage(named: "iconNotifications")!
+        SBUIconSet.iconMembers = UIImage(named: "iconMembers")!
+        SBUIconSet.iconPlus = UIImage(named: "iconPlus")!
     }
     
     /// This is an function of changing the global string set to default.

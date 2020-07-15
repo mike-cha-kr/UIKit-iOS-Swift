@@ -13,8 +13,6 @@ class InviteUserCustomManager: BaseCustomManager {
     static var shared = InviteUserCustomManager()
     
     func startSample(naviVC: UINavigationController, type: InviteUserCustomType?) {
-        GlobalSetCustomManager.setDefault()
-        
         self.navigationController = naviVC
         
         switch type {

@@ -19,10 +19,7 @@ class CustomNewMessageInfo: SBUNewMessageInfo {
     
     /// This function handles the initialization of styles.
     open override func setupStyles() {
-//        self.messageInfoButton?.setImage(SBUIconSet.iconChevronDown.with(tintColor: SBUColorSet.secondary300), for: .normal)
         self.messageInfoButton?.setTitleColor(SBUColorSet.secondary500, for: .normal)
-//        self.messageInfoButton?.setBackgroundImage(UIImage.from(color: theme.newMessageBackground), for: .normal)
-//        self.messageInfoButton?.setBackgroundImage(UIImage.from(color: theme.newMessageHighlighted), for: .highlighted)
     }
     
     // MARK: - Common

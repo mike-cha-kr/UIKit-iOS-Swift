@@ -86,6 +86,13 @@ class ViewController: UIViewController {
     
     
     // MARK: - Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        GlobalSetCustomManager.setDefault()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
