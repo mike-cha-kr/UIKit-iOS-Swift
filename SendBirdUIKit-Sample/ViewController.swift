@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startChatButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var customSamplesButton: UIButton!
+    @IBOutlet weak var separatorLine: UIView!
     
     @IBOutlet weak var versionLabel: UILabel!
 
@@ -81,6 +82,8 @@ class ViewController: UIViewController {
             UIView.transition(with: customSamplesButton, duration: duration, options: .transitionCrossDissolve, animations: {
                 self.customSamplesButton.setTitleColor(color, for: .normal)
             })
+            
+            self.separatorLine.backgroundColor = isLightTheme ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.12) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.12)
         }
     }
     
