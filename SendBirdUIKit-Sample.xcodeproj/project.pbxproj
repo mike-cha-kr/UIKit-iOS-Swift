@@ -119,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				9CED4D1E24AF02D800D81B10 /* SampleManager.swift */,
-				9CED4D0424ADA20B00D81B10 /* GlobalSetCustomManager.swift */,
 				9C56414B24AF29C00057B529 /* CustomSampleEnums.swift */,
 				9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */,
 			);
@@ -129,6 +128,7 @@
 		9C32648B24B42FDD000F8313 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				9CED4D0424ADA20B00D81B10 /* GlobalSetCustomManager.swift */,
 				9CED4D0E24ADE3F800D81B10 /* ChannelListCustomManager.swift */,
 				9CED4D1024ADE40700D81B10 /* ChannelCustomManager.swift */,
 				9CED4D1224ADE41200D81B10 /* ChannelSettingsCustomManager.swift */,
@@ -283,8 +283,8 @@
 		9CED4D2424AF0DF500D81B10 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				9C32648A24B42FA4000F8313 /* Common */,
 				9C32648B24B42FDD000F8313 /* Features */,
+				9C32648A24B42FA4000F8313 /* Common */,
 			);
 			path = Manager;
 			sourceTree = "<group>";

@@ -44,7 +44,7 @@ extension ChannelSettingsCustomManager {
             userInfoView.textAlignment = .center
             userInfoView.text = "Custom UserInfo"
             userInfoView.textColor = SBUColorSet.secondary500
-            HighlightManager.highlight(userInfoView)
+            userInfoView.highlight()
             channelSettingsVC.userInfoView = userInfoView
             
             // Move to ChannelSettingsViewController using customized components

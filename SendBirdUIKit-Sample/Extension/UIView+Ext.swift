@@ -25,4 +25,15 @@ extension UIView {
         animation.values = [-10.0, 10.0, -5.0, 5.0, -2.5, 2.5, 0.0 ].map { $0 * 0.7 }
         layer.add(animation, forKey: "shake")
     }
+    
+    func highlight() {
+        UIView.highlight(self)
+    }
+    
+    static func highlight(_ view: UIView) {
+        view.layer.cornerRadius = 5
+        view.layer.borderColor = UIColor.red.cgColor
+        view.layer.borderWidth = 2
+        for v in view.subviews { highlight(v) }
+    }
 }

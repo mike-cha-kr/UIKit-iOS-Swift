@@ -48,13 +48,3 @@ class ChannelManager: NSObject {
         })
     }
 }
-
-// This function handles view to be highlighted in the sample app.
-class HighlightManager: NSObject {
-    static func highlight(_ view: UIView) {
-        view.layer.cornerRadius = 5
-        view.layer.borderColor = UIColor.red.cgColor
-        view.layer.borderWidth = 2
-        for v in view.subviews { highlight(v) }
-    }
-}

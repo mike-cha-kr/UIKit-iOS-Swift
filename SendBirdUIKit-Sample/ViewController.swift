@@ -52,6 +52,7 @@ class ViewController: UIViewController {
                 self.signOutStackView.alpha = !self.isSignedIn ? 0 : 1
                 self.signOutStackView.isHidden = !self.isSignedIn
             })
+            self.view.endEditing(true)
         }
     }
     

@@ -50,7 +50,7 @@ extension ChannelCustomManager {
                         
             // This part changes the default emptyView to a custom emptyView.
             let emptyView = CustomEmptyView()
-            HighlightManager.highlight(emptyView)
+            emptyView.highlight()
             channelVC.emptyView = emptyView
             
             // Move to ChannelViewController using customized components

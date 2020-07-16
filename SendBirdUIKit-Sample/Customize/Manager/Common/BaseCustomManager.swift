@@ -13,7 +13,8 @@ class BaseCustomManager: NSObject {
     var navigationController: UINavigationController? = nil
 }
 
-// Create views
+
+// MARK: - Sample view generator
 extension BaseCustomManager {
     func createHighlightedBackButton() -> UIBarButtonItem {
         let backButton = UIButton(type: .custom)
@@ -21,7 +22,7 @@ extension BaseCustomManager {
         backButton.setTitle("Back", for: .normal)
         backButton.setTitleColor(SBUColorSet.primary300, for: .normal)
         backButton.addTarget(self, action: #selector(onClickBack), for: .touchUpInside)
-        HighlightManager.highlight(backButton)
+        backButton.highlight()
         let backBarButton = UIBarButtonItem(customView: backButton)
         return backBarButton
     }
@@ -30,13 +31,12 @@ extension BaseCustomManager {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
         titleLabel.text = "Custom Title"
         titleLabel.textColor = SBUColorSet.primary500
-        HighlightManager.highlight(titleLabel)
+        titleLabel.highlight()
         return titleLabel
     }
 }
 
-
-// Action
+// MARK: - Action
 extension BaseCustomManager {
     @objc func onClickBack() {
         self.navigationController?.popViewController(animated: true)

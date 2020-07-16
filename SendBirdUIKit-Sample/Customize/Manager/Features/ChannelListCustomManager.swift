@@ -33,6 +33,7 @@ class ChannelListCustomManager: BaseCustomManager {
 
 extension ChannelListCustomManager {
     func uiComponentCustom() {
+        // This is an example of modifying some ui elements. (The customized part is marked with a red border)
         let channelListVC = SBUChannelListViewController()
         
         // This part changes the default titleView to a custom view.
@@ -43,7 +44,7 @@ extension ChannelListCustomManager {
         
         // This part changes the default emptyView to a custom emptyView.
         let emptyView = CustomEmptyView()
-        HighlightManager.highlight(emptyView)
+        emptyView.highlight()
         channelListVC.emptyView = emptyView
         
         // Move to ChannelListViewController using customized components
