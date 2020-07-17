@@ -16,7 +16,7 @@ $ pod install
 $ pod update 
 ```
 
-> __Note__: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. The minimum requirement of the Chat SDK for iOS is 3.0.179 or higher.
+> __Note__: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. The minimum requirement of the Chat SDK for iOS is 3.0.190 or higher.
 
 
 #### Unknown attribute error handling
