@@ -63,7 +63,7 @@ extension InviteUserCustomManager {
             guard error == nil else { return }
             
             // This is a user list object used for testing.
-            guard let users = SBUUserManager.convertUserList(users: users) else { return }
+            guard let users = users?.sbu_convertUserList() else { return }
             
             ChannelManager.getSampleChannel { channel in
                 // If you use a list of users who have internally generated relationship data, you can use it as follows:
