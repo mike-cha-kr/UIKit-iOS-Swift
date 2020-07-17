@@ -54,7 +54,7 @@ extension CreateChannelVC_UserList {
     func customCreateChannelAction() {
         // The createChannel(userIds:) function allows you to use user list objects that you manage yourself.
         let users: [SBUUser] = [] // Include a list of users you have created here.
-        let userIds = SBUUserManager.getUserIds(users: users)
+        let userIds = users.sbu_getUserIds()
         self.createChannel(userIds: userIds)
     }
 }
@@ -69,7 +69,7 @@ extension CreateChannelVC_UserList {
             guard error == nil else { return }
             
             // This is a user list object used for testing.
-            guard let users = SBUUserManager.convertUserList(users: users) else { return }
+            guard let users = users?.sbu_convertUserList() else { return }
             self.dummyUserList = users
             completionHandler()
         })
