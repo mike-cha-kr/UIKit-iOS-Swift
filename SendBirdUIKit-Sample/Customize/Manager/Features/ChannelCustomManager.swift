@@ -45,11 +45,19 @@ extension ChannelCustomManager {
             channelVC.leftBarButton = self.createHighlightedBackButton()
             
             // This part changes the messageInfoButton of newMessageInfoView.
+            #if swift(>=5.2)
             let newMessageInfoView = CustomNewMessageInfo()
+            #else
+            let newMessageInfoView = CustomNewMessageInfo(frame: .zero)
+            #endif
             channelVC.newMessageInfoView = newMessageInfoView
                         
             // This part changes the default emptyView to a custom emptyView.
+            #if swift(>=5.2)
             let emptyView = CustomEmptyView()
+            #else
+            let emptyView = CustomEmptyView(frame: .zero)
+            #endif
             emptyView.highlight()
             channelVC.emptyView = emptyView
             
@@ -88,7 +96,11 @@ extension ChannelCustomManager {
             let channelVC = ChannelVC_MessageParam(channel: channel)
             
             // This part changes the default user message cell to a custom cell.
+            #if swift(>=5.2)
             channelVC.register(userMessageCell: CustomUserMessageCell())
+            #else
+            channelVC.register(userMessageCell: CustomUserMessageCell(style: .default, reuseIdentifier: CustomUserMessageCell.sbu_className))
+            #endif
             
             // Move to ChannelViewController using customized components
             self.navigationController?.pushViewController(channelVC, animated: true)

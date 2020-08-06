@@ -43,7 +43,11 @@ extension ChannelListCustomManager {
         channelListVC.leftBarButton = self.createHighlightedBackButton()
         
         // This part changes the default emptyView to a custom emptyView.
+        #if swift(>=5.2)
         let emptyView = CustomEmptyView()
+        #else
+        let emptyView = CustomEmptyView(frame: .zero)
+        #endif
         emptyView.highlight()
         channelListVC.emptyView = emptyView
         
@@ -55,7 +59,11 @@ extension ChannelListCustomManager {
         let channelListVC = SBUChannelListViewController()
         
         // This part changes the default channel cell to a custom cell.
+        #if swift(>=5.2)
         channelListVC.register(channelCell: CustomChannelListCell())
+        #else
+        channelListVC.register(channelCell: CustomChannelListCell(style: .default, reuseIdentifier: CustomChannelListCell.sbu_className))
+        #endif
         
         self.navigationController?.pushViewController(channelListVC, animated: true)
     }
