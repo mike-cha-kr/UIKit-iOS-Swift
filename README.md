@@ -134,7 +134,7 @@ fi
 ## UIKit features and ways to customize 
 
 Here is an overview of a list of items you can use to customize the UIKit. 
-To find these items, sign in to the sample app. Click on the **Custom samples** button to see the custom sample screen on which you will find the `/Customize` folder that contains code used for customization.
+To find these items, sign in to the sample app. Click on the **Custom Samples** button to see the custom sample screen on which you will find the `/Customize` folder that contains code used for customization.
 
 | Category | Item | Desctription |
 | :---: | :--- | :--- |
