@@ -138,7 +138,7 @@ To find these items, sign in to the sample app. Click on the **Custom Samples** 
 
 | Category | Item | Desctription |
 | :---: | :--- | :--- |
-| Global <td rowspan=5>| ColorSet |A singleton that manages primary colors in global color set |
+| Global <td colspan=5>| ColorSet |A singleton that manages primary colors in global color set |
 | | FontSet |A singleton that manages all fonts in global font set|
 | | IconSet | A singleton that manages bar buttons in global icon set |
 | | StringSet |A singleton that manages header titles in global string set |
