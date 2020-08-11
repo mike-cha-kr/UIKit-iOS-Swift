@@ -33,6 +33,8 @@ The minimum requirements for UIKit for iOS are:
 
 If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://docs.sendbird.com/ios/quick_start#3_install_and_configure_the_chat_sdk_4_step_1_create_a_sendbird_application_from_your_dashboard). This will allow you to experience the sample app with data from your Sendbird application. 
 
+<br />
+
 ## Getting started
 
 This section explains the steps you need to take before testing the sample app.
