@@ -1,43 +1,124 @@
-# SendBird-UIKit-iOS-Swift-Sample
+# Sendbird UIKit for iOS sample
+![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)
+![Languages](https://img.shields.io/badge/language-Swift-orange.svg)
 
-## Install UIKit
+## Introduction
+
+Sendbird UIKit for iOS is a development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps. Here is a UIKit sample for iOS in the submodule which you can download and test basic chat features and various customization. 
+
+- **SendBirdUIKit-Sample** is a chat app which contains custom sample code for various key features written in Swift. 
+
+### Sendbird UIKIT for iOS doc
+
+Find out more about Sendbird UIKit for iOS at [UIKit for iOS doc](https://docs.sendbird.com/ios/ui_kit_getting_started).
+
+<br />
+
+## Before getting started
+
+This section shows you the prerequisites you need for testing Sendbird UIKit for iOS sample app.
+
+### Requirements
+
+The minimum requirements for UIKit for iOS are:
+
+- iOS 10.3 or later
+- Swift 4.2 or later / Objective-C
+- Chat SDK for iOS is 3.0.190 or later
+
+> Note: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. 
+
+### Try the sample app applied with your data 
+
+If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://docs.sendbird.com/ios/quick_start#3_install_and_configure_the_chat_sdk_4_step_1_create_a_sendbird_application_from_your_dashboard). This will allow you to experience the sample app with data from your Sendbird application. 
+
+<br />
+
+## Getting started
+
+This section explains the steps you need to take before testing the sample app.
+
+### Create a project
+
+Create a project to get started. Sendbird UIKit supports both `Objective-C` and `Swift`, so you can create and work on a project in the language you want to develop with.
+
+### Install UIKit for iOS
+
+You can install UIKit for iOS through either `CocoaPods` or `Carthage`. 
 
 #### CocoaPods
 
-1. Install the `SendBirdUIKit` framework through `CocoaPods`.
+1. Add `SendBirdUIKit` into your `Podfile`in Xcode as below:
+
+```bash
+platform :ios, '10.3' 
+use_frameworks! 
+
+target YOUR_PROJECT_TARGET do
+    pod 'SendBirdUIKit'
+end
+```
+
+2. Install the `SendBirdUIKit` framework through `CocoaPods`.
 
 ```bash
 $ pod install
 ```
 
-2. Update the `SendBirdUIKit` framework through `CocoaPods`.
+3. Update the `SendBirdUIKit` framework through `CocoaPods`.
 
 ```bash
 $ pod update 
 ```
 
-> __Note__: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. The minimum requirement of the Chat SDK for iOS is 3.0.190 or higher.
+> __Note__: Sendbird UIKit for iOS is `Sendbird Chat SDK-dependent`. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. The minimum requirement of the Chat SDK for iOS is 3.0.190 or later. 
 
+#### Carthage
+
+1.Add `SendBirdUIKit`and `SendBirdSDK`into your `Cartfile`as below:
+
+> __Note__: Sendbird UIKit for iOS is `Sendbird Chat SDK-dependent`. The minimum requirement of the Chat SDK for iOS is 3.0.190 or later. 
+
+```bash
+github "sendbird/sendbird-uikit-ios"
+github "sendbird/sendbird-ios-framework" == 3.0.190
+```
+
+2. Install the `SendBirdUIKit` framework through `Carthage`.
+
+```bash
+$ cartage update
+```
+
+3. Go to your Xcode project target’s **General settings** tab in the `Frameworks and Libraries` section. Then drag and drop on the disk each framework from the `<YOUR_XCODE_PROJECT_DIRECTORY>/Carthage/Build/iOS` folder.
+4. Go to your Xcode project target’s **Build Phases settings** tab, click the **+** icon, and choose **New Run Script Phase**. Create a `Run Script`, specify your shell (ex: /bin/sh), and add `/usr/local/bin/carthage copy-frameworks` to the script below the shell.
+5. Add the following paths to the `SendBirdUIKit` and `SendBirdSDK` frameworks under `Input Files`.
+
+```bash
+$(SRCROOT)/Carthage/Build/iOS/SendBirdUIKit.framework
+$(SRCROOT)/Carthage/Build/iOS/SendBirdSDK.framework
+```
+
+> __Note__: Building or creating the `SendbirdUIKit` framework with `Carthage` can only be done using the latest `Swift`. If your `Swift` is not the most recent version, the framework should be copied into your project manually.
 
 #### Handling errors caused by unknown attributes
 
-If you are building your project with Xcode 11.3 or earlier versions, the following 2 errors may occur.
+If you are building with Xcode 11.3 or earlier version, you may face two following errors caused by Swift's new annotation processing applied on `Swift 5.2` which is used in Xcode 11.4.
 
 ```bash
 - Unknown attribute ‘_inheritsConvenienceInitializers’
 - Unknown attribute ‘_hasMissingDesignatedInitializers’
 ```
 
-This is because of the 2 new annotation processing methods rolled out in `Swift 5.2`, which is used in Xcode 11.5. As they don’t apply to Xcode 11.3 and earlier versions that use `Swift 5.1`, such errors will occur in the `swiftinterface` that is automatically generated in UIKit.
-
-When those errors happen, refer to the following steps to remove the new annotations that cause trouble in the `swiftinterface`. Once they are removed, UIKit will work properly.
+When these errors happen, follow the steps below which remove the annotations by executing the necessary script in the build steps in advance. 
 
 1. Open the **Edit scheme** menu of the project target.
 ![EditScheme](https://static.sendbird.com/docs/ios/ui-kit-getting-started-handling-errors-01_20200623.png)
 2. Go to **Build** > **Pre-actions** and select the **New Run Script Action** option at the bottom.
 ![NewRunScriptAction](https://static.sendbird.com/docs/ios/ui-kit-getting-started-handling-errors-02_20200623.png)
-3. Add the script below to the editor and select the target to apply the script to.
+3. Add the script below. Select the target to apply the script.
 ![ApplyScript](https://static.sendbird.com/docs/ios/ui-kit-getting-started-handling-errors-03_20200623.png)
+
 ```bash
 # CocoaPods
 if [ -d "${PROJECT_DIR}/Pods/SendBirdUIKit" ]; then
@@ -51,44 +132,39 @@ if [ -d "${PROJECT_DIR}/Carthage/Build/iOS/SendBirdUIKit.framework" ]; then
     find ${PROJECT_DIR}/Carthage/Build/iOS/SendBirdUIKit.framework/Modules/SendBirdUIKit.swiftmodule/ -type f -name '*.swiftinterface' -exec sed -i '' s/'@_hasMissingDesignatedInitializers '// {} +
 fi
 ```
-4. Once removed, you can continue building your project.
+4. Try to build and run
 
+<br />
 
+## UIKit features and ways to customize 
 
+Here is an overview of a list of items you can use to customize the UIKit. 
+To find these items, sign in to the sample app. Click on the **Custom Samples** button to see the custom sample screen on which you will find the `/Customize` folder that contains code used for customization.
 
----
-
-
-## Customization sample
-
-After signing-in on the sample app, you can enter the custom sample screen through the **Custom Samples** button. And, you can check the sample for Customization in the code and app.
-
-Customization-related code is implemented in the `/Customize` folder. And, the sample consists of the following:
-
-| Feature | Items | Desctription |
+| Category | Item | Desctription |
 | :---: | :--- | :--- |
-| Global | ColorSet | Sample of customizing the global color set (Primary colors) |
-|  | FontSet | Sample of customizing the global font set (All fonts) |
-|  | IconSet | Sample of customizing the global icon set (Barbuttons |
-|  | StringSet | Sample of customizing the global string set (Header titles) |
-|  | Theme | Sample of customizing the global theme (ChannelListTheme only) |
-| ChannelList| UI Component | Sample of modifying some ui elements<br> (The customized part is marked with a red border) |
-| | Custom Cell | Sample of changing default channel cells to custom cells |
-| | ChannelListQuery | Sample of displaying empty channels and frozen channels using `SBDGroupChannelListQuery` |
-| | Function Overriding | Sample that inherits and customizes `SBUChannelListViewController` class |
-|Channel | UI Component | Sample of modifying some ui elements<br> (The customized part is marked with a red border) |
-| | Custom Cell | Sample of changing default message cells to custom cells |
-| | MessageListParams | Sample of using `SBDMessageListParams` to add specific attributes to call up a message list |
-| | MessageParams | Sample sending and displaying messages by adding specific attributes using `SBUUserMessageParams` |
-| | Function Overriding | Sample that inherits and customizes `SBUChannelViewController` class |
-|Channel Settings | UI Component | Sample of modifying some ui elements<br> (The customized part is marked with a red border) |
-| | Function Overriding | Sample that inherits and customizes `SBUChannelSettingsViewController` class |
-|Create Channel | UI Component | Sample of modifying some ui elements<br> (The customized part is marked with a red border) |
-| | Custom Cell | Sample of changing default user cells to custom cells |
-| | User list | Sample of using own UserList |
-|Invite User | UI Component | Sample of modifying some ui elements<br> (The customized part is marked with a red border) |
-| | Custom Cell | Sample of changing default user cells to custom cells |
-| | User list | Sample of using own UserList |
-|Member List | UI Component | Sample of modifying some ui elements<br> (The customized part is marked with a red border) |
-| | Custom Cell | Sample of changing default user cells to custom cells |
-| | Function Overriding | Sample that inherits and customizes `SBUMemberListViewController` class |
+| Global| ColorSet |A singleton that manages primary colors in global color set |
+| | FontSet |A singleton that manages all fonts in global font set|
+| | IconSet | A singleton that manages bar buttons in global icon set |
+| | StringSet |A singleton that manages header titles in global string set |
+| | Theme | A singleton that manages **ChannelListTheme** in global theme |
+| ChannelList| UI Component | A component that customizes certain UI elements and mark them with red borders |
+| | Custom Cell | A component that changes default channel cells to custom cells |
+| | ChannelListQuery | A `SBDGroupChannelListQuery` instance that displays empty channels and frozen channels |
+| | Function Overriding | A function that inherits the `SBUChannelListViewController` class and customizes a selection of its functions |
+|Channel | UI Component | A component that customizes certain UI elements and mark them with red borders |
+| | Custom Cell | A component that changes default channel cells to custom cells |
+| | MessageListParams | A `SBDMessageListParams` object that uses specific attributes to retrieve a list of messages  |
+| | MessageParams | A `SBUUserMessageParams` that uses specific attributes to send and display messages  |
+| | Function Overriding | A function that inherits the `SBUChannelViewController` class and customizes a selection of its functions |
+|Channel Settings | UI Component | A component that customizes certain UI elements and mark them with red borders |
+| | Function Overriding | A function that inherits the `SBUChannelSettingsViewController` class and customizes a selection of its functions |
+|Create Channel | UI Component |A component that customizes certain UI elements and mark them with red borders |
+| | Custom Cell | A component that changes default channel cells to custom cells |
+| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list  |
+|Invite User | UI Component | A component that customizes certain UI elements and mark them with red borders |
+| | Custom Cell | A component that changes default channel cells to custom cells |
+| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list |
+|Member List | UI Component | A component that customizes certain UI elements and mark them with red borders |
+| | Custom Cell | A component that changes default channel cells to custom cells |
+| | Function Overriding | A function that inherits the `SBUMemberListViewController` class and customizes a selection of its functions. |
