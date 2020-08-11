@@ -1,6 +1,6 @@
 # Sendbird UIKit for iOS sample
 ![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)
-![Languages](https://img.shields.io/badge/language-Objective--C-orange.svg)
+![Languages](https://img.shields.io/badge/language-Swift-orange.svg)
 
 ## Introduction
 
@@ -25,7 +25,7 @@ The minimum requirements for UIKit for iOS are:
 - iOS 10.3 or later
 - Swift 4.2 or later / Objective-C
 - Chat SDK for iOS is 3.0.190 or later
-- Xcode 11.5 or later recommended  
+- Xcode 11.4 or later recommended  
 
 > Note: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. 
 
@@ -104,7 +104,7 @@ $(SRCROOT)/Carthage/Build/iOS/SendBirdSDK.framework
 
 #### Handling errors caused by unknown attributes
 
-If you are building with Xcode 11.3 or earlier version, you may face two following errors caused by Swift's new annotation processing applied on `Swift 5.2` which is used in Xcode 11.5.
+If you are building with Xcode 11.3 or earlier version, you may face two following errors caused by Swift's new annotation processing applied on `Swift 5.2` which is used in Xcode 11.4.
 
 ```bash
 - Unknown attribute ‘_inheritsConvenienceInitializers’
