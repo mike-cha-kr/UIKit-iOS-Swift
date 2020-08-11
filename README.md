@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Sendbird UIKit for iOS is a development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps. Here is a UIKit sample for iOS in the submodule which you can download and test various customization. 
+Sendbird UIKit for iOS is a development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps. Here is a UIKit sample for iOS in the submodule which you can download and test basic chat features and various customization. 
 
 - **SendBirdUIKit-Sample** is a chat app which contains custom sample code for various key features written in Swift. 
 
