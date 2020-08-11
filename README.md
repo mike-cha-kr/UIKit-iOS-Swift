@@ -1,6 +1,6 @@
 # Sendbird UIKit for iOS sample
 ![Platform](https://img.shields.io/badge/platform-iOS-orange.svg)
-![Languages](https://img.shields.io/badge/language-Swift-orange.svg)
+![Languages](https://img.shields.io/badge/language-Objective--C%20%7C%20Swift-orange.svg)
 
 ## Introduction
 
@@ -12,8 +12,6 @@ Sendbird UIKit for iOS is a development kit with an user interface that enables 
 
 Find out more about Sendbird UIKit for iOS at [UIKit for iOS doc](https://docs.sendbird.com/ios/ui_kit_getting_started).
 
-<br />
-
 ## Before getting started
 
 This section shows you the prerequisites you need for testing Sendbird UIKit for iOS sample app.
@@ -22,18 +20,16 @@ This section shows you the prerequisites you need for testing Sendbird UIKit for
 
 The minimum requirements for UIKit for iOS are:
 
-- iOS 10.3 or higher
-- Swift 4.2 or higher / Objective-C
-- Chat SDK for iOS is 3.0.190 or higher
-- Xcode 11.5 or higher recommended  
+- iOS 10.3 or later
+- Swift 4.2 or later / Objective-C
+- Chat SDK for iOS is 3.0.190 or later
+- Xcode 11.5 or later recommended  
 
 > Note: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. 
 
 ### Try the sample app applied with your data 
 
 If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://docs.sendbird.com/ios/quick_start#3_install_and_configure_the_chat_sdk_4_step_1_create_a_sendbird_application_from_your_dashboard). This will allow you to experience the sample app with data from your Sendbird application. 
-
-<br />
 
 ## Getting started
 
@@ -134,8 +130,6 @@ if [ -d "${PROJECT_DIR}/Carthage/Build/iOS/SendBirdUIKit.framework" ]; then
 fi
 ```
 4. Try to build and run
-
-<br />
 
 ## UIKit features and ways to customize 
 
