@@ -12,6 +12,8 @@ Sendbird UIKit for iOS is a development kit with an user interface that enables 
 
 Find out more about Sendbird UIKit for iOS at [UIKit for iOS doc](https://docs.sendbird.com/ios/ui_kit_getting_started).
 
+<br />
+
 ## Before getting started
 
 This section shows you the prerequisites you need for testing Sendbird UIKit for iOS sample app.
@@ -130,6 +132,8 @@ if [ -d "${PROJECT_DIR}/Carthage/Build/iOS/SendBirdUIKit.framework" ]; then
 fi
 ```
 4. Try to build and run
+
+<br />
 
 ## UIKit features and ways to customize 
 
