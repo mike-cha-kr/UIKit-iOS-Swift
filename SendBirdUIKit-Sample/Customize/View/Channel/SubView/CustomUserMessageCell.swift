@@ -11,12 +11,11 @@ import SendBirdUIKit
 import SendBirdSDK
 
 class CustomUserMessageCell: SBUUserMessageCell {
-    override func setBackgroundColor(color: UIColor) {
+    override func setupStyles() {
+        super.setupStyles()
+        
         if self.message.customType == "highlight" {
-            super.setBackgroundColor(color: UIColor(hex: "#F78900"))
-        }
-        else {
-            super.setBackgroundColor(color: color)
+            self.messageTextView.backgroundColor = UIColor(hex: "#F78900")
         }
     }
 }
