@@ -16,7 +16,7 @@ class ChannelListVC_Overriding: SBUChannelListViewController {
         AlertManager.showCustomInfo(#function)
     }
     
-    override func showCreateChannel() {
+    override func showCreateChannelTypeSelector() {
         // If you want to use your own CreateChannelViewController, you can override and customize it here.
         AlertManager.showCustomInfo(#function)
     }
