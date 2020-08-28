@@ -30,7 +30,7 @@ The minimum requirements for UIKit for iOS are:
 
 ### Try the sample app applied with your data 
 
-If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://docs.sendbird.com/ios/quick_start#3_install_and_configure_the_chat_sdk_4_step_1_create_a_sendbird_application_from_your_dashboard). This will allow you to experience the sample app with data from your Sendbird application. 
+If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://docs.sendbird.com/ios/quick_start#3_install_and_configure_the_chat_sdk_4_step_1_create_a_sendbird_application_from_your_dashboard). Furthermore, you could also add data of your choice on the dashboard to test. This will allow you to experience the sample app with data from your Sendbird application. 
 
 <br />
 
@@ -48,7 +48,7 @@ You can install UIKit for iOS through either `CocoaPods` or `Carthage`.
 
 #### CocoaPods
 
-1. Add `SendBirdUIKit` into your `Podfile`in Xcode as below:
+1. Add `SendBirdUIKit` into your `Podfile` in Xcode as below:
 
 ```bash
 platform :ios, '10.3' 
@@ -75,7 +75,7 @@ $ pod update
 
 #### Carthage
 
-1.Add `SendBirdUIKit`and `SendBirdSDK`into your `Cartfile`as below:
+1.Add `SendBirdUIKit`and `SendBirdSDK`into your `Cartfile` as below:
 
 > __Note__: Sendbird UIKit for iOS is `Sendbird Chat SDK-dependent`. The minimum requirement of the Chat SDK for iOS is 3.0.200 or later. 
 
