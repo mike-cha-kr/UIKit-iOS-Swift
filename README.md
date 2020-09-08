@@ -143,28 +143,28 @@ To find these items, sign in to the sample app. Click on the **Custom Samples** 
 
 | Category | Item | Desctription |
 | :---: | :--- | :--- |
-| Global| ColorSet |A singleton that manages primary colors in global color set |
-| | FontSet |A singleton that manages all fonts in global font set|
-| | IconSet | A singleton that manages bar buttons in global icon set |
-| | StringSet |A singleton that manages header titles in global string set |
-| | Theme | A singleton that manages **ChannelListTheme** in global theme |
-| ChannelList| UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | ChannelListQuery | A `SBDGroupChannelListQuery` instance that displays empty channels and frozen channels |
-| | Function Overriding | A function that inherits the `SBUChannelListViewController` class and customizes a selection of its functions |
-|Channel | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | MessageListParams | A `SBDMessageListParams` object that uses specific attributes to retrieve a list of messages  |
-| | MessageParams | A `SBUUserMessageParams` that uses specific attributes to send and display messages  |
-| | Function Overriding | A function that inherits the `SBUChannelViewController` class and customizes a selection of its functions |
-|Channel Settings | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Function Overriding | A function that inherits the `SBUChannelSettingsViewController` class and customizes a selection of its functions |
-|Create Channel | UI Component |A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list  |
-|Invite User | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list |
-|Member List | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
+| Global| ColorSet |A singleton that manages primary colors in global color set. |
+| | FontSet |A singleton that manages all fonts in global font set.|
+| | IconSet | A singleton that manages bar buttons in global icon set. |
+| | StringSet |A singleton that manages header titles in global string set. |
+| | Theme | A singleton that manages **ChannelListTheme** in global theme. |
+| ChannelList| UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | ChannelListQuery | A `SBDGroupChannelListQuery` instance that displays empty channels and frozen channels. |
+| | Function Overriding | A function that inherits the `SBUChannelListViewController` class and customizes a selection of its functions. |
+|Channel | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | MessageListParams | A `SBDMessageListParams` object that uses specific attributes to retrieve a list of messages.  |
+| | MessageParams | A `SBUUserMessageParams` that uses specific attributes to send and display messages.  |
+| | Function Overriding | A function that inherits the `SBUChannelViewController` class and customizes a selection of its functions. |
+|Channel Settings | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Function Overriding | A function that inherits the `SBUChannelSettingsViewController` class and customizes a selection of its functions. |
+|Create Channel | UI Component |A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list.  |
+|Invite User | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list. |
+|Member List | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
 | | Function Overriding | A function that inherits the `SBUMemberListViewController` class and customizes a selection of its functions. |
