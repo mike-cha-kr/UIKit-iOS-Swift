@@ -8,15 +8,15 @@ Sendbird UIKit for iOS is a development kit with an user interface that enables 
 
 - **SendBirdUIKit-Sample** is a chat app which contains custom sample code for various key features written in `Swift`. 
 
-### Sendbird UIKIT for iOS doc
+### More about Sendbird UIKIT for iOS
 
-Find out more about Sendbird UIKit for iOS at [UIKit for iOS doc](https://docs.sendbird.com/ios/ui_kit_getting_started).
+Find out more about Sendbird UIKit for iOS at [UIKit for iOS doc](https://docs.sendbird.com/ios/ui_kit_getting_started). If you need any help in resolving any issues or have questions, visit [our community](https://community.sendbird.com).
 
 <br />
 
 ## Before getting started
 
-This section shows you the prerequisites you need for testing Sendbird UIKit for iOS sample app.
+This section shows you the prerequisites you need for testing Sendbird UIKit for iOS sample app. 
 
 ### Requirements
 
@@ -28,7 +28,7 @@ The minimum requirements for UIKit for iOS are:
 
 > Note: Sendbird UIKit for iOS is Sendbird Chat SDK-dependent. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. 
 
-### Try the sample app applied with your data 
+### Try the sample app using your data 
 
 If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://docs.sendbird.com/ios/quick_start#3_install_and_configure_the_chat_sdk_4_step_1_create_a_sendbird_application_from_your_dashboard). Furthermore, you could also add data of your choice on the dashboard to test. This will allow you to experience the sample app with data from your Sendbird application. 
 
@@ -46,7 +46,7 @@ Create a project to get started. Sendbird UIKit supports both `Objective-C` and 
 
 You can install UIKit for iOS through either `CocoaPods` or `Carthage`. 
 
-#### CocoaPods
+#### - CocoaPods
 
 1. Add `SendBirdUIKit` into your `Podfile` in Xcode as below:
 
@@ -73,7 +73,7 @@ $ pod update
 
 > __Note__: Sendbird UIKit for iOS is `Sendbird Chat SDK-dependent`. If you install the UIKit, `CocoaPods` will automatically install the Chat SDK for iOS as well. The minimum requirement of the Chat SDK for iOS is 3.0.200 or later. 
 
-#### Carthage
+#### - Carthage
 
 1.Add `SendBirdUIKit`and `SendBirdSDK`into your `Cartfile` as below:
 
@@ -143,28 +143,28 @@ To find these items, sign in to the sample app. Click on the **Custom Samples** 
 
 | Category | Item | Desctription |
 | :---: | :--- | :--- |
-| Global| ColorSet |A singleton that manages primary colors in global color set |
-| | FontSet |A singleton that manages all fonts in global font set|
-| | IconSet | A singleton that manages bar buttons in global icon set |
-| | StringSet |A singleton that manages header titles in global string set |
-| | Theme | A singleton that manages **ChannelListTheme** in global theme |
-| ChannelList| UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | ChannelListQuery | A `SBDGroupChannelListQuery` instance that displays empty channels and frozen channels |
-| | Function Overriding | A function that inherits the `SBUChannelListViewController` class and customizes a selection of its functions |
-|Channel | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | MessageListParams | A `SBDMessageListParams` object that uses specific attributes to retrieve a list of messages  |
-| | MessageParams | A `SBUUserMessageParams` that uses specific attributes to send and display messages  |
-| | Function Overriding | A function that inherits the `SBUChannelViewController` class and customizes a selection of its functions |
-|Channel Settings | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Function Overriding | A function that inherits the `SBUChannelSettingsViewController` class and customizes a selection of its functions |
-|Create Channel | UI Component |A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list  |
-|Invite User | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
-| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list |
-|Member List | UI Component | A component that customizes certain UI elements and mark them with red borders |
-| | Custom Cell | A component that changes default channel cells to custom cells |
+| Global| ColorSet |A singleton that manages primary colors in global color set. |
+| | FontSet |A singleton that manages all fonts in global font set.|
+| | IconSet | A singleton that manages bar buttons in global icon set. |
+| | StringSet |A singleton that manages header titles in global string set. |
+| | Theme | A singleton that manages **ChannelListTheme** in global theme. |
+| ChannelList| UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | ChannelListQuery | A `SBDGroupChannelListQuery` instance that displays empty channels and frozen channels. |
+| | Function Overriding | A function that inherits the `SBUChannelListViewController` class and customizes a selection of its functions. |
+|Channel | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | MessageListParams | A `SBDMessageListParams` object that uses specific attributes to retrieve a list of messages.  |
+| | MessageParams | A `SBUUserMessageParams` that uses specific attributes to send and display messages.  |
+| | Function Overriding | A function that inherits the `SBUChannelViewController` class and customizes a selection of its functions. |
+|Channel Settings | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Function Overriding | A function that inherits the `SBUChannelSettingsViewController` class and customizes a selection of its functions. |
+|Create Channel | UI Component |A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list.  |
+|Invite User | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
+| | User list | A `SBDApplicationUserListQuery` instance that can be used for importing your own user list. |
+|Member List | UI Component | A component that customizes certain UI elements and mark them with red borders. |
+| | Custom Cell | A component that changes default channel cells to custom cells. |
 | | Function Overriding | A function that inherits the `SBUMemberListViewController` class and customizes a selection of its functions. |
