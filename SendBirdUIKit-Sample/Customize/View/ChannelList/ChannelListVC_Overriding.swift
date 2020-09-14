@@ -11,7 +11,7 @@ import SendBirdUIKit
 
 class ChannelListVC_Overriding: SBUChannelListViewController {
     // MARK: - Show relations
-    override func showChannel(channelUrl: String) {
+    override func showChannel(channelUrl: String, messageListParams: SBDMessageListParams? = nil) {
         // If you want to use your own ChannelViewController, you can override and customize it here.
         AlertManager.showCustomInfo(#function)
     }

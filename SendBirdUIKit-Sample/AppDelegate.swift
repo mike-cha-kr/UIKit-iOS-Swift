@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // TODO: Change to your AppId
         SBUMain.initialize(applicationId: "2D7B4CDB-932F-4082-9B09-A1153792DC8D")
         SBUGlobals.AccessToken = ""
+        SBUGlobals.UsingUserProfile = true
         
         initializeRemoteNotification()
         
@@ -58,6 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let channel: NSDictionary = payload["channel"] as? NSDictionary,
             let channelUrl: String = channel["channel_url"] as? String else { return }
         
-        SBUMain.openChannel(channelUrl: channelUrl, basedOnChannelList: true)
+        SBUMain.moveToChannel(channelUrl: channelUrl, basedOnChannelList: true)
     }
 }

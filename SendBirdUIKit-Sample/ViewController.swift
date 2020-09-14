@@ -251,10 +251,15 @@ class ViewController: UIViewController {
     
     func startChatAction() {
         SBUTheme.set(theme: themeSwitch.isOn ? .dark : .light)
-        let mainVC = SBUChannelListViewController()
-        let naviVC = UINavigationController(rootViewController: mainVC)
-        naviVC.modalPresentationStyle = .fullScreen
-        present(naviVC, animated: true)
+        
+        let mainVC = MainTabbarController()
+        mainVC.modalPresentationStyle = .fullScreen
+        present(mainVC, animated: true)
+        
+//        let mainVC = SBUChannelListViewController()
+//        let naviVC = UINavigationController(rootViewController: mainVC)
+//        naviVC.modalPresentationStyle = .fullScreen
+//        present(naviVC, animated: true)
     }
     
     func moveToCustomSamples() {

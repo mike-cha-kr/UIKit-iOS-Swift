@@ -30,6 +30,10 @@
 		9CDDA31924B714A700F77A59 /* BaseCustomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */; };
 		9CDDA31B24B720A300F77A59 /* ChannelVC_Overriding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */; };
 		9CDDA31D24BEF1A300F77A59 /* UIcolor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA31C24BEF1A300F77A59 /* UIcolor+Ext.swift */; };
+		9CEB7796250F4A42004AC1D6 /* MySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7794250F4A42004AC1D6 /* MySettingsViewController.swift */; };
+		9CEB7797250F4A42004AC1D6 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */; };
+		9CEB7799250F5E2F004AC1D6 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */; };
+		9CEB779B250F62A8004AC1D6 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB779A250F62A8004AC1D6 /* UIImage+Ext.swift */; };
 		9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */; };
 		9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */; };
 		9CED4CF424AC86BB00D81B10 /* CustomBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */; };
@@ -76,6 +80,10 @@
 		9CDDA31824B714A700F77A59 /* BaseCustomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomManager.swift; sourceTree = "<group>"; };
 		9CDDA31A24B720A300F77A59 /* ChannelVC_Overriding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC_Overriding.swift; sourceTree = "<group>"; };
 		9CDDA31C24BEF1A300F77A59 /* UIcolor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+Ext.swift"; sourceTree = "<group>"; };
+		9CEB7794250F4A42004AC1D6 /* MySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySettingsViewController.swift; sourceTree = "<group>"; };
+		9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
+		9CEB779A250F62A8004AC1D6 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBaseViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 				9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */,
 				9CED4D0624ADA66200D81B10 /* UserDefaults+Ext.swift */,
 				9CDDA31C24BEF1A300F77A59 /* UIcolor+Ext.swift */,
+				9CEB779A250F62A8004AC1D6 /* UIImage+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -201,6 +210,9 @@
 				9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */,
 				9C777D5A241B9022006FFE25 /* AppDelegate.swift */,
 				9C777D5E241B9022006FFE25 /* ViewController.swift */,
+				9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */,
+				9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */,
+				9CEB7794250F4A42004AC1D6 /* MySettingsViewController.swift */,
 				9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */,
 				9C3FBB4D24AC5AE4006D3C36 /* Customize */,
 				9C3FBB4E24AC5B45006D3C36 /* Extension */,
@@ -441,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CEB7797250F4A42004AC1D6 /* MainTabbarController.swift in Sources */,
 				9CDDA30324B47FF200F77A59 /* CustomUserCell.swift in Sources */,
 				9C777D5F241B9022006FFE25 /* ViewController.swift in Sources */,
 				9CED4D1324ADE41200D81B10 /* ChannelSettingsCustomManager.swift in Sources */,
@@ -452,9 +465,11 @@
 				9CED4D1C24ADE69900D81B10 /* CustomChannelListCell.swift in Sources */,
 				9C56414C24AF29C00057B529 /* CustomSampleEnums.swift in Sources */,
 				9C56415424AF99E70057B529 /* ChannelVC_MessageParam.swift in Sources */,
+				9CEB7796250F4A42004AC1D6 /* MySettingsViewController.swift in Sources */,
 				9C32648724B39090000F8313 /* InviteUserVC_UserList.swift in Sources */,
 				9C32648324B38FAF000F8313 /* ChannelSettingsVC_Overriding.swift in Sources */,
 				9C32648124B37DD2000F8313 /* CustomUserMessageCell.swift in Sources */,
+				9CEB7799250F5E2F004AC1D6 /* ChannelListViewController.swift in Sources */,
 				9CDDA30924B4DCF500F77A59 /* InviteUserVC_Cell.swift in Sources */,
 				9C32648524B3907E000F8313 /* CreateChannelVC_UserList.swift in Sources */,
 				9CED4D1124ADE40700D81B10 /* ChannelCustomManager.swift in Sources */,
@@ -471,6 +486,7 @@
 				9CED4D0F24ADE3F800D81B10 /* ChannelListCustomManager.swift in Sources */,
 				9CDDA30D24B555E500F77A59 /* CustomEmptyView.swift in Sources */,
 				9CDDA31924B714A700F77A59 /* BaseCustomManager.swift in Sources */,
+				9CEB779B250F62A8004AC1D6 /* UIImage+Ext.swift in Sources */,
 				9CDDA30B24B4DE0600F77A59 /* CreateChannelVC_Cell.swift in Sources */,
 				9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */,
 			);
@@ -633,7 +649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.uikit.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -662,7 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.uikit.sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
