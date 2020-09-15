@@ -27,4 +27,43 @@ extension UIImage {
         
         return scaledImage
     }
+    
+    static func from(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        guard let context = UIGraphicsGetCurrentContext() else { return UIImage()}
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    func withBackground(color: UIColor, margin: CGFloat, circle: Bool = false) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        
+        guard let context = UIGraphicsGetCurrentContext(), let image = cgImage else { return self }
+        defer { UIGraphicsEndImageContext() }
+        
+        let backgroundRect = CGRect(origin: .zero, size: size)
+        context.setFillColor(color.cgColor)
+
+        if circle {
+            let clipPath = UIBezierPath(roundedRect: backgroundRect, cornerRadius: size.width/2).cgPath
+            context.addPath(clipPath)
+            context.closePath()
+            context.fillPath()
+        } else {
+            context.fill(backgroundRect)
+        }
+        context.concatenate(CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: size.height))
+
+        let imageRect = CGRect(
+            origin: .init(x: margin, y: margin),
+            size: .init(width: self.size.width - margin*2, height: self.size.height - margin*2)
+        )
+        context.draw(image, in: imageRect)
+        
+        return UIGraphicsGetImageFromCurrentImageContext() ?? self
+    }
 }

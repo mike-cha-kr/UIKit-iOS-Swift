@@ -20,6 +20,7 @@
 		9C777D62241B9022006FFE25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D60241B9022006FFE25 /* Main.storyboard */; };
 		9C777D64241B9024006FFE25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D63241B9024006FFE25 /* Assets.xcassets */; };
 		9C777D67241B9024006FFE25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C777D65241B9024006FFE25 /* LaunchScreen.storyboard */; };
+		9CC8E2F52510C53A00C038A5 /* MySettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC8E2F42510C53A00C038A5 /* MySettingsCell.swift */; };
 		9CDDA30324B47FF200F77A59 /* CustomUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA30224B47FF200F77A59 /* CustomUserCell.swift */; };
 		9CDDA30524B4DA8600F77A59 /* MemberListVC_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA30424B4DA8600F77A59 /* MemberListVC_Cell.swift */; };
 		9CDDA30724B4DA9000F77A59 /* MemberListVC_Overriding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDDA30624B4DA9000F77A59 /* MemberListVC_Overriding.swift */; };
@@ -34,6 +35,7 @@
 		9CEB7797250F4A42004AC1D6 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */; };
 		9CEB7799250F5E2F004AC1D6 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */; };
 		9CEB779B250F62A8004AC1D6 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB779A250F62A8004AC1D6 /* UIImage+Ext.swift */; };
+		9CEB77A0250F7948004AC1D6 /* UserInfoTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB779F250F7948004AC1D6 /* UserInfoTitleView.swift */; };
 		9CED4CF024AC817400D81B10 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */; };
 		9CED4CF224AC81E200D81B10 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */; };
 		9CED4CF424AC86BB00D81B10 /* CustomBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */; };
@@ -70,6 +72,7 @@
 		9C777D66241B9024006FFE25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C777D68241B9024006FFE25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SendBirdUIKit-Sample.entitlements"; sourceTree = "<group>"; };
+		9CC8E2F42510C53A00C038A5 /* MySettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySettingsCell.swift; sourceTree = "<group>"; };
 		9CDDA30224B47FF200F77A59 /* CustomUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUserCell.swift; sourceTree = "<group>"; };
 		9CDDA30424B4DA8600F77A59 /* MemberListVC_Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListVC_Cell.swift; sourceTree = "<group>"; };
 		9CDDA30624B4DA9000F77A59 /* MemberListVC_Overriding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListVC_Overriding.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		9CEB779A250F62A8004AC1D6 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		9CEB779F250F7948004AC1D6 /* UserInfoTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTitleView.swift; sourceTree = "<group>"; };
 		9CED4CEF24AC817400D81B10 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF124AC81E200D81B10 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBaseViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		9C3FBB4D24AC5AE4006D3C36 /* Customize */ = {
 			isa = PBXGroup;
 			children = (
+				9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */,
 				9CED4D2424AF0DF500D81B10 /* Manager */,
 				9CED4D2324AF0DEE00D81B10 /* View */,
 			);
@@ -210,10 +215,7 @@
 				9C777D77241B9078006FFE25 /* SendBirdUIKit-Sample.entitlements */,
 				9C777D5A241B9022006FFE25 /* AppDelegate.swift */,
 				9C777D5E241B9022006FFE25 /* ViewController.swift */,
-				9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */,
-				9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */,
-				9CEB7794250F4A42004AC1D6 /* MySettingsViewController.swift */,
-				9CED4CF324AC86BB00D81B10 /* CustomBaseViewController.swift */,
+				9CEB779C250F7167004AC1D6 /* Base */,
 				9C3FBB4D24AC5AE4006D3C36 /* Customize */,
 				9C3FBB4E24AC5B45006D3C36 /* Extension */,
 				9C777D60241B9022006FFE25 /* Main.storyboard */,
@@ -231,6 +233,34 @@
 				9CDDA30C24B555E500F77A59 /* CustomEmptyView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9CEB779C250F7167004AC1D6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB7795250F4A42004AC1D6 /* MainTabbarController.swift */,
+				9CEB779E250F791A004AC1D6 /* Channels */,
+				9CEB779D250F7901004AC1D6 /* MySettings */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9CEB779D250F7901004AC1D6 /* MySettings */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB7794250F4A42004AC1D6 /* MySettingsViewController.swift */,
+				9CEB779F250F7948004AC1D6 /* UserInfoTitleView.swift */,
+				9CC8E2F42510C53A00C038A5 /* MySettingsCell.swift */,
+			);
+			path = MySettings;
+			sourceTree = "<group>";
+		};
+		9CEB779E250F791A004AC1D6 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB7798250F5E2F004AC1D6 /* ChannelListViewController.swift */,
+			);
+			path = Channels;
 			sourceTree = "<group>";
 		};
 		9CED4CE624AC6D0E00D81B10 /* ChannelList */ = {
@@ -457,6 +487,7 @@
 				9CDDA30324B47FF200F77A59 /* CustomUserCell.swift in Sources */,
 				9C777D5F241B9022006FFE25 /* ViewController.swift in Sources */,
 				9CED4D1324ADE41200D81B10 /* ChannelSettingsCustomManager.swift in Sources */,
+				9CC8E2F52510C53A00C038A5 /* MySettingsCell.swift in Sources */,
 				9CED4D0524ADA20B00D81B10 /* GlobalSetCustomManager.swift in Sources */,
 				9CED4D0B24ADE36100D81B10 /* ChannelListVC_Overriding.swift in Sources */,
 				9CDDA31D24BEF1A300F77A59 /* UIcolor+Ext.swift in Sources */,
@@ -466,6 +497,7 @@
 				9C56414C24AF29C00057B529 /* CustomSampleEnums.swift in Sources */,
 				9C56415424AF99E70057B529 /* ChannelVC_MessageParam.swift in Sources */,
 				9CEB7796250F4A42004AC1D6 /* MySettingsViewController.swift in Sources */,
+				9CEB77A0250F7948004AC1D6 /* UserInfoTitleView.swift in Sources */,
 				9C32648724B39090000F8313 /* InviteUserVC_UserList.swift in Sources */,
 				9C32648324B38FAF000F8313 /* ChannelSettingsVC_Overriding.swift in Sources */,
 				9C32648124B37DD2000F8313 /* CustomUserMessageCell.swift in Sources */,
@@ -633,10 +665,12 @@
 			baseConfigurationReference = 7421701286ECCC463A517183 /* Pods-SendBirdUIKit-Sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = "SendBirdUIKit-Sample/SendBirdUIKit-Sample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = RM4A5PXTUX;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -662,10 +696,12 @@
 			baseConfigurationReference = D9AA853E66DC6613E1CCFB10 /* Pods-SendBirdUIKit-Sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_ENTITLEMENTS = "SendBirdUIKit-Sample/SendBirdUIKit-Sample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = RM4A5PXTUX;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
