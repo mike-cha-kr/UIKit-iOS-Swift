@@ -34,6 +34,8 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
     
     var theme: SBUChannelSettingsTheme = SBUTheme.channelSettingsTheme
     
+    var isDoNotDisturbOn: Bool = false
+    
     // MARK: - Constant
     private let actionSheetIdEdit = 1
     private let actionSheetIdPicker = 2
@@ -90,18 +92,20 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
     
     /// This function handles the initialization of styles.
     open func setupStyles() {
+        self.theme = SBUTheme.channelSettingsTheme
+        
         self.navigationController?.navigationBar.setBackgroundImage(
-            UIImage.from(color: SBUColorSet.background100),
+            UIImage.from(color: theme.navigationBarTintColor),
             for: .default
         )
         self.navigationController?.navigationBar.shadowImage = UIImage.from(
-            color: SBUColorSet.onlight04
+            color: theme.navigationShadowColor
         )
         
-        self.rightBarButton.tintColor = SBUColorSet.primary300
+        self.rightBarButton.tintColor = theme.rightBarButtonTintColor
         
-        self.view.backgroundColor = SBUColorSet.background100 // 600
-        self.tableView.backgroundColor = SBUColorSet.background100 // 600
+        self.view.backgroundColor = theme.backgroundColor
+        self.tableView.backgroundColor = theme.backgroundColor
     }
 
     open override func viewDidLayoutSubviews() {
@@ -117,8 +121,10 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
             self.userInfoView.configure(user: user)
         }
         
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        self.loadDisturbSetting {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -128,22 +134,49 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
     }
 
     
+    // MARK: - SDK related
+    func loadDisturbSetting(_ completionHandler: @escaping (() -> Void)) {
+        SBDMain.getDoNotDisturb { [weak self] (isDoNotDisturbOn, _, _, _, _, _, error) in
+            self?.isDoNotDisturbOn = error == nil ? isDoNotDisturbOn : false
+            completionHandler()
+        }
+    }
+    
+    func changeDisturb(isOn: Bool, _ completionHandler: ((Bool) -> Void)? = nil) {
+        SBDMain.setDoNotDisturbWithEnable(
+            isOn,
+            startHour: 0,
+            startMin: 0,
+            endHour: 23,
+            endMin: 59,
+            timezone: "UTC"
+        ) { error in
+            guard error == nil else {
+                completionHandler?(false)
+                return
+            }
+            
+            completionHandler?(true)
+        }
+    }
+    
+    
     // MARK: - Actions
     /// Open the user edit action sheet.
     @objc func onClickEdit() {
         let changeNameItem = SBUActionSheetItem(
-            title: SBUStringSet.ChannelSettings_Change_Name,
-            color: SBUColorSet.onlight01,
+            title: "Change my nickname",
+            color: theme.itemTextColor,
             image: nil
         )
         let changeImageItem = SBUActionSheetItem(
-            title: SBUStringSet.ChannelSettings_Change_Image,
-            color: SBUColorSet.onlight01,
+            title: "Change my profile image",
+            color: theme.itemTextColor,
             image: nil
         )
         let cancelItem = SBUActionSheetItem(
             title: SBUStringSet.Cancel,
-            color: SBUColorSet.primary300 // 200
+            color: theme.itemColor
         )
         SBUActionSheet.show(
             items: [changeNameItem, changeImageItem],
@@ -162,14 +195,15 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
             
             SBUMain.updateUserInfo(nickname: nickname, profileUrl: nil) { (error) in
                 guard error == nil, let user = SBUGlobals.CurrentUser else { return }
+                UserDefaults.saveNickname(nickname)
                 self?.userInfoView.configure(user: user)
             }
         }
         let cancelButton = SBUAlertButtonItem(title: SBUStringSet.Cancel) { _ in }
         SBUAlertView.show(
-            title: SBUStringSet.ChannelSettings_Change_Name,
+            title: "Change my nickname",
             needInputField: true,
-            placeHolder: SBUStringSet.ChannelSettings_Enter_New_Name,
+            placeHolder: "Enter nickname",
             centerYRatio: 0.75,
             confirmButtonItem: okButton,
             cancelButtonItem: cancelButton
@@ -197,33 +231,47 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
             delegate: self
         )
     }
+    
+    /// Sign out and dismiss tabbarController,
+    func signOutAction() {
+        SBUMain.unregisterPushToken { success in
+            SBUMain.disconnect { [weak self] in
+                print("SBUMain.disconnect")
+                guard let viewController = self?.tabBarController?.presentingViewController as? ViewController else { return }
+                viewController.isSignedIn = false
+                self?.tabBarController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func changeDisturbSwitch(isOn: Bool, _ completionHandler: ((Bool) -> Void)? = nil) {
+        self.changeDisturb(isOn: isOn, completionHandler)
+    }
+    
+    func changeDarkThemeSwitch(isOn: Bool) {
+        SBUTheme.set(theme: isOn ? .dark : .light)
+        
+        guard let tabbarController = self.tabBarController as? MainTabbarController else { return }
+        tabbarController.updateTheme(isDarkMode: isOn)
+        self.userInfoView.setupStyles()
+        self.tableView.reloadData()
+    }
 }
 
 
 // MARK: - UITableView relations
 extension MySettingsViewController: UITableViewDataSource, UITableViewDelegate {
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        if let userInfoView = self.userInfoView as? UserInfoView {
-//            userInfoView.endEditing(true)
-//        }
-//
-//        let rowValue = indexPath.row + (self.isOperator ? 0 : 1)
-//        let type = ChannelSettingItemType(rawValue: rowValue)
-//        switch type {
-//        case .moderations:
-//            self.showModerationList()
-//        case .notifications:
-//            break
-//        case .members:
-//            self.showMemberList()
-//        case .leave:
-//            self.leaveChannel()
-//        default:
-//            break
-//        }
+        let rowValue = indexPath.row
+        let type = MySettingsCellType(rawValue: rowValue)
+        switch type {
+        case .signOut:
+            self.signOutAction()
+        default:
+            break
+        }
     }
-
+    
     open func tableView(_ tableView: UITableView,
                         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -236,11 +284,20 @@ extension MySettingsViewController: UITableViewDataSource, UITableViewDelegate {
         if let type = MySettingsCellType(rawValue: rowValue) {
             cell.configure(type: type)
 
-//            if type == .notifications {
-//                cell.switchAction = { [weak self] isOn in
-//                    self?.changeNotification(isOn: isOn)
-//                }
-//            }
+            if type == .doNotDisturb {
+                cell.changeSwitch(self.isDoNotDisturbOn)
+                cell.switchAction = { [weak self] isOn in
+                    self?.changeDisturb(isOn: isOn, { success in
+                        if !success {
+                            cell.changeBackSwitch()
+                        }
+                    })
+                }
+            } else if type == .darkTheme {
+                cell.switchAction = { [weak self] isOn in
+                    self?.changeDarkThemeSwitch(isOn: isOn)
+                }
+            }
         }
 
         return cell
@@ -276,8 +333,6 @@ extension MySettingsViewController: SBUActionSheetDelegate {
                 sourceType = .camera
             case .library:
                 sourceType = .photoLibrary
-            case .document:
-                break
             default:
                 break
             }

@@ -103,6 +103,8 @@ class MySettingsCell: UITableViewCell {
     
     /// This function handles the initialization of styles.
     func setupStyles() {
+        self.theme = SBUTheme.channelSettingsTheme
+        
         self.backgroundColor = theme.backgroundColor
         
         self.titleLabel.font = theme.cellTextFont
@@ -122,7 +124,6 @@ class MySettingsCell: UITableViewCell {
     /// This function configure a cell using channel information.
     /// - Parameter channel: cell object
     open func configure(type: MySettingsCellType) {
-        
         self.rightSwitch.isHidden = false
         
         switch type {
@@ -144,7 +145,6 @@ class MySettingsCell: UITableViewCell {
                     circle: true
             )
             self.titleLabel.text = "Do not disturb"
-//            self.rightSwitch.setOn((channel?.myPushTriggerOption != .off), animated: false)
         case .signOut:
             self.typeIcon.image = UIImage(named: "iconLeave")?
                 .sbu_with(tintColor: .white)
@@ -160,6 +160,10 @@ class MySettingsCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func changeSwitch(_ isOn: Bool) {
+        self.rightSwitch.isOn = isOn
     }
 
     

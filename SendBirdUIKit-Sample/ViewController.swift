@@ -96,6 +96,8 @@ class ViewController: UIViewController {
 
         SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
         GlobalSetCustomManager.setDefault()
+        
+        nicknameTextField.text = UserDefaults.loadNickname()
     }
     
     override func viewDidLoad() {
@@ -192,7 +194,7 @@ class ViewController: UIViewController {
             self.startChatAction()
             
         case .signOut:
-            self.signoutAction()
+            self.signOutAction()
             
         case .customSamples:
             self.moveToCustomSamples()
@@ -240,7 +242,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func signoutAction() {
+    func signOutAction() {
         SBUMain.unregisterPushToken { success in
             SBUMain.disconnect { [weak self] in
                 print("SBUMain.disconnect")

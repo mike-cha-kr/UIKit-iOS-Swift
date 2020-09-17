@@ -106,6 +106,8 @@ class UserInfoTitleView: UIView {
     }
     
     func setupStyles() {
+        self.theme = SBUTheme.channelSettingsTheme
+        
         self.backgroundColor = .clear
         
         self.lineView.backgroundColor = theme.cellSeparateColor
@@ -114,10 +116,10 @@ class UserInfoTitleView: UIView {
         self.userNicknameLabel.textColor = theme.userNameTextColor
         
         self.userIdTitleLabel.font = SBUFontSet.body3
-        self.userIdTitleLabel.textColor = SBUColorSet.onlight02
+        self.userIdTitleLabel.textColor = theme.cellSubTextColor
         
         self.userIdLabel.font = SBUFontSet.body1
-        self.userIdLabel.textColor = SBUColorSet.onlight01
+        self.userIdLabel.textColor = theme.cellTextColor
         
         self.bottomLineView.backgroundColor = theme.cellSeparateColor
     }
