@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // TODO: Change to your AppId
-        SBUMain.initialize(applicationId: "2D7B4CDB-932F-4082-9B09-A1153792DC8D")
+        SBUMain.initialize(applicationId: "2D7B4CDB-932F-4082-9B09-A1153792DC8D")// origin
+//        SBUMain.initialize(applicationId: "9D25F8C5-DAB3-4A73-9832-CF7F3558DAE4")// stating
+        
         SBUGlobals.AccessToken = ""
         SBUGlobals.UsingUserProfile = true
         

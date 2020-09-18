@@ -11,7 +11,8 @@ import SendBirdUIKit
 
 enum ButtonType: Int {
     case signIn
-    case startChat
+    case startChatWithVC
+    case startChatWithTC
     case signOut
     case customSamples
 }
@@ -25,15 +26,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var userIdTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-     
+    
     @IBOutlet weak var signOutStackView: UIStackView!
-    @IBOutlet weak var themeSwitch: UISwitch!
-    @IBOutlet weak var lightThemeLabel: UILabel!
-    @IBOutlet weak var darkThemeLabel: UILabel!
-    @IBOutlet weak var startChatButton: UIButton!
-    @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var startChatWithViewControllerButton: UIButton!
+    @IBOutlet weak var startChatWithTabbarControllerButton: UIButton!
     @IBOutlet weak var customSamplesButton: UIButton!
-    @IBOutlet weak var separatorLine: UIView!
+    @IBOutlet weak var signOutButton: UIButton!
     
     @IBOutlet weak var versionLabel: UILabel!
 
@@ -56,45 +54,12 @@ class ViewController: UIViewController {
         }
     }
     
-    var isLightTheme = true {
-        didSet {
-            let black = #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.88)
-            let blackGray = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.38)
-            let white = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.88)
-            let whiteGray = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.38)
-             
-            setNeedsStatusBarAppearanceUpdate()
-            titleLabel.changeColor(isLightTheme ? black : white, duration: duration)
-            lightThemeLabel.changeColor(isLightTheme ? black : whiteGray, duration: duration)
-            darkThemeLabel.changeColor(!isLightTheme ? white : blackGray, duration: duration)
-
-            let color = isLightTheme ? UIColor.white : UIColor.black
-            UIView.animate(withDuration: duration, animations: {
-                self.view.backgroundColor = color
-            })
-            [userIdTextField ,nicknameTextField].forEach {
-                $0?.backgroundColor = isLightTheme ? #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1) : #colorLiteral(red: 0.2235294118, green: 0.2235294118, blue: 0.2235294118, alpha: 1)
-                $0?.textColor = isLightTheme ? #colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.88) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.88)
-            }
-            UIView.transition(with: startChatButton, duration: duration, options: .transitionCrossDissolve, animations: {
-                self.signInButton.setTitleColor(color, for: .normal)
-                self.startChatButton.setTitleColor(color, for: .normal)
-            })
-            UIView.transition(with: customSamplesButton, duration: duration, options: .transitionCrossDissolve, animations: {
-                self.customSamplesButton.setTitleColor(color, for: .normal)
-            })
-            
-            self.separatorLine.backgroundColor = isLightTheme ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.12) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.12)
-        }
-    }
-    
     
     // MARK: - Lifecycle
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        SBUTheme.set(theme: UserDefaults.loadIsLightTheme() ? .light : .dark)
+        SBUTheme.set(theme: .light)
         GlobalSetCustomManager.setDefault()
         
         nicknameTextField.text = UserDefaults.loadNickname()
@@ -103,23 +68,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 12.0, *) {
-            isLightTheme = UserDefaults.loadIsLightTheme()
-        }
-        
         signInButton.tag    = ButtonType.signIn.rawValue
-        startChatButton.tag = ButtonType.startChat.rawValue
         signOutButton.tag   = ButtonType.signOut.rawValue
+        
+        startChatWithViewControllerButton.tag = ButtonType.startChatWithVC.rawValue
+        startChatWithTabbarControllerButton.tag = ButtonType.startChatWithTC.rawValue
         customSamplesButton.tag = ButtonType.customSamples.rawValue
         
-        [signInButton, startChatButton, signOutButton].forEach {
+        [startChatWithViewControllerButton,
+         startChatWithTabbarControllerButton,
+         customSamplesButton,
+         signInButton,
+         signOutButton].forEach {
             $0?.layer.cornerRadius = 4
-            $0?.layer.borderColor = #colorLiteral(red: 0.4823529412, green: 0.3254901961, blue: 0.937254902, alpha: 1)
-            $0?.layer.borderWidth = 1
         }
         
-        [customSamplesButton].forEach {
-            $0?.layer.cornerRadius = 4
+        [signOutButton].forEach {
+            $0?.layer.borderColor = #colorLiteral(red: 0.4823529412, green: 0.3254901961, blue: 0.937254902, alpha: 1)
+            $0?.layer.borderWidth = 1
         }
         
         signOutStackView.alpha = 0
@@ -135,10 +101,6 @@ class ViewController: UIViewController {
             textField.tintColor = #colorLiteral(red: 0.4666666667, green: 0.337254902, blue: 0.8549019608, alpha: 1)
         }
  
-        themeSwitch.tintColor = themeSwitch.onTintColor
-        themeSwitch.layer.cornerRadius = themeSwitch.frame.height / 2
-        themeSwitch.backgroundColor = themeSwitch.onTintColor
-        
         UserDefaults.saveIsLightTheme(true)
         
         let coreVersion: String = SBDMain.getSDKVersion()
@@ -155,19 +117,11 @@ class ViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return isLightTheme ? .darkContent : .lightContent
-        } else {
-            return isLightTheme ? .default : .lightContent
-        }
+        return .default
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-
-        if #available(iOS 12.0, *) {
-            isLightTheme = traitCollection.userInterfaceStyle == .light
-        }
     }
     
     
@@ -177,28 +131,18 @@ class ViewController: UIViewController {
         sender.animateBorderColor(toColor: color, duration: 0.1)
     }
   
-    @IBAction func onChangeSwitch(_ sender: Any) {
-        isLightTheme = !self.themeSwitch.isOn
-        
-        UserDefaults.saveIsLightTheme(isLightTheme)
-    }
-
     @IBAction func onTapButton(_ sender: UIButton) {
         let type = ButtonType(rawValue: sender.tag)
+
         switch type {
-            
         case .signIn:
             self.signinAction()
-            
-        case .startChat:
-            self.startChatAction()
-            
+        case .startChatWithVC, .startChatWithTC:
+            self.startChatAction(type: type ?? .startChatWithVC)
         case .signOut:
             self.signOutAction()
-            
         case .customSamples:
             self.moveToCustomSamples()
-            
         default:
             break
         }
@@ -237,7 +181,6 @@ class ViewController: UIViewController {
                 
                 print("SBUMain.connect: \(user)")
                 self?.isSignedIn = true
-                self?.themeSwitch.isOn = !(self?.isLightTheme ?? true)
             }
         }
     }
@@ -251,17 +194,18 @@ class ViewController: UIViewController {
         }
     }
     
-    func startChatAction() {
-        SBUTheme.set(theme: themeSwitch.isOn ? .dark : .light)
-        
-        let mainVC = MainTabbarController()
-        mainVC.modalPresentationStyle = .fullScreen
-        present(mainVC, animated: true)
-        
-//        let mainVC = SBUChannelListViewController()
-//        let naviVC = UINavigationController(rootViewController: mainVC)
-//        naviVC.modalPresentationStyle = .fullScreen
-//        present(naviVC, animated: true)
+    func startChatAction(type: ButtonType) {
+        if type == .startChatWithVC {
+            let mainVC = SBUChannelListViewController()
+            let naviVC = UINavigationController(rootViewController: mainVC)
+            naviVC.modalPresentationStyle = .fullScreen
+            present(naviVC, animated: true)
+        }
+        else if type == .startChatWithTC {
+            let mainVC = MainTabbarController()
+            mainVC.modalPresentationStyle = .fullScreen
+            present(mainVC, animated: true)
+        }
     }
     
     func moveToCustomSamples() {

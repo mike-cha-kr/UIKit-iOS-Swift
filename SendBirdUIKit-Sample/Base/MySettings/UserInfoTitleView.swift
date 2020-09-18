@@ -20,7 +20,7 @@ class UserInfoTitleView: UIView {
     
     var theme: SBUChannelSettingsTheme = SBUTheme.channelSettingsTheme
     
-    let kCoverImageSize: CGFloat = 64.0
+    let kCoverImageSize: CGFloat = 80.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,7 +112,7 @@ class UserInfoTitleView: UIView {
         
         self.lineView.backgroundColor = theme.cellSeparateColor
         
-        self.userNicknameLabel.font = theme.userNameFont
+        self.userNicknameLabel.font = SBUFontSet.h3
         self.userNicknameLabel.textColor = theme.userNameTextColor
         
         self.userIdTitleLabel.font = SBUFontSet.body3

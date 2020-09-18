@@ -232,22 +232,6 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         )
     }
     
-    /// Sign out and dismiss tabbarController,
-    func signOutAction() {
-        SBUMain.unregisterPushToken { success in
-            SBUMain.disconnect { [weak self] in
-                print("SBUMain.disconnect")
-                guard let viewController = self?.tabBarController?.presentingViewController as? ViewController else { return }
-                viewController.isSignedIn = false
-                self?.tabBarController?.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-    
-    func changeDisturbSwitch(isOn: Bool, _ completionHandler: ((Bool) -> Void)? = nil) {
-        self.changeDisturb(isOn: isOn, completionHandler)
-    }
-    
     func changeDarkThemeSwitch(isOn: Bool) {
         SBUTheme.set(theme: isOn ? .dark : .light)
         
@@ -255,6 +239,15 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         tabbarController.updateTheme(isDarkMode: isOn)
         self.userInfoView.setupStyles()
         self.tableView.reloadData()
+    }
+    
+    func changeDisturbSwitch(isOn: Bool, _ completionHandler: ((Bool) -> Void)? = nil) {
+        self.changeDisturb(isOn: isOn, completionHandler)
+    }
+    
+    /// Sign out and dismiss tabbarController,
+    func signOutAction() {
+        self.tabBarController?.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -290,6 +283,8 @@ extension MySettingsViewController: UITableViewDataSource, UITableViewDelegate {
                     self?.changeDisturb(isOn: isOn, { success in
                         if !success {
                             cell.changeBackSwitch()
+                        } else {
+                            self?.isDoNotDisturbOn = isOn
                         }
                     })
                 }

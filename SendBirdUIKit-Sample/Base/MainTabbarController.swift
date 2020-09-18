@@ -17,6 +17,9 @@ class MainTabbarController: UITabBarController {
     let channelsViewController = ChannelListViewController()
     let settingsViewController = MySettingsViewController()
     
+    var channelsNavigationController = UINavigationController()
+    var mySettingsNavigationController = UINavigationController()
+    
     var theme: SBUComponentTheme = SBUTheme.componentTheme
     var isDarkMode: Bool = false
 
@@ -26,11 +29,12 @@ class MainTabbarController: UITabBarController {
         super.viewDidLoad()
         
         channelsViewController.titleView = UIView()
+        channelsViewController.leftBarButton = self.createLeftTitleItem(text: "Channels")
         
-        let naviVC = UINavigationController(rootViewController: channelsViewController)
-        let naviVC2 = UINavigationController(rootViewController: settingsViewController)
+        self.channelsNavigationController = UINavigationController(rootViewController: channelsViewController)
+        self.mySettingsNavigationController = UINavigationController(rootViewController: settingsViewController)
         
-        let tabbarItems = [naviVC, naviVC2]
+        let tabbarItems = [self.channelsNavigationController, self.mySettingsNavigationController]
         self.viewControllers = tabbarItems
         
         self.setupStyles()
@@ -58,6 +62,9 @@ class MainTabbarController: UITabBarController {
         
         settingsViewController.navigationItem.leftBarButtonItem = self.createLeftTitleItem(text: "My settings")
         settingsViewController.tabBarItem = self.createTabItem(type: .mySettings)
+        
+        self.channelsNavigationController.navigationBar.barStyle = self.isDarkMode ? .black : .default
+        self.mySettingsNavigationController.navigationBar.barStyle = self.isDarkMode ? .black : .default
     }
     
     
@@ -92,13 +99,28 @@ class MainTabbarController: UITabBarController {
     
     // MARK: - Common
     func setUnreadMessagesCount(_ totalCount: UInt) {
+        var badgeValue: String?
+        
         if totalCount == 0 {
-            self.channelsViewController.tabBarItem.badgeValue = nil
+            badgeValue = nil
         } else if totalCount > 99 {
-            self.channelsViewController.tabBarItem.badgeValue = "99+"
+            badgeValue = "99+"
         } else {
-            self.channelsViewController.tabBarItem.badgeValue = "\(totalCount)"
+            badgeValue = "\(totalCount)"
         }
+        
+        self.channelsViewController.tabBarItem.badgeColor = SBUColorSet.error
+        self.channelsViewController.tabBarItem.badgeValue = badgeValue
+        self.channelsViewController.tabBarItem.setBadgeTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor : isDarkMode
+                    ? SBUColorSet.onlight01
+                    : SBUColorSet.ondark01,
+                NSAttributedString.Key.font : SBUFontSet.caption4
+            ],
+            for: .normal
+        )
+        
     }
     
     func updateTheme(isDarkMode: Bool) {

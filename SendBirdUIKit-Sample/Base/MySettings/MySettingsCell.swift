@@ -153,7 +153,7 @@ class MySettingsCell: UITableViewCell {
                     margin: 3,
                     circle: true
             )
-            self.titleLabel.text = "Sign out"
+            self.titleLabel.text = "Exit to home"
             self.rightSwitch.isHidden = true
         }
     }
