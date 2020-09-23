@@ -37,7 +37,8 @@ extension InviteUserCustomManager {
             // This part changes the default titleView to a custom view.
             inviteUserVC.titleView = self.createHighlightedTitleLabel()
             
-            // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
+            // This part changes the default leftBarButton to a custom leftBarButton.
+            // RightButton can also be changed in this way.
             inviteUserVC.leftBarButton = self.createHighlightedBackButton()
             
             // Move to InviteUserViewController using customized components

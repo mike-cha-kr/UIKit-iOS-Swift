@@ -28,7 +28,12 @@ extension BaseCustomManager {
     }
     
     func createHighlightedTitleLabel() -> UILabel {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height: 50))
+        let titleLabel = UILabel(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: self.navigationController?.view.bounds.width ?? 375,
+            height: 50)
+        )
         titleLabel.text = "Custom Title"
         titleLabel.textColor = SBUColorSet.primary500
         titleLabel.highlight()

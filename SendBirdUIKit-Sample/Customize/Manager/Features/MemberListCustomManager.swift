@@ -37,7 +37,8 @@ extension MemberListCustomManager {
             // This part changes the default titleView to a custom view.
             memberListVC.titleView = self.createHighlightedTitleLabel()
             
-            // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
+            // This part changes the default leftBarButton to a custom leftBarButton.
+            // RightButton can also be changed in this way.
             memberListVC.leftBarButton = self.createHighlightedBackButton()
             
             // Move to MemberListViewController using customized components

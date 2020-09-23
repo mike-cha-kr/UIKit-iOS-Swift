@@ -83,19 +83,40 @@ class MySettingsCell: UITableViewCell {
         
         var layoutConstraints: [NSLayoutConstraint] = []
         
-        layoutConstraints.append(self.baseStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.baseStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16))
-        layoutConstraints.append(self.baseStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 13))
-        layoutConstraints.append(self.baseStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12))
+        layoutConstraints.append(self.baseStackView.leadingAnchor.constraint(
+            equalTo: self.contentView.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.baseStackView.trailingAnchor.constraint(
+            equalTo: self.contentView.trailingAnchor,
+            constant: -16)
+        )
+        layoutConstraints.append(self.baseStackView.topAnchor.constraint(
+            equalTo: self.contentView.topAnchor,
+            constant: 13)
+        )
+        layoutConstraints.append(self.baseStackView.bottomAnchor.constraint(
+            equalTo: self.contentView.bottomAnchor,
+            constant: -12)
+        )
         layoutConstraints.append(self.baseStackView.heightAnchor.constraint(equalToConstant: 31))
         
         layoutConstraints.append(self.typeIcon.widthAnchor.constraint(equalToConstant: 28))
         
         layoutConstraints.append(self.rightSwitch.widthAnchor.constraint(equalToConstant: 51))
         
-        layoutConstraints.append(self.separateView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.separateView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16))
-        layoutConstraints.append(self.separateView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -0.5))
+        layoutConstraints.append(self.separateView.leadingAnchor.constraint(
+            equalTo: self.contentView.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.separateView.trailingAnchor.constraint(
+            equalTo: self.contentView.trailingAnchor,
+            constant: -16)
+        )
+        layoutConstraints.append(self.separateView.bottomAnchor.constraint(
+            equalTo: self.contentView.bottomAnchor,
+            constant: -0.5)
+        )
         layoutConstraints.append(self.separateView.heightAnchor.constraint(equalToConstant: 0.5))
         
         NSLayoutConstraint.activate(layoutConstraints)

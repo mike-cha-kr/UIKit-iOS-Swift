@@ -43,17 +43,35 @@ class CustomUserCell: UITableViewCell {
     
     func setupAutolayout() {
         NSLayoutConstraint.activate([
-            self.userImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            self.userImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
-            self.userImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.userImage.topAnchor.constraint(
+                equalTo: self.contentView.topAnchor,
+                constant: 10
+            ),
+            self.userImage.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -10
+            ),
+            self.userImage.leadingAnchor.constraint(
+                equalTo: self.contentView.leadingAnchor,
+                constant: 16
+            ),
             self.userImage.widthAnchor.constraint(equalToConstant: kUserImageSize),
             self.userImage.heightAnchor.constraint(equalToConstant: kUserImageSize),
         ])
         
         NSLayoutConstraint.activate([
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.userImage.trailingAnchor, constant: 20),
-            self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 16),
+            self.titleLabel.leadingAnchor.constraint(
+                equalTo: self.userImage.trailingAnchor,
+                constant: 20
+            ),
+            self.titleLabel.topAnchor.constraint(
+                equalTo: self.contentView.topAnchor,
+                constant: 10
+            ),
+            self.titleLabel.trailingAnchor.constraint(
+                equalTo: self.contentView.trailingAnchor,
+                constant: 16
+            ),
             self.titleLabel.heightAnchor.constraint(equalToConstant: kUserImageSize),
         ])
     }

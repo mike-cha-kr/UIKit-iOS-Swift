@@ -31,8 +31,12 @@ class MainTabbarController: UITabBarController {
         channelsViewController.titleView = UIView()
         channelsViewController.leftBarButton = self.createLeftTitleItem(text: "Channels")
         
-        self.channelsNavigationController = UINavigationController(rootViewController: channelsViewController)
-        self.mySettingsNavigationController = UINavigationController(rootViewController: settingsViewController)
+        self.channelsNavigationController = UINavigationController(
+            rootViewController: channelsViewController
+        )
+        self.mySettingsNavigationController = UINavigationController(
+            rootViewController: settingsViewController
+        )
         
         let tabbarItems = [self.channelsNavigationController, self.mySettingsNavigationController]
         self.viewControllers = tabbarItems
@@ -55,16 +59,28 @@ class MainTabbarController: UITabBarController {
     public func setupStyles() {
         self.theme = SBUTheme.componentTheme
         
-        self.tabBar.barTintColor = self.isDarkMode ? SBUColorSet.background600 : SBUColorSet.background100
-        self.tabBar.tintColor = self.isDarkMode ? SBUColorSet.primary200 : SBUColorSet.primary300
-        channelsViewController.navigationItem.leftBarButtonItem = self.createLeftTitleItem(text: "Channels")
+        self.tabBar.barTintColor = self.isDarkMode
+            ? SBUColorSet.background600
+            : SBUColorSet.background100
+        self.tabBar.tintColor = self.isDarkMode
+            ? SBUColorSet.primary200
+            : SBUColorSet.primary300
+        channelsViewController.navigationItem.leftBarButtonItem = self.createLeftTitleItem(
+            text: "Channels"
+        )
         channelsViewController.tabBarItem = self.createTabItem(type: .channels)
         
-        settingsViewController.navigationItem.leftBarButtonItem = self.createLeftTitleItem(text: "My settings")
+        settingsViewController.navigationItem.leftBarButtonItem = self.createLeftTitleItem(
+            text: "My settings"
+        )
         settingsViewController.tabBarItem = self.createTabItem(type: .mySettings)
         
-        self.channelsNavigationController.navigationBar.barStyle = self.isDarkMode ? .black : .default
-        self.mySettingsNavigationController.navigationBar.barStyle = self.isDarkMode ? .black : .default
+        self.channelsNavigationController.navigationBar.barStyle = self.isDarkMode
+            ? .black
+            : .default
+        self.mySettingsNavigationController.navigationBar.barStyle = self.isDarkMode
+            ? .black
+            : .default
     }
     
     
@@ -137,7 +153,9 @@ class MainTabbarController: UITabBarController {
 }
 
 extension MainTabbarController: SBDUserEventDelegate {
-    func didUpdateTotalUnreadMessageCount(_ totalCount: Int32, totalCountByCustomType: [String : NSNumber]?) {
+    func didUpdateTotalUnreadMessageCount(_ totalCount: Int32,
+                                          totalCountByCustomType: [String : NSNumber]?)
+    {
         self.setUnreadMessagesCount(UInt(totalCount))
     }
 }

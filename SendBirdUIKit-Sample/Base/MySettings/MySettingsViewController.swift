@@ -77,15 +77,39 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         
         var layoutConstraints: [NSLayoutConstraint] = []
         
-        layoutConstraints.append(self.userInfoView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0))
-        layoutConstraints.append(self.userInfoView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0))
-        layoutConstraints.append(self.userInfoView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0))
-        layoutConstraints.append(self.userInfoView.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor, constant: 0))
+        layoutConstraints.append(self.userInfoView.leadingAnchor.constraint(
+            equalTo: self.view.leadingAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.userInfoView.trailingAnchor.constraint(
+            equalTo: self.view.trailingAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.userInfoView.topAnchor.constraint(
+            equalTo: self.view.topAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.userInfoView.centerXAnchor.constraint(
+            equalTo: self.tableView.centerXAnchor,
+            constant: 0)
+        )
 
-        layoutConstraints.append(self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0))
-        layoutConstraints.append(self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0))
-        layoutConstraints.append(self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0))
-        layoutConstraints.append(self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0))
+        layoutConstraints.append(self.tableView.leadingAnchor.constraint(
+            equalTo: self.view.leadingAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.tableView.trailingAnchor.constraint(
+            equalTo: self.view.trailingAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.tableView.topAnchor.constraint(
+            equalTo: self.view.topAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.tableView.bottomAnchor.constraint(
+            equalTo: self.view.bottomAnchor,
+            constant: 0)
+        )
         
         NSLayoutConstraint.activate(layoutConstraints)
     }
@@ -357,7 +381,10 @@ extension MySettingsViewController: UIImagePickerControllerDelegate {
             
             self?.userInfoView.coverImage.image = originalImage
             
-            SBUMain.updateUserInfo(nickname: nil, profileImage: originalImage.jpegData(compressionQuality: 0.5)) { error in
+            SBUMain.updateUserInfo(
+                nickname: nil,
+                profileImage: originalImage.jpegData(compressionQuality: 0.5)
+            ) { error in
                 guard error == nil, let user = SBUGlobals.CurrentUser else { return }
                 self?.userInfoView.configure(user: user)
             }

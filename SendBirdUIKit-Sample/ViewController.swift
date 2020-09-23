@@ -92,7 +92,12 @@ class ViewController: UIViewController {
          
         [userIdTextField, nicknameTextField].forEach {
             guard let textField = $0 else { return }
-            let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: textField.frame.size.height))
+            let paddingView = UIView(frame: CGRect(
+                x: 0,
+                y: 0,
+                width: 16,
+                height: textField.frame.size.height)
+            )
             textField.leftView = paddingView
             textField.leftViewMode = .always
             textField.layer.borderWidth = 1

@@ -33,13 +33,15 @@ class ChannelListCustomManager: BaseCustomManager {
 
 extension ChannelListCustomManager {
     func uiComponentCustom() {
-        // This is an example of modifying some ui elements. (The customized part is marked with a red border)
+        // This is an example of modifying some ui elements.
+        // (The customized part is marked with a red border)
         let channelListVC = SBUChannelListViewController()
         
         // This part changes the default titleView to a custom view.
         channelListVC.titleView = self.createHighlightedTitleLabel()
         
-        // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
+        // This part changes the default leftBarButton to a custom leftBarButton.
+        // RightButton can also be changed in this way.
         channelListVC.leftBarButton = self.createHighlightedBackButton()
         
         // This part changes the default emptyView to a custom emptyView.
@@ -62,7 +64,10 @@ extension ChannelListCustomManager {
         #if swift(>=5.2)
         channelListVC.register(channelCell: CustomChannelListCell())
         #else
-        channelListVC.register(channelCell: CustomChannelListCell(style: .default, reuseIdentifier: CustomChannelListCell.sbu_className))
+        channelListVC.register(channelCell: CustomChannelListCell(
+            style: .default,
+            reuseIdentifier: CustomChannelListCell.sbu_className)
+        )
         #endif
         
         self.navigationController?.pushViewController(channelListVC, animated: true)

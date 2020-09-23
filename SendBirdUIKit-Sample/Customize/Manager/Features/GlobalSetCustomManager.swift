@@ -109,14 +109,29 @@ extension GlobalSetCustomManager {
         
         let channelCellTheme = SBUChannelCellTheme()
         channelCellTheme.unreadCountBackgroundColor = UIColor(hex: "#E53157")
-        channelCellTheme.titleFont = UIFont.init(name: "AmericanTypewriter", size: 16.0) ?? UIFont()
-        channelCellTheme.memberCountFont = UIFont.init(name: "AmericanTypewriter-Bold", size: 12.0) ?? UIFont()
-        channelCellTheme.lastUpdatedTimeFont = UIFont.init(name: "AmericanTypewriter", size: 12.0) ?? UIFont()
-        channelCellTheme.messageFont = UIFont.init(name: "AmericanTypewriter", size: 14.0) ?? UIFont()
+        channelCellTheme.titleFont = UIFont.init(
+            name: "AmericanTypewriter",
+            size: 16.0
+            ) ?? UIFont()
+        channelCellTheme.memberCountFont = UIFont.init(
+            name: "AmericanTypewriter-Bold",
+            size: 12.0
+            ) ?? UIFont()
+        channelCellTheme.lastUpdatedTimeFont = UIFont.init(
+            name: "AmericanTypewriter",
+            size: 12.0
+            ) ?? UIFont()
+        channelCellTheme.messageFont = UIFont.init(
+            name: "AmericanTypewriter",
+            size: 14.0
+            ) ?? UIFont()
         // ... In this way, you can add theme attributes.
         
         let componentTheme = SBUComponentTheme()
-        componentTheme.titleFont = UIFont.init(name: "AmericanTypewriter-Bold", size: 16.0) ?? UIFont()
+        componentTheme.titleFont = UIFont.init(
+            name: "AmericanTypewriter-Bold",
+            size: 16.0
+            ) ?? UIFont()
         // ... In this way, you can add theme attributes.
         
         let customTheme = SBUTheme(channelListTheme: channelListTheme,
@@ -131,11 +146,36 @@ extension GlobalSetCustomManager {
 extension GlobalSetCustomManager {
     /// This is an function of changing the global primary colors to default.
     static func setDefaultGlobalColorSet() {
-        SBUColorSet.primary100 = UIColor(red: 226.0 / 255.0, green: 223.0 / 255.0, blue: 1.0, alpha: 1.0)
-        SBUColorSet.primary200 = UIColor(red: 158.0 / 255.0, green: 140.0 / 255.0, blue: 245.0 / 255.0, alpha: 1.0)
-        SBUColorSet.primary300 = UIColor(red: 123.0 / 255.0, green: 83.0 / 255.0, blue: 239.0 / 255.0, alpha: 1.0)
-        SBUColorSet.primary400 = UIColor(red: 100.0 / 255.0, green: 64.0 / 255.0, blue: 196.0 / 255.0, alpha: 1.0)
-        SBUColorSet.primary500 = UIColor(red: 77.0 / 255.0, green: 42.0 / 255.0, blue: 166.0 / 255.0, alpha: 1.0)
+        SBUColorSet.primary100 = UIColor(
+            red: 226.0 / 255.0,
+            green: 223.0 / 255.0,
+            blue: 1.0,
+            alpha: 1.0
+        )
+        SBUColorSet.primary200 = UIColor(
+            red: 158.0 / 255.0,
+            green: 140.0 / 255.0,
+            blue: 245.0 / 255.0,
+            alpha: 1.0
+        )
+        SBUColorSet.primary300 = UIColor(
+            red: 123.0 / 255.0,
+            green: 83.0 / 255.0,
+            blue: 239.0 / 255.0,
+            alpha: 1.0
+        )
+        SBUColorSet.primary400 = UIColor(
+            red: 100.0 / 255.0,
+            green: 64.0 / 255.0,
+            blue: 196.0 / 255.0,
+            alpha: 1.0
+        )
+        SBUColorSet.primary500 = UIColor(
+            red: 77.0 / 255.0,
+            green: 42.0 / 255.0,
+            blue: 166.0 / 255.0,
+            alpha: 1.0
+        )
     }
     
     /// This is an function of changing the global font set to default.

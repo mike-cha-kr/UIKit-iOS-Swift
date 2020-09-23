@@ -43,25 +43,54 @@ class CustomChannelListCell: SBUBaseChannelCell {
         super.setupAutolayout()
         
         NSLayoutConstraint.activate([
-            self.coverImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            self.coverImage.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
-            self.coverImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.coverImage.topAnchor.constraint(
+                equalTo: self.contentView.topAnchor,
+                constant: 10
+            ),
+            self.coverImage.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -10
+            ),
+            self.coverImage.leadingAnchor.constraint(
+                equalTo: self.contentView.leadingAnchor,
+                constant: 16
+            ),
             self.coverImage.widthAnchor.constraint(equalToConstant: kCoverImageSize),
             self.coverImage.heightAnchor.constraint(equalToConstant: kCoverImageSize),
         ])
 
         NSLayoutConstraint.activate([
-            self.titleStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-            self.titleStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
-            self.titleStackView.leadingAnchor.constraint(equalTo: self.coverImage.trailingAnchor, constant: 16),
-            self.titleStackView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor,  constant: -16),
+            self.titleStackView.topAnchor.constraint(
+                equalTo: self.contentView.topAnchor,
+                constant: 10
+            ),
+            self.titleStackView.bottomAnchor.constraint(
+                equalTo: self.contentView.bottomAnchor,
+                constant: -10
+            ),
+            self.titleStackView.leadingAnchor.constraint(
+                equalTo: self.coverImage.trailingAnchor,
+                constant: 16
+            ),
+            self.titleStackView.rightAnchor.constraint(
+                equalTo: self.contentView.rightAnchor,
+                constant: -16),
         ])
         self.titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
         NSLayoutConstraint.activate([
-            self.separatorLine.topAnchor.constraint(equalTo: self.coverImage.bottomAnchor, constant: -0.5),
-            self.separatorLine.leadingAnchor.constraint(equalTo: self.titleStackView.leadingAnchor, constant: 0),
-            self.separatorLine.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            self.separatorLine.topAnchor.constraint(
+                equalTo: self.coverImage.bottomAnchor,
+                constant: -0.5
+            ),
+            self.separatorLine.leadingAnchor.constraint(
+                equalTo: self.titleStackView.leadingAnchor,
+                constant: 0
+            ),
+            self.separatorLine.trailingAnchor.constraint(
+                equalTo: self.contentView.trailingAnchor,
+                constant: -16
+            ),
             self.separatorLine.heightAnchor.constraint(equalToConstant: 0.5)
         ])
     }

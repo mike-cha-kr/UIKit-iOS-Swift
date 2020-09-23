@@ -70,35 +70,93 @@ class UserInfoTitleView: UIView {
         
         var layoutConstraints: [NSLayoutConstraint] = []
         
-        layoutConstraints.append(self.coverImage.widthAnchor.constraint(equalToConstant: kCoverImageSize))
-        layoutConstraints.append(self.coverImage.heightAnchor.constraint(equalToConstant: kCoverImageSize))
+        layoutConstraints.append(self.coverImage.widthAnchor.constraint(
+            equalToConstant: kCoverImageSize)
+        )
+        layoutConstraints.append(self.coverImage.heightAnchor.constraint(
+            equalToConstant: kCoverImageSize)
+        )
         
-        layoutConstraints.append(self.userNicknameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.userNicknameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16))
+        layoutConstraints.append(self.userNicknameLabel.leadingAnchor.constraint(
+            equalTo: self.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.userNicknameLabel.trailingAnchor.constraint(
+            equalTo: self.trailingAnchor,
+            constant: -16)
+        )
         
-        layoutConstraints.append(self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0))
-        layoutConstraints.append(self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0))
-        layoutConstraints.append(self.stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 24))
+        layoutConstraints.append(self.stackView.leadingAnchor.constraint(
+            equalTo: self.leadingAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.stackView.trailingAnchor.constraint(
+            equalTo: self.trailingAnchor,
+            constant: 0)
+        )
+        layoutConstraints.append(self.stackView.topAnchor.constraint(
+            equalTo: self.topAnchor,
+            constant: 24)
+        )
 
         layoutConstraints.append(self.lineView.heightAnchor.constraint(equalToConstant: 0.5))
-        layoutConstraints.append(self.lineView.leadingAnchor.constraint(equalTo: self.stackView.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.lineView.trailingAnchor.constraint(equalTo: self.stackView.trailingAnchor, constant: -16))
-        layoutConstraints.append(self.lineView.topAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: 23))
+        layoutConstraints.append(self.lineView.leadingAnchor.constraint(
+            equalTo: self.stackView.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.lineView.trailingAnchor.constraint(
+            equalTo: self.stackView.trailingAnchor,
+            constant: -16)
+        )
+        layoutConstraints.append(self.lineView.topAnchor.constraint(
+            equalTo: self.stackView.bottomAnchor,
+            constant: 23)
+        )
         
-        layoutConstraints.append(self.userIdTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.userIdTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16))
-        layoutConstraints.append(self.userIdTitleLabel.topAnchor.constraint(equalTo: self.lineView.bottomAnchor, constant: 15))
+        layoutConstraints.append(self.userIdTitleLabel.leadingAnchor.constraint(
+            equalTo: self.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.userIdTitleLabel.trailingAnchor.constraint(
+            equalTo: self.trailingAnchor,
+            constant: -16)
+        )
+        layoutConstraints.append(self.userIdTitleLabel.topAnchor.constraint(
+            equalTo: self.lineView.bottomAnchor,
+            constant: 15)
+        )
         
-        layoutConstraints.append(self.userIdLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.userIdLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16))
-        layoutConstraints.append(self.userIdLabel.topAnchor.constraint(equalTo: self.userIdTitleLabel.bottomAnchor, constant: 2))
+        layoutConstraints.append(self.userIdLabel.leadingAnchor.constraint(
+            equalTo: self.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.userIdLabel.trailingAnchor.constraint(
+            equalTo: self.trailingAnchor,
+            constant: -16)
+        )
+        layoutConstraints.append(self.userIdLabel.topAnchor.constraint(
+            equalTo: self.userIdTitleLabel.bottomAnchor,
+            constant: 2)
+        )
         
         layoutConstraints.append(self.bottomLineView.heightAnchor.constraint(equalToConstant: 0.5))
-        layoutConstraints.append(self.bottomLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16))
-        layoutConstraints.append(self.bottomLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16))
-        layoutConstraints.append(self.bottomLineView.topAnchor.constraint(equalTo: self.userIdLabel.bottomAnchor, constant: 15.5))
+        layoutConstraints.append(self.bottomLineView.leadingAnchor.constraint(
+            equalTo: self.leadingAnchor,
+            constant: 16)
+        )
+        layoutConstraints.append(self.bottomLineView.trailingAnchor.constraint(
+            equalTo: self.trailingAnchor,
+            constant: -16)
+        )
+        layoutConstraints.append(self.bottomLineView.topAnchor.constraint(
+            equalTo: self.userIdLabel.bottomAnchor,
+            constant: 15.5)
+        )
         
-        layoutConstraints.append(self.bottomLineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0))
+        layoutConstraints.append(self.bottomLineView.bottomAnchor.constraint(
+            equalTo: self.bottomAnchor,
+            constant: 0)
+        )
         
         NSLayoutConstraint.activate(layoutConstraints)
         
