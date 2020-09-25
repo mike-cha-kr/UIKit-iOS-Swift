@@ -159,8 +159,6 @@ class UserInfoTitleView: UIView {
         )
         
         NSLayoutConstraint.activate(layoutConstraints)
-        
-        self.layoutIfNeeded()
     }
     
     func setupStyles() {

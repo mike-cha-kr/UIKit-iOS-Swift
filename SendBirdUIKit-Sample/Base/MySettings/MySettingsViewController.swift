@@ -59,6 +59,7 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
             forCellReuseIdentifier: MySettingsCell.sbu_className
         )
         self.tableView.tableHeaderView = self.userInfoView
+        self.tableView.sectionHeaderHeight = UITableView.automaticDimension
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44.0
         self.view.addSubview(self.tableView)
@@ -135,12 +136,22 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        self.setupStyles()
+        if let headerView = tableView.tableHeaderView {
+            
+            let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            var headerFrame = headerView.frame
+            
+            if height != headerFrame.size.height {
+                headerFrame.size.height = height
+                headerView.frame = headerFrame
+                tableView.tableHeaderView = headerView
+            }
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
         if let user = SBUGlobals.CurrentUser {
             self.userInfoView.configure(user: user)
         }
@@ -150,6 +161,10 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
                 self.tableView.reloadData()
             }
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
