@@ -10,11 +10,13 @@ import UIKit
 
 extension UILabel {
     func changeColor(_ color: UIColor, duration: TimeInterval) {
-        UIView.transition(with: self,
-                          duration: duration,
-                          options: .transitionCrossDissolve,
-                          animations: {
-                            self.textColor = color
-        }, completion: nil)
+        UIView.transition(
+            with: self,
+            duration: duration,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.textColor = color
+            },
+            completion: nil)
     }
 }

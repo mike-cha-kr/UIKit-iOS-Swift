@@ -172,6 +172,10 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         self.tabBarController?.tabBar.isHidden = false
     }
 
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return theme.statusBarStyle
+    }
+    
     
     // MARK: - SDK related
     func loadDisturbSetting(_ completionHandler: @escaping (() -> Void)) {
@@ -207,16 +211,16 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
             title: "Change my nickname",
             color: theme.itemTextColor,
             image: nil
-        )
+        ) {}
         let changeImageItem = SBUActionSheetItem(
             title: "Change my profile image",
             color: theme.itemTextColor,
             image: nil
-        )
+        ) {}
         let cancelItem = SBUActionSheetItem(
             title: SBUStringSet.Cancel,
             color: theme.itemColor
-        )
+        ) {}
         SBUActionSheet.show(
             items: [changeNameItem, changeImageItem],
             cancelItem: cancelItem,
