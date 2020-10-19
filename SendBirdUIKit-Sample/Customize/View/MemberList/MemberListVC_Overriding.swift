@@ -15,21 +15,24 @@ import SendBirdUIKit
 class MemberListVC_Overriding: SBUMemberListViewController {
     // MARK: - Show relations
     override func showInviteUser() {
-        // If you want to use your own InviteUserViewController, you can override and customize it here.
+        // If you want to use your own InviteUserViewController,
+        // you can override and customize it here.
         AlertManager.showCustomInfo(#function)
     }
     
     
     // MARK: - Action relations
     override func onClickInviteUser() {
-        // If you want to customize invite user button action, you can override and customize it here.
+        // If you want to customize invite user button action,
+        // you can override and customize it here.
         AlertManager.showCustomInfo(#function)
     }
     
     
     // MARK: - Error handling
     override func didReceiveError(_ message: String?) {
-        // If you override and customize this function, you can handle it when error received.
+        // If you override and customize this function,
+        // you can handle it when error received.
         print(message as Any);
     }
 }

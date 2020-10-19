@@ -38,14 +38,16 @@ class InviteUserVC_UserList: SBUInviteUserViewController {
 /// -------------------------------------------------------------------
 extension InviteUserVC_UserList {
     func loadCustomUserList() {
-        // If you use a list of users who have internally generated relationship data, you can use it as follows:
+        // If you use a list of users who have internally generated relationship data,
+        // you can use it as follows:
         // Case: 1st list call
         let users: [SBUUser] = [] // Include a list of users you have created here.
         self.loadNextUserList(reset: true, users: users)
     }
     
     func loadNextCustomUserList() {
-        // If you use a list of users who have internally generated relationship data, you can use it as follows:
+        // If you use a list of users who have internally generated relationship data,
+        // you can use it as follows:
         // Case: next list call
         let users: [SBUUser] = [] // Include a list of users you have created here.
         self.loadNextUserList(reset: false, users: users)

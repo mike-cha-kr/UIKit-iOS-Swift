@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // TODO: Change to your AppId
-        SBUMain.initialize(applicationId: "2D7B4CDB-932F-4082-9B09-A1153792DC8D")
+        SBUMain.initialize(applicationId: "2D7B4CDB-932F-4082-9B09-A1153792DC8D")// origin
+        
         SBUGlobals.AccessToken = ""
+        SBUGlobals.UsingUserProfile = true
         
         initializeRemoteNotification()
         
@@ -38,7 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // Register a device token to SendBird server.
         SBUMain.registerPush(deviceToken: deviceToken) { success in
             
@@ -46,18 +49,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void)
+    public func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                       willPresent notification: UNNotification,
+                                       withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void)
     {
         // Foreground setting
         //        completionHandler( [.alert, .badge, .sound])
     }
     
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                       didReceive response: UNNotificationResponse,
+                                       withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
         let userInfo = response.notification.request.content.userInfo
         guard let payload: NSDictionary = userInfo["sendbird"] as? NSDictionary,
             let channel: NSDictionary = payload["channel"] as? NSDictionary,
             let channelUrl: String = channel["channel_url"] as? String else { return }
         
-        SBUMain.openChannel(channelUrl: channelUrl, basedOnChannelList: true)
+        SBUMain.moveToChannel(channelUrl: channelUrl, basedOnChannelList: true)
     }
 }

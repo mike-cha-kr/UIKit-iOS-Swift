@@ -13,10 +13,14 @@ import SendBirdUIKit
 /// This section is related to using the custom user cell.
 /// ------------------------------------------------------
 class InviteUserVC_Cell: SBUInviteUserViewController {
-    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open override func tableView(_ tableView: UITableView,
+                                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = userList[indexPath.row]
         
-        if let cell: CustomUserCell = tableView.dequeueReusableCell(withIdentifier: "CustomUserCell") as? CustomUserCell {
+        if let cell: CustomUserCell = tableView.dequeueReusableCell(
+            withIdentifier: "CustomUserCell"
+            ) as? CustomUserCell
+        {
             cell.selectionStyle = .none
             cell.configure(title: user.nickname ?? "", selected: self.selectedUserList.contains(user))
             return cell

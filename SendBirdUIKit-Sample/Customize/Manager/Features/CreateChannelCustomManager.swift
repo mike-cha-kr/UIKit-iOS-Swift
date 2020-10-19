@@ -36,7 +36,8 @@ extension CreateChannelCustomManager {
         // This part changes the default titleView to a custom view.
         createChannelVC.titleView = self.createHighlightedTitleLabel()
         
-        // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
+        // This part changes the default leftBarButton to a custom leftBarButton.
+        // RightButton can also be changed in this way.
         createChannelVC.leftBarButton = self.createHighlightedBackButton()
         
         // Move to CreateChannelViewController using customized components

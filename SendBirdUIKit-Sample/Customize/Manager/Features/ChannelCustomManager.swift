@@ -41,7 +41,8 @@ extension ChannelCustomManager {
             // This part changes the default titleView to a custom view.
             channelVC.titleView = self.createHighlightedTitleLabel()
             
-            // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
+            // This part changes the default leftBarButton to a custom leftBarButton.
+            // RightButton can also be changed in this way.
             channelVC.leftBarButton = self.createHighlightedBackButton()
             
             // This part changes the messageInfoButton of newMessageInfoView.
@@ -99,7 +100,10 @@ extension ChannelCustomManager {
             #if swift(>=5.2)
             channelVC.register(userMessageCell: CustomUserMessageCell())
             #else
-            channelVC.register(userMessageCell: CustomUserMessageCell(style: .default, reuseIdentifier: CustomUserMessageCell.sbu_className))
+            channelVC.register(userMessageCell: CustomUserMessageCell(
+                style: .default,
+                reuseIdentifier: CustomUserMessageCell.sbu_className)
+            )
             #endif
             
             // Move to ChannelViewController using customized components

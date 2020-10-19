@@ -35,11 +35,17 @@ extension ChannelSettingsCustomManager {
             // This part changes the default titleView to a custom view.
             channelSettingsVC.titleView = self.createHighlightedTitleLabel()
             
-            // This part changes the default leftBarButton to a custom leftBarButton. RightButton can also be changed in this way.
+            // This part changes the default leftBarButton to a custom leftBarButton.
+            // RightButton can also be changed in this way.
             channelSettingsVC.leftBarButton = self.createHighlightedBackButton()
             
             // This part changes the default userInfoView to a custom view.
-            let userInfoView = UILabel(frame: CGRect(x: 0, y: 0, width: self.navigationController?.view.bounds.width ?? 375, height:200))
+            let userInfoView = UILabel(frame: CGRect(
+                x: 0,
+                y: 0,
+                width: self.navigationController?.view.bounds.width ?? 375,
+                height:200)
+            )
             userInfoView.backgroundColor = SBUColorSet.secondary100
             userInfoView.textAlignment = .center
             userInfoView.text = "Custom UserInfo"
