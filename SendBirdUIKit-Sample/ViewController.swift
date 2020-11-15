@@ -13,6 +13,7 @@ enum ButtonType: Int {
     case signIn
     case startChatWithVC
     case startChatWithTC
+    case startOpenChatWithTC
     case signOut
     case customSamples
 }
@@ -27,11 +28,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
-    @IBOutlet weak var signOutStackView: UIStackView!
+    
+    @IBOutlet weak var homeStackView: UIStackView!
     @IBOutlet weak var startChatWithViewControllerButton: UIButton!
     @IBOutlet weak var startChatWithTabbarControllerButton: UIButton!
+    @IBOutlet weak var startOpenChatWithTabbarControllerButton: UIButton!
     @IBOutlet weak var customSamplesButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
+    
+    @IBOutlet weak var groupChannelShadowView: UIView!
+    @IBOutlet weak var groupChannelBaseView: UIView!
+    @IBOutlet weak var openChannelShadowView: UIView!
+    @IBOutlet weak var openChannelBaseView: UIView!
+    @IBOutlet weak var customSampleShadowView: UIView!
+    @IBOutlet weak var customSamplesBaseView: UIView!
     
     @IBOutlet weak var versionLabel: UILabel!
 
@@ -47,11 +57,18 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
                 self.signInStackView.isHidden = self.isSignedIn
                 self.signInStackView.alpha = self.isSignedIn ? 0 : 1
-                self.signOutStackView.alpha = !self.isSignedIn ? 0 : 1
-                self.signOutStackView.isHidden = !self.isSignedIn
+                self.logoStackView.isHidden = self.isSignedIn
+                self.logoStackView.alpha = self.isSignedIn ? 0 : 1
+                self.homeStackView.isHidden = !self.isSignedIn
+                self.homeStackView.alpha = !self.isSignedIn ? 0 : 1
             })
             self.view.endEditing(true)
         }
+    }
+    
+    enum CornerRadius: CGFloat {
+        case small = 4.0
+        case large = 8.0
     }
     
     
@@ -68,27 +85,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signInButton.tag    = ButtonType.signIn.rawValue
-        signOutButton.tag   = ButtonType.signOut.rawValue
+        signInButton.tag = ButtonType.signIn.rawValue
+        signOutButton.tag = ButtonType.signOut.rawValue
         
         startChatWithViewControllerButton.tag = ButtonType.startChatWithVC.rawValue
         startChatWithTabbarControllerButton.tag = ButtonType.startChatWithTC.rawValue
+        startOpenChatWithTabbarControllerButton.tag = ButtonType.startOpenChatWithTC.rawValue
         customSamplesButton.tag = ButtonType.customSamples.rawValue
         
-        [startChatWithViewControllerButton,
-         startChatWithTabbarControllerButton,
-         customSamplesButton,
-         signInButton,
-         signOutButton].forEach {
-            $0?.layer.cornerRadius = 4
-        }
-        
-        [signOutButton].forEach {
-            $0?.layer.borderColor = #colorLiteral(red: 0.4823529412, green: 0.3254901961, blue: 0.937254902, alpha: 1)
-            $0?.layer.borderWidth = 1
-        }
-        
-        signOutStackView.alpha = 0
+        homeStackView.alpha = 0
          
         [userIdTextField, nicknameTextField].forEach {
             guard let textField = $0 else { return }
@@ -101,9 +106,35 @@ class ViewController: UIViewController {
             textField.leftView = paddingView
             textField.leftViewMode = .always
             textField.layer.borderWidth = 1
-            textField.layer.cornerRadius = 5
+            textField.layer.cornerRadius = CornerRadius.small.rawValue
             textField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
             textField.tintColor = #colorLiteral(red: 0.4666666667, green: 0.337254902, blue: 0.8549019608, alpha: 1)
+        }
+        
+        [signInButton,
+         signOutButton].forEach {
+            $0?.layer.cornerRadius = CornerRadius.small.rawValue
+        }
+        
+        [groupChannelBaseView,
+         openChannelBaseView,
+         customSamplesBaseView]
+            .forEach {
+                $0?.layer.cornerRadius = CornerRadius.large.rawValue
+            }
+        
+        [groupChannelShadowView,
+         openChannelShadowView,
+         customSampleShadowView].forEach {
+            $0?.layer.cornerRadius = CornerRadius.large.rawValue
+            $0?.layer.shadowRadius = CornerRadius.large.rawValue
+            $0?.layer.shadowOffset.height = 8.0
+            $0?.layer.shadowOpacity = 0.12
+        }
+        
+        [signOutButton].forEach {
+            $0?.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.88)
+            $0?.layer.borderWidth = 1
         }
  
         UserDefaults.saveIsLightTheme(true)
@@ -114,11 +145,6 @@ class ViewController: UIViewController {
          
         userIdTextField.text = UserDefaults.loadUserID()
         nicknameTextField.text = UserDefaults.loadNickname()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.logoStackView.isHidden = UIDevice.current.orientation.isLandscape
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -144,6 +170,8 @@ class ViewController: UIViewController {
             self.signinAction()
         case .startChatWithVC, .startChatWithTC:
             self.startChatAction(type: type ?? .startChatWithVC)
+        case .startOpenChatWithTC:
+            self.startOpenChatAction(type: .startOpenChatWithTC)
         case .signOut:
             self.signOutAction()
         case .customSamples:
@@ -207,7 +235,15 @@ class ViewController: UIViewController {
             present(naviVC, animated: true)
         }
         else if type == .startChatWithTC {
-            let mainVC = MainTabbarController()
+            let mainVC = MainChannelTabbarController()
+            mainVC.modalPresentationStyle = .fullScreen
+            present(mainVC, animated: true)
+        }
+    }
+    
+    func startOpenChatAction(type: ButtonType) {
+        if type == .startOpenChatWithTC {
+            let mainVC = MainOpenChannelTabbarController()
             mainVC.modalPresentationStyle = .fullScreen
             present(mainVC, animated: true)
         }
@@ -220,6 +256,11 @@ class ViewController: UIViewController {
         naviVC.modalPresentationStyle = .fullScreen
         present(naviVC, animated: true)
     }
-    
-    
+}
+
+
+extension ViewController: UINavigationControllerDelegate {
+     public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 }

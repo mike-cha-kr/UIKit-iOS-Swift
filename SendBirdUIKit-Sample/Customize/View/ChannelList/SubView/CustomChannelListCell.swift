@@ -103,7 +103,7 @@ class CustomChannelListCell: SBUBaseChannelCell {
         self.separatorLine.backgroundColor = SBUTheme.channelCellTheme.separatorLineColor
     }
 
-    override func configure(channel: SBDGroupChannel) {
+    override func configure(channel: SBDBaseChannel) {
         super.configure(channel: channel)
         
         self.titleLabel.text = channel.name.count > 0 ? channel.name : "Empty channel"
