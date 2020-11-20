@@ -113,11 +113,11 @@ If you are building with Xcode 11.3 or earlier version, you may face two followi
 When these errors happen, follow the steps below which remove the annotations by executing the necessary script in the build steps in advance. 
 
 1. Open the **Edit scheme** menu of the project target.
-![EditScheme](https://static.sendbird.com/docs/ios/ui-kit-getting-started-handling-errors-01_20200623.png)
+![EditScheme](https://static.sendbird.com/docs/uikit/ios/getting-started-handling-errors-01_20200623.png)
 2. Go to **Build** > **Pre-actions** and select the **New Run Script Action** option at the bottom.
-![NewRunScriptAction](https://static.sendbird.com/docs/ios/ui-kit-getting-started-handling-errors-02_20200623.png)
+![NewRunScriptAction](https://static.sendbird.com/docs/uikit/ios/getting-started-handling-errors-02_20200623.png)
 3. Add the script below. Select the target to apply the script.
-![ApplyScript](https://static.sendbird.com/docs/ios/ui-kit-getting-started-handling-errors-03_20200623.png)
+![ApplyScript](https://static.sendbird.com/docs/uikit/ios/getting-started-handling-errors-03_20200623.png)
 
 ```bash
 # CocoaPods
