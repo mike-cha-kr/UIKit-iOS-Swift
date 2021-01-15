@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         SBUGlobals.AccessToken = ""
         SBUGlobals.UsingUserProfile = true
+        SBUGlobals.UsingUserProfileInOpenChannel = true
         
         initializeRemoteNotification()
         

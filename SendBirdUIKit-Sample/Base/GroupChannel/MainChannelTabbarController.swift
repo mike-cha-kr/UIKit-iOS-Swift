@@ -1,5 +1,5 @@
 //
-//  MainTabbarController.swift
+//  MainChannelTabbarController.swift
 //  SendBirdUIKit-Sample
 //
 //  Created by Tez Park on 2020/09/11.
@@ -13,7 +13,7 @@ enum TabType {
     case channels, mySettings
 }
 
-class MainTabbarController: UITabBarController {
+class MainChannelTabbarController: UITabBarController {
     let channelsViewController = ChannelListViewController()
     let settingsViewController = MySettingsViewController()
     
@@ -152,7 +152,7 @@ class MainTabbarController: UITabBarController {
     }
 }
 
-extension MainTabbarController: SBDUserEventDelegate {
+extension MainChannelTabbarController: SBDUserEventDelegate {
     func didUpdateTotalUnreadMessageCount(_ totalCount: Int32,
                                           totalCountByCustomType: [String : NSNumber]?)
     {

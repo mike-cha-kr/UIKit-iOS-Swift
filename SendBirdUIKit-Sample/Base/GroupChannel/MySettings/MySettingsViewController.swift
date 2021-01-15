@@ -15,7 +15,7 @@ enum MySettingsCellType: Int {
     case darkTheme, doNotDisturb, signOut
 }
 
-class MySettingsViewController: UIViewController, UINavigationControllerDelegate {
+open class MySettingsViewController: UIViewController, UINavigationControllerDelegate {
 
     // MARK: - Property
     lazy var rightBarButton: UIBarButtonItem = {
@@ -40,9 +40,8 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
     private let actionSheetIdEdit = 1
     private let actionSheetIdPicker = 2
     
-    
     // MARK: - Life cycle
-    override func loadView() {
+    open override func loadView() {
         super.loadView()
         
         // navigation bar
@@ -149,7 +148,7 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         if let user = SBUGlobals.CurrentUser {
@@ -163,11 +162,11 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         }
     }
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -239,7 +238,10 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
             SBUMain.updateUserInfo(nickname: nickname, profileUrl: nil) { (error) in
                 guard error == nil, let user = SBUGlobals.CurrentUser else { return }
                 UserDefaults.saveNickname(nickname)
-                self?.userInfoView.configure(user: user)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.userInfoView.configure(user: user)
+                }
             }
         }
         let cancelButton = SBUAlertButtonItem(title: SBUStringSet.Cancel) { _ in }
@@ -275,10 +277,10 @@ class MySettingsViewController: UIViewController, UINavigationControllerDelegate
         )
     }
     
-    func changeDarkThemeSwitch(isOn: Bool) {
+    open func changeDarkThemeSwitch(isOn: Bool) {
         SBUTheme.set(theme: isOn ? .dark : .light)
         
-        guard let tabbarController = self.tabBarController as? MainTabbarController else { return }
+        guard let tabbarController = self.tabBarController as? MainChannelTabbarController else { return }
         tabbarController.updateTheme(isDarkMode: isOn)
         self.userInfoView.setupStyles()
         self.tableView.reloadData()
