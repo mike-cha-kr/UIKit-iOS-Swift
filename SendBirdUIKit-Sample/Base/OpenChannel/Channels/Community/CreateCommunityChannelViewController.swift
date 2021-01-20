@@ -238,19 +238,23 @@ open class CreateCommunityChannelViewController: UIViewController, UINavigationC
         let removeItem = SBUActionSheetItem(
             title: SBUStringSet.RemovePhoto,
             color: theme.removeColor,
-            textAlignment: .center
+            textAlignment: .center,
+            completionHandler: nil
         )
         let cameraItem = SBUActionSheetItem(
             title: SBUStringSet.TakePhoto,
-            textAlignment: .center
+            textAlignment: .center,
+            completionHandler: nil
         )
         let libraryItem = SBUActionSheetItem(
             title: SBUStringSet.ChoosePhoto,
-            textAlignment: .center
+            textAlignment: .center,
+            completionHandler: nil
         )
         let cancelItem = SBUActionSheetItem(
             title: SBUStringSet.Cancel,
-            color: theme.itemColor
+            color: theme.itemColor,
+            completionHandler: nil
         )
         
         self.view.endEditing(true)
