@@ -189,7 +189,7 @@ open class CreateCommunityChannelViewController: UIViewController, UINavigationC
             return
         }
         
-        let channelName = self.channelNameField.text
+        let channelName = self.channelNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let coverImage: Data = (
             self.hasCoverImage
@@ -279,8 +279,6 @@ open class CreateCommunityChannelViewController: UIViewController, UINavigationC
     }
     
     @objc func onEditingChangeTextField(_ sender: UITextField) {
-        sender.text = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         self.rightBarButton.isEnabled = !(sender.text?.isEmpty == true)
         self.rightBarButton.tintColor = sender.text?.isEmpty == true
             ? theme.barButtonDisabledTintColor
