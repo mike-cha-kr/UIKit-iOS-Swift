@@ -270,7 +270,7 @@ class StreamingChannelViewController: SBUOpenChannelViewController {
     // MARK: Gesture actions
     @objc
     func onClickMediaView(_ sender: UITapGestureRecognizer? = nil) {
-        if self.messageInputViewBottomConstraint.constant == 0 {
+        if self.messageInputView.textView?.isFirstResponder == false {
             self.showLiveInfo(shown: self.translucentView.isHidden)
         } else {
             self.dismissKeyboard()
