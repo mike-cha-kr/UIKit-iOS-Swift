@@ -233,6 +233,16 @@ open class CreateCommunityChannelViewController: UIViewController, UINavigationC
         self.createChannel()
     }
     
+    @objc func onClickBack() {
+        if let navigationController = self.navigationController,
+            navigationController.viewControllers.count > 1 {
+            navigationController.popViewController(animated: true)
+        }
+        else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     ///  Refer to `didSelectActionSheetItem`
     @objc public func selectChannelImage() {
         let removeItem = SBUActionSheetItem(

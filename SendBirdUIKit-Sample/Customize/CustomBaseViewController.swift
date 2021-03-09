@@ -110,7 +110,7 @@ class CustomBaseViewController: UITableViewController {
 
 
 // MARK: - Navigation
-extension UIViewController {
+extension CustomBaseViewController {
     func createBackButton() {
         let backButton = UIBarButtonItem( image: nil,
                                           style: .plain,

@@ -146,9 +146,9 @@ class StreamingChannelViewController: SBUOpenChannelViewController {
         )
         
         let buttonIcon = self.isMessageListHidden
-            ? SBUIconSet.iconChatShow
+            ? UIImage(named: "iconChatShow")?
                 .sbu_with(tintColor: SBUColorSet.ondark01)
-            : SBUIconSet.iconChatHide
+            : UIImage(named: "iconChatHide")?
                 .sbu_with(tintColor: SBUColorSet.ondark01)
         self.hideMessageListButton.setImage(
             buttonIcon,

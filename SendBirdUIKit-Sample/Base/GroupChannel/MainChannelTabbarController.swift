@@ -125,7 +125,7 @@ class MainChannelTabbarController: UITabBarController {
             badgeValue = "\(totalCount)"
         }
         
-        self.channelsViewController.tabBarItem.badgeColor = SBUColorSet.error
+        self.channelsViewController.tabBarItem.badgeColor = SBUColorSet.error300
         self.channelsViewController.tabBarItem.badgeValue = badgeValue
         self.channelsViewController.tabBarItem.setBadgeTextAttributes(
             [

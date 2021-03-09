@@ -170,7 +170,7 @@ class MySettingsCell: UITableViewCell {
             self.typeIcon.image = UIImage(named: "iconLeave")?
                 .sbu_with(tintColor: .white)
                 .withBackground(
-                    color: SBUColorSet.error,
+                    color: SBUColorSet.error300,
                     margin: 3,
                     circle: true
             )
