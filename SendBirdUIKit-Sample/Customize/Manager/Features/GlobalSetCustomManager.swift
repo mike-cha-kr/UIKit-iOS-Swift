@@ -147,62 +147,56 @@ extension GlobalSetCustomManager {
     /// This is an function of changing the global primary colors to default.
     static func setDefaultGlobalColorSet() {
         SBUColorSet.primary100 = UIColor(
-            red: 226.0 / 255.0,
-            green: 223.0 / 255.0,
+            red: 219.0 / 255.0,
+            green: 209.0 / 255.0,
             blue: 1.0,
             alpha: 1.0
         )
         SBUColorSet.primary200 = UIColor(
-            red: 158.0 / 255.0,
-            green: 140.0 / 255.0,
-            blue: 245.0 / 255.0,
+            red: 194.0 / 255.0,
+            green: 169.0 / 255.0,
+            blue: 250.0 / 255.0,
             alpha: 1.0
         )
         SBUColorSet.primary300 = UIColor(
-            red: 123.0 / 255.0,
-            green: 83.0 / 255.0,
-            blue: 239.0 / 255.0,
+            red: 116.0 / 255.0,
+            green: 45.0 / 255.0,
+            blue: 221.0 / 255.0,
             alpha: 1.0
         )
         SBUColorSet.primary400 = UIColor(
-            red: 100.0 / 255.0,
-            green: 64.0 / 255.0,
-            blue: 196.0 / 255.0,
+            red: 98.0 / 255.0,
+            green: 17.0 / 255.0,
+            blue: 200.0 / 255.0,
             alpha: 1.0
         )
         SBUColorSet.primary500 = UIColor(
-            red: 77.0 / 255.0,
-            green: 42.0 / 255.0,
-            blue: 166.0 / 255.0,
+            red: 73.0 / 255.0,
+            green: 19.0 / 255.0,
+            blue: 137.0 / 255.0,
             alpha: 1.0
         )
     }
     
     /// This is an function of changing the global font set to default.
     static func setDefaultGlobalFontSet() {
-        SBUFontSet.h1 = UIFont.systemFont(ofSize: 18.0, weight: .medium)
-        SBUFontSet.h2 = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        SBUFontSet.h1 = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        SBUFontSet.h2 = UIFont.systemFont(ofSize: 18.0, weight: .medium)
         SBUFontSet.subtitle1 = UIFont.systemFont(ofSize: 16.0, weight: .medium)
         SBUFontSet.subtitle2 = UIFont.systemFont(ofSize: 16.0, weight: .regular)
-        SBUFontSet.body1 = UIFont.systemFont(ofSize: 14.0, weight: .regular)
-        SBUFontSet.body2 = UIFont.systemFont(ofSize: 14.0, weight: .regular)
-        SBUFontSet.button1 = UIFont.systemFont(ofSize: 20.0, weight: .semibold)
+        SBUFontSet.body1 = UIFont.systemFont(ofSize: 16.0, weight: .regular)
+        SBUFontSet.body2 = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        SBUFontSet.button1 = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
         SBUFontSet.button2 = UIFont.systemFont(ofSize: 16.0, weight: .medium)
         SBUFontSet.button3 = UIFont.systemFont(ofSize: 14.0, weight: .medium)
         SBUFontSet.caption1 = UIFont.systemFont(ofSize: 12.0, weight: .bold)
         SBUFontSet.caption2 = UIFont.systemFont(ofSize: 12.0, weight: .regular)
-        SBUFontSet.caption3 = UIFont.systemFont(ofSize: 11.0, weight: .regular)
+        SBUFontSet.caption3 = UIFont.systemFont(ofSize: 11.0, weight: .medium)
     }
     
     /// This is an function of changing the global icon set to default.
     static func setDefaultGlobalIconSet() {
-        SBUIconSet.iconCreate = UIImage(named: "iconCreate")!
-        SBUIconSet.iconInfo = UIImage(named: "iconInfo")!
-        SBUIconSet.iconAdd = UIImage(named: "iconAdd")!
-        SBUIconSet.iconSend = UIImage(named: "iconSend")!
-        SBUIconSet.iconNotifications = UIImage(named: "iconNotifications")!
-        SBUIconSet.iconMembers = UIImage(named: "iconMembers")!
-        SBUIconSet.iconPlus = UIImage(named: "iconPlus")!
+        SBUIconSet.restoreDefaultIcons()
     }
     
     /// This is an function of changing the global string set to default.
