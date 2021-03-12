@@ -40,10 +40,13 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
                                action: #selector(onClickBack))
     }()
     lazy var rightBarButton: UIBarButtonItem = {
-        return UIBarButtonItem(image: SBUIconSet.iconCreate,
-                               style: .plain,
-                               target: self,
-                               action: #selector(onClickCreate)
+        return UIBarButtonItem(
+            image: SBUIconSet.iconCreate.resize(
+                with: CGSize(width: 24, height: 24)
+            ),
+            style: .plain,
+            target: self,
+            action: #selector(onClickCreate)
         )
     }()
     lazy var emptyView: UIView? = {
