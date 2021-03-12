@@ -85,14 +85,6 @@ open class MySettingsViewController: UIViewController, UINavigationControllerDel
             equalTo: self.view.trailingAnchor,
             constant: 0)
         )
-        layoutConstraints.append(self.userInfoView.topAnchor.constraint(
-            equalTo: self.view.topAnchor,
-            constant: 0)
-        )
-        layoutConstraints.append(self.userInfoView.centerXAnchor.constraint(
-            equalTo: self.tableView.centerXAnchor,
-            constant: 0)
-        )
 
         layoutConstraints.append(self.tableView.leadingAnchor.constraint(
             equalTo: self.view.leadingAnchor,
