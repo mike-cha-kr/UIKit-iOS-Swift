@@ -30,15 +30,16 @@ class MyOpenChannelSettingsViewController: MySettingsViewController {
             ) as? MySettingsCell else { fatalError() }
         
         cell.selectionStyle = .none
+        let isDarkMode = (self.tabBarController as? MainOpenChannelTabbarController)?.isDarkMode ?? false
         
         let rowValue = indexPath.row
         switch rowValue {
             case 0:
-                cell.configure(type: .darkTheme)
+                cell.configure(type: .darkTheme, isDarkMode: isDarkMode)
                 cell.switchAction = { [weak self] isOn in
                     self?.changeDarkThemeSwitch(isOn: isOn)
             }
-            case 1: cell.configure(type: .signOut)
+            case 1: cell.configure(type: .signOut, isDarkMode: isDarkMode)
             default: break
         }
         

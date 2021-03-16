@@ -312,10 +312,12 @@ extension MySettingsViewController: UITableViewDataSource, UITableViewDelegate {
             ) as? MySettingsCell else { fatalError() }
 
         cell.selectionStyle = .none
+        
+        let isDarkMode = (self.tabBarController as? MainChannelTabbarController)?.isDarkMode ?? false
 
         let rowValue = indexPath.row
         if let type = MySettingsCellType(rawValue: rowValue) {
-            cell.configure(type: type)
+            cell.configure(type: type, isDarkMode: isDarkMode)
 
             if type == .doNotDisturb {
                 cell.changeSwitch(self.isDoNotDisturbOn)

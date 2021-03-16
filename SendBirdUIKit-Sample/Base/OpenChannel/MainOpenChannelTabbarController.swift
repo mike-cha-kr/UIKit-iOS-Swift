@@ -34,9 +34,6 @@ class MainOpenChannelTabbarController: UITabBarController {
         super.viewDidLoad()
         liveStreamingListViewController.titleView = UIView()
         
-        communityChannelListViewController.titleView = UIView()
-        communityChannelListViewController.leftBarButton = self.createLeftTitleItem(text: OpenChannelTabType.community.rawValue)
-        
         self.liveStreamingChannelsNavigationController = UINavigationController(
             rootViewController: liveStreamingListViewController
         )
@@ -70,7 +67,7 @@ class MainOpenChannelTabbarController: UITabBarController {
         
         self.tabBar.barTintColor = self.isDarkMode
             ? SBUColorSet.background600
-            : SBUColorSet.background100
+            : .white
         self.tabBar.tintColor = self.isDarkMode
             ? SBUColorSet.primary200
             : SBUColorSet.primary300

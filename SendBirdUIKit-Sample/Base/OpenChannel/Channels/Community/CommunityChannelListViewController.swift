@@ -19,26 +19,6 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
     var tableView = UITableView()
     var channelCell: SBUBaseChannelCell = CommunityChannelCell()
     
-    lazy var titleView: UIView? = {
-        var titleView: SBUNavigationTitleView
-        if #available(iOS 11, *) {
-            titleView = SBUNavigationTitleView()
-        } else {
-            titleView = SBUNavigationTitleView(
-                frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50)
-            )
-        }
-        titleView.text = SBUStringSet.ChannelList_Header_Title
-        titleView.textAlignment = .center
-        
-        return titleView
-    }()
-    lazy var leftBarButton: UIBarButtonItem? = {
-        return UIBarButtonItem(image: SBUIconSet.iconBack,
-                               style: .plain,
-                               target: self,
-                               action: #selector(onClickBack))
-    }()
     lazy var rightBarButton: UIBarButtonItem = {
         return UIBarButtonItem(
             image: SBUIconSet.iconCreate.resize(
@@ -90,8 +70,7 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
         )
         
         // navigation bar
-        self.navigationItem.leftBarButtonItem = self.leftBarButton
-        self.navigationItem.titleView = self.titleView
+        self.navigationItem.rightBarButtonItem = self.rightBarButton
         
         // autolayout
         self.setupAutolayout()
@@ -104,7 +83,6 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
         super.viewDidLoad()
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        self.navigationItem.rightBarButtonItem = self.rightBarButton
         
         SBUMain.connectionCheck { [weak self] user, error in
             guard let self = self else { return }
@@ -168,10 +146,6 @@ class CommunityChannelListViewController: SBUBaseChannelListViewController, SBUE
         self.theme = SBUTheme.channelListTheme
         
         self.setupStyles()
-        
-        if let titleView = self.titleView as? SBUNavigationTitleView {
-            titleView.setupStyles()
-        }
         
         self.reloadTableView()
     }

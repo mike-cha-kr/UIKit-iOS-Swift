@@ -36,9 +36,10 @@ class StreamingChannelListViewController: SBUBaseChannelListViewController, SBUE
     private(set) var tableView = UITableView()
     private lazy var guidelineCell: UITableViewCell = {
         let cell = UITableViewCell()
+        let isDarkMode = (self.tabBarController as? MainOpenChannelTabbarController)?.isDarkMode ?? false
         
         cell.textLabel?.text = "Preset channels developed by UIKit"
-        cell.textLabel?.font = SBUFontSet.body3
+        cell.textLabel?.font = SBUFontSet.body2
         cell.textLabel?.textColor = SBUTheme.channelCellTheme.memberCountTextColor
         cell.textLabel?.sbu_constraint(
             equalTo: cell.contentView,
@@ -46,7 +47,7 @@ class StreamingChannelListViewController: SBUBaseChannelListViewController, SBUE
             top: 16,
             bottom: 8
         )
-        cell.backgroundColor = SBUTheme.channelCellTheme.backgroundColor
+        cell.contentView.backgroundColor = SBUTheme.channelCellTheme.backgroundColor
         cell.isUserInteractionEnabled = false
         
         return cell
@@ -343,7 +344,11 @@ class StreamingChannelListViewController: SBUBaseChannelListViewController, SBUE
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case SectionType.guideline.rawValue:
-            return guidelineCell
+            let cell = guidelineCell
+            cell.textLabel?.textColor = SBUTheme.channelCellTheme.memberCountTextColor
+            cell.contentView.backgroundColor = SBUTheme.channelCellTheme.backgroundColor
+            
+            return cell
         default:
             let channel = self.channelList[indexPath.row]
             var cell: SBUBaseChannelCell? = nil

@@ -144,33 +144,36 @@ class MySettingsCell: UITableViewCell {
     
     /// This function configure a cell using channel information.
     /// - Parameter channel: cell object
-    open func configure(type: MySettingsCellType) {
+    open func configure(type: MySettingsCellType, isDarkMode: Bool) {
         self.rightSwitch.isHidden = false
         
         switch type {
         case .darkTheme:
             self.typeIcon.image = UIImage(named: "iconTheme")?
-                .sbu_with(tintColor: .white)
+                .sbu_with(tintColor: isDarkMode ? nil : .white)
+                .resize(with: CGSize(width: 18, height: 18))
                 .withBackground(
-                    color: SBUColorSet.background400,
+                    color: isDarkMode ? SBUColorSet.background300 : SBUColorSet.background400,
                     margin: 3,
                     circle: true
             )
             self.titleLabel.text = "Dark theme"
         case .doNotDisturb:
             self.typeIcon.image = UIImage(named: "iconNotificationsFilled")?
-                .sbu_with(tintColor: .white)
+                .sbu_with(tintColor: isDarkMode ? nil : .white)
+                .resize(with: CGSize(width: 18, height: 18))
                 .withBackground(
-                    color: SBUColorSet.secondary400,
+                    color: isDarkMode ? SBUColorSet.secondary200 : SBUColorSet.secondary400,
                     margin: 3,
                     circle: true
             )
             self.titleLabel.text = "Do not disturb"
         case .signOut:
             self.typeIcon.image = UIImage(named: "iconLeave")?
-                .sbu_with(tintColor: .white)
+                .sbu_with(tintColor: isDarkMode ? nil : .white)
+                .resize(with: CGSize(width: 18, height: 18))
                 .withBackground(
-                    color: SBUColorSet.error300,
+                    color: isDarkMode ? SBUColorSet.error200 : SBUColorSet.error300,
                     margin: 3,
                     circle: true
             )

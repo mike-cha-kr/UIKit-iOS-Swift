@@ -126,7 +126,7 @@ class CommunityChannelCell: SBUBaseChannelCell {
         if let coverURL = channel.coverUrl {
             self.channelImage.setImage(with: coverURL)
         } else {
-            self.channelImage.setImage(withImage: UIImage(named: "iconChannels")!)
+            self.channelImage.setPlaceholderImage(iconSize: CGSize(width: 40, height: 40))
         }
         self.channelNameLabel.text = channel.name
         self.freezeIcon.isHidden = self.channel?.isFrozen == false
