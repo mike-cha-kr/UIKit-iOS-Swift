@@ -53,7 +53,7 @@ class MainChannelTabbarController: UITabBarController {
     }
     
     deinit {
-        SBDMain.removeAllUserEventDelegates()
+        SBDMain.removeUserEventDelegate(forIdentifier: self.sbu_className)
     }
     
     public func setupStyles() {

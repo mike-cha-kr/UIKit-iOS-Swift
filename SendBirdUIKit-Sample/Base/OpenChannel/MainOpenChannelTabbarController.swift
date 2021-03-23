@@ -58,10 +58,6 @@ class MainOpenChannelTabbarController: UITabBarController {
         super.viewDidDisappear(animated)
     }
     
-    deinit {
-        SBDMain.removeAllUserEventDelegates()
-    }
-    
     public func setupStyles() {
         self.theme = SBUTheme.componentTheme
         

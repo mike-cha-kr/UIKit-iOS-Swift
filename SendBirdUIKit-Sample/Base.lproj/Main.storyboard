@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,7 +96,7 @@
                                                     <constraint firstAttribute="height" constant="32" id="qRt-lQ-hLB"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdE-Rf-CSx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdE-Rf-CSx">
                                                 <rect key="frame" x="0.0" y="160.00000000000003" width="327" height="48"/>
                                                 <color key="backgroundColor" red="0.46666666666666667" green="0.33725490196078434" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -134,10 +135,35 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="327" height="168"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group channel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxm-9U-bUc">
-                                                                <rect key="frame" x="24" y="26" width="303" height="19.333333333333329"/>
+                                                                <rect key="frame" x="24.000000000000007" y="26" width="112.66666666666669" height="19.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MF-LI-ITx">
+                                                                <rect key="frame" x="146.66666666666666" y="25.666666666666629" width="20" height="20"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="20" id="OLu-zW-0BE"/>
+                                                                    <constraint firstAttribute="width" secondItem="6MF-LI-ITx" secondAttribute="height" multiplier="1:1" id="UoI-Og-K2n"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="top">
+                                                                        <real key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="bottom">
+                                                                        <real key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="leading">
+                                                                        <real key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="trailing">
+                                                                        <real key="value" value="4"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aio-lU-5gm">
                                                                 <rect key="frame" x="24" y="53.333333333333314" width="303" height="33.666666666666657"/>
@@ -154,7 +180,7 @@ members</string>
                                                                     <constraint firstAttribute="height" constant="64" id="gpr-KW-LFU"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-Bi-r1A">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BU9-Bi-r1A">
                                                                 <rect key="frame" x="0.0" y="112" width="163.66666666666666" height="56"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -168,7 +194,7 @@ members</string>
                                                                     <action selector="onTapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="61K-n1-5GK"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGr-fv-wXm">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGr-fv-wXm">
                                                                 <rect key="frame" x="163.66666666666663" y="112" width="163.33333333333337" height="56"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -194,11 +220,12 @@ members</string>
                                                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="oxE-4S-bqX" secondAttribute="trailing" constant="24" id="1rP-S8-s6s"/>
+                                                            <constraint firstItem="6MF-LI-ITx" firstAttribute="leading" secondItem="Rxm-9U-bUc" secondAttribute="trailing" constant="10" id="2EQ-qF-Njl"/>
                                                             <constraint firstAttribute="bottom" secondItem="BU9-Bi-r1A" secondAttribute="bottom" id="76w-gX-VYN"/>
                                                             <constraint firstAttribute="bottom" secondItem="HGr-fv-wXm" secondAttribute="bottom" id="7xd-ON-BOj"/>
                                                             <constraint firstItem="oxE-4S-bqX" firstAttribute="top" secondItem="M9a-ZA-EbQ" secondAttribute="top" constant="24" id="AGa-gW-wWF"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Rxm-9U-bUc" secondAttribute="trailing" id="Ec6-hs-Dbo"/>
                                                             <constraint firstAttribute="bottom" secondItem="ht4-6b-ckO" secondAttribute="bottom" id="MGg-4m-p4C"/>
+                                                            <constraint firstItem="6MF-LI-ITx" firstAttribute="centerY" secondItem="Rxm-9U-bUc" secondAttribute="centerY" id="NTb-ah-Fhn"/>
                                                             <constraint firstAttribute="trailing" secondItem="aio-lU-5gm" secondAttribute="trailing" id="O8a-rV-UnS"/>
                                                             <constraint firstAttribute="trailing" secondItem="HGr-fv-wXm" secondAttribute="trailing" id="OBo-26-4T9"/>
                                                             <constraint firstItem="HGr-fv-wXm" firstAttribute="leading" secondItem="BU9-Bi-r1A" secondAttribute="trailing" id="R8I-Dy-ZqP"/>
@@ -214,7 +241,7 @@ members</string>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="M9a-ZA-EbQ" secondAttribute="bottom" id="VM1-PJ-gBV"/>
                                                     <constraint firstItem="M9a-ZA-EbQ" firstAttribute="leading" secondItem="AXI-LG-bAU" secondAttribute="leading" id="Zc2-vV-EwX"/>
@@ -256,7 +283,7 @@ community chat</string>
                                                                     <constraint firstAttribute="width" constant="78" id="gec-7A-lfS"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yy-5P-vD6">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yy-5P-vD6">
                                                                 <rect key="frame" x="0.0" y="111.99999999999994" width="327" height="56"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
@@ -288,7 +315,7 @@ community chat</string>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="HDt-UG-Lfm" firstAttribute="leading" secondItem="G8u-oK-gWh" secondAttribute="leading" id="0Ba-9x-JOE"/>
                                                     <constraint firstAttribute="bottom" secondItem="HDt-UG-Lfm" secondAttribute="bottom" id="Let-so-l5b"/>
@@ -309,7 +336,7 @@ community chat</string>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBd-RH-mQl" userLabel="Custom samples">
                                                         <rect key="frame" x="0.0" y="0.0" width="327" height="64"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nI9-rM-71j">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nI9-rM-71j">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="64"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <connections>
@@ -330,7 +357,7 @@ community chat</string>
                                                                 </constraints>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="2C0-ks-d9B" secondAttribute="trailing" constant="24" id="AWC-LW-mM7"/>
                                                             <constraint firstItem="jDt-fD-obi" firstAttribute="leading" secondItem="OBd-RH-mQl" secondAttribute="leading" constant="24" id="BbX-4u-vmQ"/>
@@ -345,7 +372,7 @@ community chat</string>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="OBd-RH-mQl" firstAttribute="leading" secondItem="EvM-En-wXG" secondAttribute="leading" id="1YE-vE-SHF"/>
                                                     <constraint firstAttribute="trailing" secondItem="OBd-RH-mQl" secondAttribute="trailing" id="22i-yH-OOp"/>
@@ -374,7 +401,7 @@ community chat</string>
                                                     <constraint firstAttribute="height" constant="32" id="jgx-tT-S29"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqk-3l-c7O">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqk-3l-c7O">
                                                 <rect key="frame" x="0.0" y="521" width="327" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="h0G-pk-fs4"/>
@@ -409,6 +436,7 @@ community chat</string>
                                 <rect key="frame" x="169" y="392.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xdO-or-Wxj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="91I-Sz-wqR"/>
@@ -418,7 +446,6 @@ community chat</string>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="szo-8U-fJW" secondAttribute="bottom" constant="8" id="sNz-PF-H33"/>
                             <constraint firstItem="szo-8U-fJW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="yD1-xJ-5sI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="customSampleShadowView" destination="EvM-En-wXG" id="Pfx-zc-XkB"/>
@@ -439,6 +466,7 @@ community chat</string>
                         <outlet property="startChatWithViewControllerButton" destination="BU9-Bi-r1A" id="gAq-un-EmF"/>
                         <outlet property="startOpenChatWithTabbarControllerButton" destination="2yy-5P-vD6" id="tQz-Rx-8XK"/>
                         <outlet property="titleLabel" destination="Bw9-mJ-jEI" id="B5i-Pc-3Wy"/>
+                        <outlet property="unreadCountLabel" destination="6MF-LI-ITx" id="3Lf-Ra-exT"/>
                         <outlet property="userIdTextField" destination="5dM-3v-g0r" id="qfK-kf-LD4"/>
                         <outlet property="versionLabel" destination="b1D-1v-62f" id="zHT-y0-lRL"/>
                     </connections>
@@ -449,9 +477,15 @@ community chat</string>
         </scene>
     </scenes>
     <resources>
-        <image name="iconEdit" width="25" height="25"/>
+        <image name="iconEdit" width="24" height="24"/>
         <image name="imgGroupchannel" width="78" height="64"/>
         <image name="imgOpenchannel" width="78" height="64"/>
         <image name="logoSendbird" width="48" height="48"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

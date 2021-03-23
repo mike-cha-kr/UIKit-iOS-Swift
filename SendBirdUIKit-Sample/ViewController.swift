@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var logoStackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var unreadCountLabel: UILabel!
     
     @IBOutlet weak var signInStackView: UIStackView!
     @IBOutlet weak var userIdTextField: UITextField!
@@ -136,6 +137,12 @@ class ViewController: UIViewController {
             $0?.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.88)
             $0?.layer.borderWidth = 1
         }
+        
+        unreadCountLabel.textColor = SBUColorSet.ondark01
+        unreadCountLabel.font = SBUFontSet.caption1
+        unreadCountLabel.backgroundColor = SBUColorSet.error300
+        unreadCountLabel.layer.cornerRadius = unreadCountLabel.frame.height / 2
+        unreadCountLabel.layer.masksToBounds = true
  
         UserDefaults.saveIsLightTheme(true)
         
@@ -145,6 +152,14 @@ class ViewController: UIViewController {
          
         userIdTextField.text = UserDefaults.loadUserID()
         nicknameTextField.text = UserDefaults.loadNickname()
+        
+        SBDMain.add(self as SBDUserEventDelegate, identifier: self.description)
+        SBDMain.add(self as SBDConnectionDelegate, identifier: self.description)
+    }
+    
+    deinit {
+        SBDMain.removeUserEventDelegate(forIdentifier: self.description)
+        SBDMain.removeConnectionDelegate(forIdentifier: self.description)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -155,6 +170,28 @@ class ViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
     }
     
+    func updateUnreadCount() {
+        SBDMain.getTotalUnreadMessageCount { [weak self] totalCount, error in
+            guard let self = self else { return }
+            self.setUnreadMessageCount(unreadCount: Int32(totalCount))
+        }
+    }
+    
+    func setUnreadMessageCount(unreadCount: Int32) {
+        guard self.isSignedIn else { return }
+        
+        var badgeValue: String?
+        if unreadCount == 0 {
+            badgeValue = nil
+        } else if unreadCount > 99 {
+            badgeValue = "99+"
+        } else {
+            badgeValue = "\(unreadCount)"
+        }
+        
+        self.unreadCountLabel.text = badgeValue
+        self.unreadCountLabel.isHidden = badgeValue == nil
+    }
     
     // MARK: - Actions
     @IBAction func onEditingChangeTextField(_ sender: UITextField) {
@@ -214,6 +251,8 @@ class ViewController: UIViewController {
                 
                 print("SBUMain.connect: \(user)")
                 self?.isSignedIn = true
+                
+                self?.updateUnreadCount()
             }
         }
     }
@@ -262,5 +301,17 @@ class ViewController: UIViewController {
 extension ViewController: UINavigationControllerDelegate {
      public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
+    }
+}
+
+extension ViewController: SBDUserEventDelegate {
+    func didUpdateTotalUnreadMessageCount(_ totalCount: Int32, totalCountByCustomType: [String : NSNumber]?) {
+        self.setUnreadMessageCount(unreadCount: Int32(totalCount))
+    }
+}
+
+extension ViewController: SBDConnectionDelegate {
+    func didSucceedReconnection() {
+        self.updateUnreadCount()
     }
 }
